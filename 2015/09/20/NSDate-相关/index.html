@@ -9,9 +9,7 @@
     
     <meta name="author" content="xinnyu">
     
-    <meta name="description" content="1. 创建或初始化可用以下方法用于创建NSDate实例的类方法有:1var date = NSDate()
-返回当前时间1 var date = NSDate(timeIntervalSinceNow: 1000)
-返回以当前时间为基准，然后过了1000秒的时间 var date = NSDate(">
+    <meta name="description" content="1. 创建或初始化可用以下方法用于创建NSDate实例的类方法有:```var date = NSDate()```返回当前时间``` var date = NSDate(timeIntervalSinceNow: 1000)```返回以当前时间为基准，然后过了1000秒的时间``` var dat">
     
     
     
@@ -81,7 +79,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-09-20T04:59:52.000Z" itemprop="datePublished">2015-09-20</time>
-    更新日期:<time datetime="2015-09-20T05:41:29.000Z" itemprop="dateModified">2015-09-20</time>
+    更新日期:<time datetime="2015-09-20T06:51:02.000Z" itemprop="dateModified">2015-09-20</time>
     
   </p>
 </header>
@@ -90,33 +88,19 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-_创建或初始化可用以下方法"><span class="toc-number">1.</span> <span class="toc-text">1. 创建或初始化可用以下方法</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-_创建或初始化可用以下方法"><span class="toc-number">1.</span> <span class="toc-text">1. 创建或初始化可用以下方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-_日期之间比较可用以下方法"><span class="toc-number">2.</span> <span class="toc-text">2. 日期之间比较可用以下方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-_取回时间间隔可用以下方法"><span class="toc-number">3.</span> <span class="toc-text">3. 取回时间间隔可用以下方法</span></a></li></ol>
 		</div>
 		
-		<h3 id="1-_创建或初始化可用以下方法">1. 创建或初始化可用以下方法</h3><p>用于创建NSDate实例的类方法有:<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> date = <span class="function"><span class="title">NSDate</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure></p>
-<p>返回当前时间<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">var</span> date = <span class="function"><span class="title">NSDate</span><span class="params">(timeIntervalSinceNow: <span class="number">1000</span>)</span></span></span><br></pre></td></tr></table></figure></p>
-<p>返回以当前时间为基准，然后过了1000秒的时间<br> var date = NSDate(timeIntervalSinceReferenceDate: 1000)<br>返回以2001/01/01 GMT为基准，然后过了1000秒的时间<br> var date = NSDate(timeIntervalSince1970: 1000)<br>返回以1970/01/01 GMT为基准，然后过了1000秒的时间<br> var date:NSDate = NSDate.distantFuture() as! NSDate<br>返回很多年以后的未来的某一天。（比如你需要一个比现在(Now)晚(大)很长时间的时间值，则可以调用该方法。测试返回了4000/12/31 16:00:00）<br> var date:NSDate = NSDate.distantPast() as! NSDate<br>返回很多年以前的某一天。（比如你需要一个比现在(Now)早(小)大很长时间的时间值，则可以调用该方法。测试返回了公元前0001/12/31 17:00:00）</p>
-<p><strong>字符串转换成时间可用以下方法:</strong></p>
-<p>let time = “2015-03-26 18:03”<br>var dateForm = NSDateFormatter()<br>dateForm.dateFormat = “yyyy-MM-dd HH:mm”</p>
+		<h3 id="1-_创建或初始化可用以下方法">1. 创建或初始化可用以下方法</h3><p>用于创建NSDate实例的类方法有:<br>```<br>var date = NSDate()<br>```<br>返回当前时间<br>```<br> var date = NSDate(timeIntervalSinceNow: 1000)<br>```<br>返回以当前时间为基准，然后过了1000秒的时间<br>```<br> var date = NSDate(timeIntervalSinceReferenceDate: 1000)<br>```<br>返回以2001/01/01 GMT为基准，然后过了1000秒的时间<br>```<br>var date = NSDate(timeIntervalSince1970: 1000)<br>```<br>返回以1970/01/01 GMT为基准，然后过了1000秒的时间<br>```<br> var date:NSDate = NSDate.distantFuture() as! NSDate<br>```<br>返回很多年以后的未来的某一天。（比如你需要一个比现在(Now)晚(大)很长时间的时间值，则可以调用该方法。测试返回了4000/12/31 16:00:00）<br>```<br>var date:NSDate = NSDate.distantPast() as! NSDate<br>```<br>返回很多年以前的某一天。（比如你需要一个比现在(Now)早(小)大很长时间的时间值，则可以调用该方法。测试返回了公元前0001/12/31 17:00:00）</p>
+<p><strong>字符串转换成时间可用以下方法:</strong><br> ```<br>let time = “2015-03-26 18:03”<br>var dateForm = NSDateFormatter()<br>dateForm.dateFormat = “yyyy-MM-dd HH:mm”</p>
 <p>if let date = dateForm.dateFromString(time){</p>
-<p>  }</p>
-<p><strong>时间转换成字符串:</strong></p>
-<p><code>var dateForm = NSDateFormatter()
-dateForm.dateFormat = &quot;yyyy-MM-dd HH:mm&quot;
-timeformat.dateFromString(&quot;1992 - 04 - 22 , 00 - 00 - 00&quot;)</code></p>
-<p><strong>时间描述:</strong></p>
-<p><code>``tomorrow.description</code><br><strong>应用实例:</strong><br> var tomorrowDate = NSDate(timeIntervalSinceNow: 24*60*60)<br> var yesterdayDate = NSDate(timeIntervalSinceNow: -24*60*60)</p>
-<ol>
-<li>日期之间比较可用以下方法<br>now.isEqualToDate(tomorrow)<br>与otherDate比较，相同返回YES</li>
-</ol>
-<p>now.earlierDate(tomorrow)</p>
-<p>与anotherDate比较，返回较早的那个日期</p>
-<p>now.laterDate(tomorrow)<br>与anotherDate比较，返回较晚的那个日期</p>
-<ol>
-<li>取回时间间隔可用以下方法</li>
-</ol>
-<p>tomorrow.timeIntervalSinceNow<br>now.timeIntervalSinceReferenceDate</p>
-<p>返回 timeInterval</p>
+<p>  }<br>```<br><strong>时间转换成字符串:</strong></p>
+<p>``<br>var dateForm = NSDateFormatter()<br>dateForm.dateFormat = “yyyy-MM-dd HH:mm”<br>timeformat.dateFromString(“1992 - 04 - 22 , 00 - 00 - 00”)``</p>
+<p><strong>时间描述:</strong><br>```<br>tomorrow.description<br>```<br><strong>应用实例:</strong><br>```<br> var tomorrowDate = NSDate(timeIntervalSinceNow: 24*60*60)<br> var yesterdayDate = NSDate(timeIntervalSinceNow: -24*60*60)<br> ```</p>
+<h3 id="2-_日期之间比较可用以下方法">2. 日期之间比较可用以下方法</h3><p>```<br>//与otherDate比较，相同返回YES<br>now.isEqualToDate(tomorrow)  </p>
+<p>//与anotherDate比较，返回较早的那个日期<br>now.earlierDate(tomorrow)</p>
+<p>//与anotherDate比较，返回较晚的那个日期<br>now.laterDate(tomorrow)<br>```</p>
+<h3 id="3-_取回时间间隔可用以下方法">3. 取回时间间隔可用以下方法</h3><p>```<br>//返回 timeInterval<br>tomorrow.timeIntervalSinceNow<br>now.timeIntervalSinceReferenceDate<br>```</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -164,7 +148,7 @@ timeformat.dateFromString(&quot;1992 - 04 - 22 , 00 - 00 - 00&quot;)</code></p>
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-_创建或初始化可用以下方法"><span class="toc-number">1.</span> <span class="toc-text">1. 创建或初始化可用以下方法</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-_创建或初始化可用以下方法"><span class="toc-number">1.</span> <span class="toc-text">1. 创建或初始化可用以下方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-_日期之间比较可用以下方法"><span class="toc-number">2.</span> <span class="toc-text">2. 日期之间比较可用以下方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-_取回时间间隔可用以下方法"><span class="toc-number">3.</span> <span class="toc-text">3. 取回时间间隔可用以下方法</span></a></li></ol>
   </div>
 
 <div id="asidepart">
