@@ -4,22 +4,18 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>iOS 常用第三方库7(SDWebImage) | Xinnyu&#39;s blog</title>
+    <title>使用融云和LeanCloud 创建一个IM应用 | Xinnyu&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="xinnyu">
     
-    <meta name="description" content="SDWebImage是一个著名的第三方库，它的作用是：
-
-Asynchronous image downloader with cache support with an UIImageView category.就是一个异步加载图片并且支持缓存的UIImage分类；
-
-使用方法：1imageVie">
+    <meta name="description" content="融云 是国内一家专门为APP开发者提供IM服务的公司，利用它提供的SDK可以快速使你的APP集成IM通讯能力。">
     
     
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="xinnyu007" />
-    <meta name="twitter:title" content="iOS 常用第三方库7(SDWebImage) | Xinnyu&#39;s blog" />
+    <meta name="twitter:title" content="使用融云和LeanCloud 创建一个IM应用 | Xinnyu&#39;s blog" />
       
     
     
@@ -75,15 +71,15 @@ Asynchronous image downloader with cache support with an UIImageView category.�
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/20/iOS-常用第三方库7-SDWebImage/" title="iOS 常用第三方库7(SDWebImage)" itemprop="url">iOS 常用第三方库7(SDWebImage)</a>
+      <a href="/2015/09/21/使用融云和LeanCloud-创建一个IM应用/" title="使用融云和LeanCloud 创建一个IM应用" itemprop="url">使用融云和LeanCloud 创建一个IM应用</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="xinnyu">xinnyu</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-09-20T15:45:43.000Z" itemprop="datePublished">2015-09-20</time>
-    更新日期:<time datetime="2015-09-20T16:04:18.000Z" itemprop="dateModified">2015-09-21</time>
+    <time datetime="2015-09-20T17:39:23.000Z" itemprop="datePublished">2015-09-21</time>
+    更新日期:<time datetime="2015-09-20T17:58:15.000Z" itemprop="dateModified">2015-09-21</time>
     
   </p>
 </header>
@@ -92,27 +88,30 @@ Asynchronous image downloader with cache support with an UIImageView category.�
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用方法："><span class="toc-number">1.</span> <span class="toc-text">使用方法：</span></a></li></ol>
+		
 		</div>
 		
-		<p><a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">SDWebImage</a>是一个著名的第三方库，它的作用是：</p>
-<blockquote>
-<p>Asynchronous image downloader with cache support with an UIImageView category.<br>就是一个异步加载图片并且支持缓存的UIImage分类；</p>
-</blockquote>
-<h3 id="使用方法：">使用方法：</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imageView.<span class="function"><span class="title">sd_setImageWithURL</span><span class="params">(NSURL(string: <span class="string">""</span>)</span></span>, placeholderImage: <span class="function"><span class="title">UIImage</span><span class="params">(named: <span class="string">"placeholder"</span>)</span></span>)</span><br></pre></td></tr></table></figure>
-<p>清除缓存：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SDImageCache.<span class="function"><span class="title">sharedImageCache</span><span class="params">()</span></span>.<span class="function"><span class="title">cleanDisk</span><span class="params">()</span></span></span><br><span class="line">SDImageCache.<span class="function"><span class="title">sharedImageCache</span><span class="params">()</span></span>.<span class="function"><span class="title">clearMemory</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<p>这个框架使用简单，然而而其中复杂的实现细节全部隐藏在这行代码之后；这边有一篇它的源代码分析：<a href="">http://draveness.me/ios-yuan-dai-ma-jie-xi-sdwebimage/</a></p>
+		<p><a href="http://www.rongcloud.cn/" target="_blank" rel="external">融云</a> 是国内一家专门为APP开发者提供IM服务的公司，利用它提供的SDK可以快速使你的APP集成IM通讯能力。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Swift/">Swift</a><a href="/tags/iOS/">iOS</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS/">iOS</a>
+</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2015/09/20/iOS-常用第三方库7-SDWebImage/" data-title="iOS 常用第三方库7(SDWebImage) | Xinnyu&#39;s blog" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/09/21/使用融云和LeanCloud-创建一个IM应用/" data-title="使用融云和LeanCloud 创建一个IM应用 | Xinnyu&#39;s blog" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -121,19 +120,11 @@ Asynchronous image downloader with cache support with an UIImageView category.�
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/09/21/iOS-常用第三方库7-Reachability/" title="iOS 常用第三方库7(Reachability)">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  iOS 常用第三方库7(Reachability)</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/09/20/iOS-常用第三方库6-POP动画/"  title="iOS 常用第三方库6(POP动画)">
+<a href="/2015/09/21/使用AVPlayer-播放在线音频/"  title="使用AVPlayer 播放在线音频,并实现后台锁屏播放，自动连播">
  <strong>NEXT:</strong><br/> 
- <span>iOS 常用第三方库6(POP动画)
+ <span>使用AVPlayer 播放在线音频,并实现后台锁屏播放，自动连播
 </span>
 </a>
 </div>
@@ -150,7 +141,7 @@ Asynchronous image downloader with cache support with an UIImageView category.�
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用方法："><span class="toc-number">1.</span> <span class="toc-text">使用方法：</span></a></li></ol>
+  
   </div>
 
 <div id="asidepart">
