@@ -4,18 +4,21 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | Xinnyu&#39;s blog</title>
+    <title>iOS 常用第三方库7(Reachability) | Xinnyu&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="xinnyu">
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+    <meta name="description" content="Reachability 是一个检测网络状态的框架。开发Web等网络应用程序的时候，需要确认网络环境，连接情况等信息。如果没有处理这些信息的话，是不会通过Apple的审查的。
+使用方法：将Reachability.h 和 Reachability.m 拷贝到你的工程中。
+然后：
+1234567891">
     
     
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="xinnyu007" />
-    <meta name="twitter:title" content="Hello World | Xinnyu&#39;s blog" />
+    <meta name="twitter:title" content="iOS 常用第三方库7(Reachability) | Xinnyu&#39;s blog" />
       
     
     
@@ -71,15 +74,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/20/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2015/09/21/iOS-常用第三方库7-Reachability/" title="iOS 常用第三方库7(Reachability)" itemprop="url">iOS 常用第三方库7(Reachability)</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="xinnyu">xinnyu</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-09-20T05:33:53.000Z" itemprop="datePublished">2015-09-20</time>
-    更新日期:<time datetime="2015-09-20T05:33:53.000Z" itemprop="dateModified">2015-09-20</time>
+    <time datetime="2015-09-20T16:06:47.000Z" itemprop="datePublished">2015-09-21</time>
+    更新日期:<time datetime="2015-09-20T16:16:07.000Z" itemprop="dateModified">2015-09-21</time>
     
   </p>
 </header>
@@ -88,18 +91,13 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用方法："><span class="toc-number">1.</span> <span class="toc-text">使用方法：</span></a></li></ol>
 		</div>
 		
-		<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><p><code>bash</code>$ hexo new “My New Post”<br><code>``
-</code><br>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><p>``` bash<br>$ hexo server<br>```</p>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><p>``` bash<br>$ hexo generate<br>```</p>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><p>``` bash<br>$ hexo deploy<br>```</p>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+		<p><a href="https://github.com/tonymillion/Reachability" target="_blank" rel="external">Reachability</a> 是一个检测网络状态的框架。<br>开发Web等网络应用程序的时候，需要确认网络环境，连接情况等信息。如果没有处理这些信息的话，是不会通过Apple的审查的。</p>
+<h3 id="使用方法：">使用方法：</h3><p>将Reachability.h 和 Reachability.m 拷贝到你的工程中。</p>
+<p>然后：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reach:<span class="type">Reachability</span>?</span><br><span class="line"></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">checkNetStatus</span><span class="params">()</span></span>&#123;</span><br><span class="line">       <span class="keyword">self</span>.reach = <span class="type">Reachability</span>.reachabilityForInternetConnection()</span><br><span class="line">       <span class="comment">// Tell the reachability that we DON'T want to be reachable on 3G/EDGE/CDMA</span></span><br><span class="line">       <span class="keyword">self</span>.reach!.reachableOnWWAN = <span class="literal">false</span></span><br><span class="line">       </span><br><span class="line">       <span class="keyword">if</span> reach?.currentReachabilityStatus() == <span class="type">NetworkStatus</span>.<span class="type">ReachableViaWWAN</span> &#123;</span><br><span class="line">           <span class="keyword">self</span>.net = <span class="type">NetState</span>.<span class="type">Mobile</span></span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">       <span class="comment">// Here we set up a NSNotification observer. The Reachability that caused the notification</span></span><br><span class="line">       <span class="comment">// is passed in the object parameter</span></span><br><span class="line">       <span class="type">NSNotificationCenter</span>.defaultCenter().addObserver(<span class="keyword">self</span>,</span><br><span class="line">           selector: <span class="string">"reachabilityChanged:"</span>,</span><br><span class="line">           name: kReachabilityChangedNotification,</span><br><span class="line">           object: <span class="literal">nil</span>)</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">self</span>.reach!.startNotifier()</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="func"><span class="keyword">func</span> <span class="title">reachabilityChanged</span><span class="params">(notification: NSNotification)</span></span>&#123;</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">if</span> <span class="keyword">self</span>.reach!.isReachableViaWiFi()  &#123;</span><br><span class="line">           <span class="built_in">print</span>(<span class="string">"能访问网络"</span>)</span><br><span class="line">           </span><br><span class="line">           </span><br><span class="line">       &#125;<span class="keyword">else</span> <span class="keyword">if</span>  <span class="keyword">self</span>.reach!.isReachableViaWWAN()&#123;</span><br><span class="line">           appDelegate.isCanUseNetWork = <span class="literal">true</span></span><br><span class="line">           <span class="built_in">print</span>(<span class="string">"正在使用移动网络"</span>)</span><br><span class="line">           </span><br><span class="line">       &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">           </span><br><span class="line">           </span><br><span class="line">           <span class="built_in">print</span>(<span class="string">"没有网络!!!"</span>) </span><br><span class="line">           <span class="keyword">self</span>.net = <span class="type">NetState</span>.<span class="type">None</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -109,7 +107,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2015/09/20/hello-world/" data-title="Hello World | Xinnyu&#39;s blog" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/09/21/iOS-常用第三方库7-Reachability/" data-title="iOS 常用第三方库7(Reachability) | Xinnyu&#39;s blog" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -119,18 +117,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/20/NSTimer-相关/" title="NSTimer 相关">
+ <a href="/2015/09/21/使用AVPlayer-播放在线音频/" title="使用AVPlayer 播放在线音频,并实现后台锁屏播放，自动连播">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  NSTimer 相关</span>
+  使用AVPlayer 播放在线音频,并实现后台锁屏播放，自动连播</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/09/20/NSDate-相关/"  title="NSDate 相关">
+<a href="/2015/09/20/iOS-常用第三方库7-SDWebImage/"  title="iOS 常用第三方库7(SDWebImage)">
  <strong>NEXT:</strong><br/> 
- <span>NSDate 相关
+ <span>iOS 常用第三方库7(SDWebImage)
 </span>
 </a>
 </div>
@@ -147,7 +145,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用方法："><span class="toc-number">1.</span> <span class="toc-text">使用方法：</span></a></li></ol>
   </div>
 
 <div id="asidepart">
