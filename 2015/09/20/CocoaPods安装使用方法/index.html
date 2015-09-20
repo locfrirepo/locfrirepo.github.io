@@ -9,11 +9,10 @@
     
     <meta name="author" content="xinnyu">
     
-    <meta name="description" content="###安装
-首先安装好Ruby环境，在终端中输入以下命令：
+    <meta name="description" content="安装首先安装好Ruby环境，在终端中输入以下命令：
 1sudo gem install cocoapods
 可是在天朝，在终端中敲入这个命令之后，会发现半天没有任何反应。原因无他，因为那堵墙阻挡了cocoapods.org。
-我们可以用淘宝的Ruby镜像来访问cocoapods。按照下面的顺">
+我们可以用淘宝的Ruby镜像来访问cocoapods。按照下面的顺序在终端">
     
     
     
@@ -83,7 +82,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-09-20T10:06:32.000Z" itemprop="datePublished">2015-09-20</time>
-    更新日期:<time datetime="2015-09-20T10:34:01.000Z" itemprop="dateModified">2015-09-20</time>
+    更新日期:<time datetime="2015-09-20T10:38:02.000Z" itemprop="dateModified">2015-09-20</time>
     
   </p>
 </header>
@@ -92,11 +91,10 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a></li></ol>
 		</div>
 		
-		<p>###安装</p>
-<p>首先安装好Ruby环境，在终端中输入以下命令：</p>
+		<h3 id="安装">安装</h3><p>首先安装好Ruby环境，在终端中输入以下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem install cocoapods</span><br></pre></td></tr></table></figure>
 <p>可是在天朝，在终端中敲入这个命令之后，会发现半天没有任何反应。原因无他，因为那堵墙阻挡了cocoapods.org。</p>
 <p>我们可以用淘宝的Ruby镜像来访问cocoapods。按照下面的顺序在终端中敲入依次敲入命令：</p>
@@ -112,8 +110,7 @@
 <p>这时候，再次在终端中运行：</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gem <span class="keyword">install</span> cocoapods</span><br></pre></td></tr></table></figure>
 <p>等上十几秒钟，CocoaPods就可以在你本地下载并且安装好了，不再需要其他设置。</p>
-<p>###使用</p>
-<p>e.g.<br><strong>利用CocaPods安装Alamofire</strong></p>
+<h3 id="使用">使用</h3><p>e.g.<br><strong>利用CocaPods安装Alamofire</strong></p>
 <p>在终端中进入（cd命令）你项目所在目录，然后在当前目录下，利用vim创建Podfile，运行：<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>vim <span class="constant">Podfile</span></span><br></pre></td></tr></table></figure></p>
 <p>然后在Podfile文件中输入以下文字：</p>
 <figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">source</span> <span class="string">'https://github.com/CocoaPods/Specs.git'</span></span><br><span class="line"><span class="keyword">platform</span> :ios, <span class="string">'8.0'</span></span><br><span class="line">use_frameworks!</span><br><span class="line">pod <span class="string">'Alamofire'</span>, <span class="string">'~&gt; 2.0'</span></span><br></pre></td></tr></table></figure>
@@ -123,7 +120,7 @@
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
 <p>然后CocoaPods就会帮你做好一切了，使用Alamofire只需要在项目中</p>
 <figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import Alamofire</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line">对了，使用过CocoaPods的项目就不用之前的~~.xcodeproj~~文件打开了，而是使用<span class="keyword">*</span><span class="keyword">*</span>.xcworkspace<span class="keyword">*</span><span class="keyword">*</span>打开。</span><br><span class="line"></span><br><span class="line">在这之后如果你还要添加新的第三方库的话，就只要在已经存在的Podfile中添加相应的代码然后到项目文件夹执行：</span><br></pre></td></tr></table></figure>
-<p>$ pod update<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="horizontal_rule">----</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="emphasis">*快速更新第三方库的方法*</span>：</span><br><span class="line">在更新时使用如下代码替换之前的 ~~pod update~~</span><br></pre></td></tr></table></figure></p>
+<p>$ pod update<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="gherkin"><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">*</span>快速更新第三方库的方法<span class="keyword">*</span>：</span><br><span class="line">在更新时使用如下代码替换之前的 ~~pod update~~</span></span><br></pre></td></tr></table></figure></p>
 <p>$ pod update –verbose –no-repo-update<br>```</p>
   
 	</div>
@@ -164,7 +161,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a></li></ol>
   </div>
 
 <div id="asidepart">
