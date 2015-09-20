@@ -79,7 +79,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-09-20T04:59:52.000Z" itemprop="datePublished">2015-09-20</time>
-    更新日期:<time datetime="2015-09-20T05:29:02.000Z" itemprop="dateModified">2015-09-20</time>
+    更新日期:<time datetime="2015-09-20T05:30:50.000Z" itemprop="dateModified">2015-09-20</time>
     
   </p>
 </header>
@@ -95,7 +95,8 @@
 <p><strong>字符串转换成时间可用以下方法:</strong></p>
 <p>let time = “2015-03-26 18:03”<br>var dateForm = NSDateFormatter()<br>dateForm.dateFormat = “yyyy-MM-dd HH:mm”</p>
 <p>if let date = dateForm.dateFromString(time){</p>
-<p>  }<br><strong>时间转换成字符串:</strong><br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`<span class="keyword">var</span> dateForm = <span class="type">NSDateFormatter</span>()</span><br><span class="line">dateForm.dateFormat = <span class="string">"yyyy-MM-dd HH:mm"</span></span><br><span class="line">timeformat.dateFromString(<span class="string">"1992 - 04 - 22 , 00 - 00 - 00"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>  }<br><strong>时间转换成字符串:</strong></p>
+<figure class="highlight"><figcaption><span>dateForm = NSDateFormatter()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`dateForm.dateFormat = &#34;yyyy-MM-dd HH:mm&#34;&#10;timeformat.dateFromString(&#34;1992 - 04 - 22 , 00 - 00 - 00&#34;)</span><br></pre></td></tr></table></figure>
 <p>`<br><strong>时间描述:</strong></p>
 <p><code>``tomorrow.description</code><br><strong>应用实例:</strong><br> var tomorrowDate = NSDate(timeIntervalSinceNow: 24*60*60)<br> var yesterdayDate = NSDate(timeIntervalSinceNow: -24*60*60)</p>
 <ol>
