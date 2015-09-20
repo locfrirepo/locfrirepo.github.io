@@ -1,0 +1,341 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>iOS 常用第三方库5(PNChart) | Xinnyu&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="xinnyu">
+    
+    <meta name="description" content="PNChart 是一个简约，易用的第三方图表库，它支持折线图，柱形图，饼状图和圆形图的绘制；
+使用方法
+画折线图
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505">
+    
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="xinnyu007" />
+    <meta name="twitter:title" content="iOS 常用第三方库5(PNChart) | Xinnyu&#39;s blog" />
+      
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Xinnyu&#39;s blog" title="Xinnyu&#39;s blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Xinnyu&#39;s blog">Xinnyu&#39;s blog</a></h1>
+				<h2 class="blog-motto">Walk steps step by step</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" class="st-default-search-input" maxlength="20" placeholder="Search" />
+							</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+							
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/20/iOS-常用第三方库5-PNChart/" title="iOS 常用第三方库5(PNChart)" itemprop="url">iOS 常用第三方库5(PNChart)</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="xinnyu">xinnyu</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-09-20T14:24:43.000Z" itemprop="datePublished">2015-09-20</time>
+    更新日期:<time datetime="2015-09-20T14:49:36.000Z" itemprop="dateModified">2015-09-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用方法"><span class="toc-number">1.</span> <span class="toc-text">使用方法</span></a></li></ol>
+		</div>
+		
+		<p><a href="https://github.com/kevinzhow/PNChart" target="_blank" rel="external">PNChart</a> 是一个简约，易用的第三方图表库，它支持折线图，柱形图，饼状图和圆形图的绘制；</p>
+<h3 id="使用方法">使用方法</h3><ul>
+<li>画折线图</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span>  <span class="title">setLineChart</span><span class="params">()</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">  <span class="comment">/// 定义一个lineChart    </span></span><br><span class="line">	<span class="keyword">var</span> lineChart = <span class="type">PNLineChart</span>(frame: <span class="type">CGRectMake</span>(<span class="number">0</span>, <span class="keyword">self</span>.view.frame.height/<span class="number">4</span>, <span class="keyword">self</span>.view.frame.width, <span class="keyword">self</span>.view.frame.height/<span class="number">2</span>))</span><br><span class="line">	<span class="comment">//不要使用下面的方法，Width 不好计算，只设置数据的话宽度会自动设定</span></span><br><span class="line">	<span class="comment">//lineChart.setXLabels(["A","B","C","D","E","F"], withWidth: 50)</span></span><br><span class="line">	lineChart.xLabels = [<span class="string">"A"</span>,<span class="string">"B"</span>,<span class="string">"C"</span>,<span class="string">"D"</span>,<span class="string">"E"</span>,<span class="string">"F"</span>]</span><br><span class="line">	lineChart.axisColor = <span class="type">UIColor</span>.blackColor()</span><br><span class="line">	lineChart.showCoordinateAxis = <span class="literal">true</span></span><br><span class="line">        </span><br><span class="line">	<span class="comment">/// 设置第一根折线</span></span><br><span class="line">	<span class="keyword">var</span> dataArray = [<span class="number">1</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">20</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">	<span class="keyword">var</span> lineChartData = <span class="type">PNLineChartData</span>()</span><br><span class="line">	<span class="comment">//lineChartData.lineWidth = 20</span></span><br><span class="line">	lineChartData.itemCount = <span class="type">UInt</span>(dataArray.<span class="built_in">count</span>)</span><br><span class="line">	lineChartData.color = <span class="type">UIColor</span>.greenColor()</span><br><span class="line">	lineChartData.getData = (&#123;(index:<span class="type">UInt</span>) -&gt; <span class="type">PNLineChartDataItem</span> <span class="keyword">in</span></span><br><span class="line">	<span class="keyword">var</span> y = dataArray[<span class="type">Int</span>(index)]</span><br><span class="line">	<span class="keyword">return</span> <span class="type">PNLineChartDataItem</span>(y: <span class="type">CGFloat</span>(y))</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	<span class="comment">//为数据源设置Title</span></span><br><span class="line">	lineChartData.dataTitle = <span class="string">"Swift"</span></span><br><span class="line">        </span><br><span class="line">	<span class="comment">/// 设置第二根折线</span></span><br><span class="line">	<span class="keyword">var</span> dataArray2 = [<span class="number">5</span>,<span class="number">19</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">5</span>]</span><br><span class="line">	<span class="keyword">var</span> lineChartData2 = <span class="type">PNLineChartData</span>()</span><br><span class="line">	<span class="comment">//lineChartData.lineWidth = 20</span></span><br><span class="line">	lineChartData2.itemCount = <span class="type">UInt</span>(dataArray2.<span class="built_in">count</span>)</span><br><span class="line">	lineChartData2.color = <span class="type">UIColor</span>.redColor()</span><br><span class="line">	lineChartData2.getData = (&#123;(index:<span class="type">UInt</span>) -&gt; <span class="type">PNLineChartDataItem</span> <span class="keyword">in</span></span><br><span class="line">		<span class="keyword">var</span> y = dataArray2[<span class="type">Int</span>(index)]</span><br><span class="line">		<span class="keyword">return</span> <span class="type">PNLineChartDataItem</span>(y: <span class="type">CGFloat</span>(y))</span><br><span class="line">	&#125;)</span><br><span class="line">        </span><br><span class="line">	<span class="comment">//把折线加入到lineChart中，开始画图</span></span><br><span class="line">	lineChart.chartData = [lineChartData,lineChartData2]</span><br><span class="line">	lineChart.strokeChart()</span><br><span class="line">        </span><br><span class="line">	<span class="keyword">self</span>.view.addSubview(lineChart)</span><br><span class="line">        </span><br><span class="line">	<span class="comment">/// 为图表设置标签，****要在画图之后添加****</span></span><br><span class="line">	<span class="comment">//为数据源2设置Title</span></span><br><span class="line">	lineChartData2.dataTitle = <span class="string">"OC"</span></span><br><span class="line">	<span class="comment">//选择标签风格</span></span><br><span class="line">	lineChart.legendStyle = <span class="type">PNLegendItemStyle</span>.<span class="type">Serial</span></span><br><span class="line">	<span class="comment">//获取标签</span></span><br><span class="line">	<span class="keyword">var</span> legend = lineChart.getLegendWithMaxWidth(<span class="keyword">self</span>.view.frame.width)</span><br><span class="line">	<span class="comment">//设置标签位置</span></span><br><span class="line">	legend.frame = <span class="type">CGRectMake</span>(<span class="number">50</span>, lineChart.frame.origin.y + lineChart.frame.height + <span class="number">10</span> , legend.frame.width, legend.frame.height)</span><br><span class="line">        </span><br><span class="line">	<span class="keyword">self</span>.view.addSubview(legend)</span><br><span class="line">        </span><br><span class="line">	lineChart.delegate = <span class="keyword">self</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>画柱形图：</li>
+</ul>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">func setBarChart()&#123;</span><br><span class="line">	//直接初始化一个PNBarChart，不要数据源</span><br><span class="line">	var barChart = PNBarChart(frame: CGRectMake(0, 200, self.view.frame.width, 350))</span><br><span class="line">	barChart.xLabels = [<span class="string">"A"</span>,<span class="string">"B"</span>,<span class="string">"C"</span>,<span class="string">"D"</span>,<span class="string">"E"</span>]</span><br><span class="line">	//barChart.xLabelWidth = 55</span><br><span class="line">	barChart.yValues = [1,3,6,-7,15]</span><br><span class="line">	//显示图表边界</span><br><span class="line">	barChart.showChartBorder = true</span><br><span class="line">	//允许负数</span><br><span class="line">	barChart.showLevelLine = false</span><br><span class="line">        </span><br><span class="line">	//barChart.strokeColor = UIColor.redColor()</span><br><span class="line">	barChart.barRadius = 2</span><br><span class="line">	//设置文字颜色，<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span>设置不了<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">	barChart.labelTextColor = UIColor.redColor()</span><br><span class="line">        </span><br><span class="line">	//开始画图</span><br><span class="line">	barChart.strokeChart()</span><br><span class="line">	self.view.add</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>画圆形图：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">func <span class="title">setCircleChart</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//直接初始化一个PNCircleChart ，不要数据源之类的</span></span><br><span class="line">	var circelChart = PNCircleChart(frame: CGRectMake(self.view.frame.width/<span class="number">2</span> - self.view.frame.width/<span class="number">4</span>, <span class="number">200</span>, self.view.frame.width/<span class="number">2</span>, <span class="number">200</span>), total: <span class="number">100</span>, current: <span class="number">60</span>, clockwise: <span class="literal">false</span>, shadow: <span class="literal">true</span>, shadowColor: UIColor.grayColor())</span><br><span class="line">	circelChart.current = <span class="number">60</span></span><br><span class="line">	circelChart.total = <span class="number">100</span></span><br><span class="line">	<span class="comment">//circelChart.strokeColor = UIColor.greenColor()</span></span><br><span class="line">        </span><br><span class="line">	circelChart.strokeChart()</span><br><span class="line">	self.view.addSubview(circelChart)</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>画饼状图：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">func <span class="title">setPieChart</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//先定义一个PNPieChartDataItem数组，116 202 33      72 114 224</span></span><br><span class="line">	var items = [PNPieChartDataItem(value: <span class="number">50</span>, color: UIColor(red: <span class="number">116</span>/<span class="number">255</span>, green: <span class="number">202</span>/<span class="number">255</span>, blue: <span class="number">33</span>/<span class="number">255</span>, alpha: <span class="number">1</span>) , description: <span class="string">"Swift"</span>),PNPieChartDataItem(value: <span class="number">20</span>, color: UIColor(red: <span class="number">72</span>/<span class="number">255</span>, green: <span class="number">114</span>/<span class="number">255</span>, blue: <span class="number">224</span>/<span class="number">255</span>, alpha: <span class="number">1</span>) , description: <span class="string">"OC"</span>)]</span><br><span class="line">        </span><br><span class="line">	var pieChart = PNPieChart(frame: CGRectMake(self.view.frame.width/<span class="number">2</span> - self.view.frame.width/<span class="number">3</span>, <span class="number">200</span>, self.view.frame.width/<span class="number">1.5</span>, <span class="number">200</span>), items: items)</span><br><span class="line">        </span><br><span class="line">	pieChart.descriptionTextFont = UIFont.systemFontOfSize(<span class="number">15</span>)</span><br><span class="line">        </span><br><span class="line">	pieChart.strokeChart()</span><br><span class="line">	self.view.addSubview(pieChart)</span><br><span class="line">        </span><br><span class="line">	<span class="comment">//选择标签风格</span></span><br><span class="line">	pieChart.legendStyle = PNLegendItemStyle.Serial</span><br><span class="line">	<span class="comment">//获取标签</span></span><br><span class="line">	var legend = pieChart.getLegendWithMaxWidth(self.view.frame.width)</span><br><span class="line">	<span class="comment">//设置标签位置</span></span><br><span class="line">	legend.frame = CGRectMake(<span class="number">50</span>, pieChart.frame.origin.y + pieChart.frame.height + <span class="number">10</span>, legend.frame.width, legend.frame.height)</span><br><span class="line">        </span><br><span class="line">	self.view.addSubview(legend)     </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/09/20/iOS-常用第三方库5-PNChart/" data-title="iOS 常用第三方库5(PNChart) | Xinnyu&#39;s blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/09/20/iOS-常用第三方库4-SwiftyJSON/"  title="iOS-常用第三方库4(SwiftyJSON)">
+ <strong>NEXT:</strong><br/> 
+ <span>iOS-常用第三方库4(SwiftyJSON)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用方法"><span class="toc-number">1.</span> <span class="toc-text">使用方法</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">12</span></li></ul>
+  </div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/53024753" target="_blank" title="weibo"></a>
+		
+		
+		<a href="https://twitter.com/xinnyu007" target="_blank" title="twitter"></a>
+		
+		
+		<a href="https://github.com/xinnyu" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
+		
+		<a href="http://yoursite.com" target="_blank" title="xinnyu">xinnyu</a>
+		
+		</p>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','sjjj5h1xyoUsTXNiRrwG','2.0.0');
+  </script>
+	  
+</div>
+			
+			
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"xinnyu"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>
