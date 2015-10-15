@@ -3,9 +3,9 @@
   <title><![CDATA[Xinnyu's blog]]></title>
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
+  <link href="http://xinnyu.com/"/>
   <updated>2015-10-15T08:19:34.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://xinnyu.com/</id>
   
   <author>
     <name><![CDATA[xinnyu]]></name>
@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[Swift 中泛型的使用]]></title>
-    <link href="http://yoursite.com/2015/10/15/Swift-%E4%B8%AD%E6%B3%9B%E5%9E%8B%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2015/10/15/Swift-中泛型的使用/</id>
+    <link href="http://xinnyu.com/2015/10/15/Swift-%E4%B8%AD%E6%B3%9B%E5%9E%8B%E7%9A%84%E4%BD%BF%E7%94%A8.html"/>
+    <id>http://xinnyu.com/2015/10/15/Swift-中泛型的使用.html</id>
     <published>2015-10-15T07:09:58.000Z</published>
     <updated>2015-10-15T08:19:34.000Z</updated>
     <content type="html"><![CDATA[<p>对于类型安全(type-safe)语言，一个常见的问题就是如何编写适用于多种类型输入的程序。想象一下，两个整型数相加和两个浮点数相加的程序看起来应该非常类似，甚至一模一样才对。唯一的区别就是变量的类型不同。</p>
@@ -66,8 +66,8 @@
   
   <entry>
     <title><![CDATA[Swift单例]]></title>
-    <link href="http://yoursite.com/2015/10/15/Swift%E5%8D%95%E4%BE%8B/"/>
-    <id>http://yoursite.com/2015/10/15/Swift单例/</id>
+    <link href="http://xinnyu.com/2015/10/15/Swift%E5%8D%95%E4%BE%8B.html"/>
+    <id>http://xinnyu.com/2015/10/15/Swift单例.html</id>
     <published>2015-10-15T06:58:10.000Z</published>
     <updated>2015-10-15T13:45:21.000Z</updated>
     <content type="html"><![CDATA[<p>单例是一个在 Cocoa 中很常用的模式了。对于一些希望能在全局方便访问的实例，或者在 app 的生命周期中只应该存在一个的对象，我们一般使用单例来存储和访问。在 Objective-C 中单例的公认的写法类似下面这样：</p>
@@ -91,8 +91,8 @@
   
   <entry>
     <title><![CDATA[设计模式]]></title>
-    <link href="http://yoursite.com/2015/09/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://yoursite.com/2015/09/29/设计模式/</id>
+    <link href="http://xinnyu.com/2015/09/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html"/>
+    <id>http://xinnyu.com/2015/09/29/设计模式.html</id>
     <published>2015-09-29T06:52:05.000Z</published>
     <updated>2015-09-29T16:16:34.000Z</updated>
     <content type="html"><![CDATA[<p>设计模式是为了解决特定问题而出现的；</p>
@@ -126,8 +126,8 @@
   
   <entry>
     <title><![CDATA[Mac终端command not found 解决办法]]></title>
-    <link href="http://yoursite.com/2015/09/26/Mac%E7%BB%88%E7%AB%AF%E6%8F%90%E7%A4%BA-command-not-found%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
-    <id>http://yoursite.com/2015/09/26/Mac终端提示-command-not-found解决办法/</id>
+    <link href="http://xinnyu.com/2015/09/26/Mac%E7%BB%88%E7%AB%AF%E6%8F%90%E7%A4%BA-command-not-found%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html"/>
+    <id>http://xinnyu.com/2015/09/26/Mac终端提示-command-not-found解决办法.html</id>
     <published>2015-09-26T14:37:57.000Z</published>
     <updated>2015-09-26T15:17:27.000Z</updated>
     <content type="html"><![CDATA[<p>在bash_profile中添加：</p>
@@ -142,8 +142,8 @@
   
   <entry>
     <title><![CDATA[Mac自带Vim7.3不能使用系统剪切板解决方案]]></title>
-    <link href="http://yoursite.com/2015/09/26/Mac%E8%87%AA%E5%B8%A6Vim7-3%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%89%AA%E5%88%87%E6%9D%BF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-    <id>http://yoursite.com/2015/09/26/Mac自带Vim7-3不能使用系统剪切板解决方案/</id>
+    <link href="http://xinnyu.com/2015/09/26/Mac%E8%87%AA%E5%B8%A6Vim7-3%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%89%AA%E5%88%87%E6%9D%BF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html"/>
+    <id>http://xinnyu.com/2015/09/26/Mac自带Vim7-3不能使用系统剪切板解决方案.html</id>
     <published>2015-09-26T11:35:44.000Z</published>
     <updated>2015-09-26T14:33:39.000Z</updated>
     <content type="html"><![CDATA[<p>用了Mac自带的Vim之后发现yy复制的内容和剪切板不同步，谷歌之，找到2种方法：</p>
@@ -172,8 +172,8 @@
   
   <entry>
     <title><![CDATA[Dynamics动画]]></title>
-    <link href="http://yoursite.com/2015/09/26/Dynamics%E5%8A%A8%E7%94%BB/"/>
-    <id>http://yoursite.com/2015/09/26/Dynamics动画/</id>
+    <link href="http://xinnyu.com/2015/09/26/Dynamics%E5%8A%A8%E7%94%BB.html"/>
+    <id>http://xinnyu.com/2015/09/26/Dynamics动画.html</id>
     <published>2015-09-25T17:29:21.000Z</published>
     <updated>2015-09-26T17:34:58.000Z</updated>
     <content type="html"><![CDATA[<p>UIKit Dynamics是iOS7中新推出的，可以模拟现实的二维动画效果，开发出逼真的物理动画。</p>
@@ -201,8 +201,8 @@
   
   <entry>
     <title><![CDATA[使用融云和LeanCloud 创建一个IM应用]]></title>
-    <link href="http://yoursite.com/2015/09/21/%E4%BD%BF%E7%94%A8%E8%9E%8D%E4%BA%91%E5%92%8CLeanCloud-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAIM%E5%BA%94%E7%94%A8/"/>
-    <id>http://yoursite.com/2015/09/21/使用融云和LeanCloud-创建一个IM应用/</id>
+    <link href="http://xinnyu.com/2015/09/21/%E4%BD%BF%E7%94%A8%E8%9E%8D%E4%BA%91%E5%92%8CLeanCloud-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAIM%E5%BA%94%E7%94%A8.html"/>
+    <id>http://xinnyu.com/2015/09/21/使用融云和LeanCloud-创建一个IM应用.html</id>
     <published>2015-09-20T17:39:23.000Z</published>
     <updated>2015-09-21T06:29:43.000Z</updated>
     <content type="html"><![CDATA[<p><a href="http://www.rongcloud.cn/" target="_blank" rel="external">融云</a> 是国内一家专门为APP开发者提供IM服务的公司，利用它提供的SDK可以快速使你的APP集成IM通讯能力。<br>详细的使用方法在它官网的开发文档中有提供，但是不得不吐槽的就是它的开发文档写的实在太乱了让人有种无从下手的感觉，下面简单记录一下使用过程。</p>
@@ -243,18 +243,18 @@
     <![CDATA[<p><a href="http://www.rongcloud.cn/" target="_blank" rel="external">融云</a> 是国内一家专门为APP开发者提供IM服务的公司，利用它提供的SDK可以快速使你的APP集成IM通讯能力。<br>详细的使用方法在]]>
     </summary>
     
-      <category term="Swift" scheme="http://yoursite.com/tags/Swift/"/>
+      <category term="Swift" scheme="http://xinnyu.com/tags/Swift/"/>
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://xinnyu.com/tags/iOS/"/>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="http://xinnyu.com/categories/iOS/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[使用AVPlayer 播放在线音频,并实现后台锁屏播放，自动连播]]></title>
-    <link href="http://yoursite.com/2015/09/21/%E4%BD%BF%E7%94%A8AVPlayer-%E6%92%AD%E6%94%BE%E5%9C%A8%E7%BA%BF%E9%9F%B3%E9%A2%91/"/>
-    <id>http://yoursite.com/2015/09/21/使用AVPlayer-播放在线音频/</id>
+    <link href="http://xinnyu.com/2015/09/21/%E4%BD%BF%E7%94%A8AVPlayer-%E6%92%AD%E6%94%BE%E5%9C%A8%E7%BA%BF%E9%9F%B3%E9%A2%91.html"/>
+    <id>http://xinnyu.com/2015/09/21/使用AVPlayer-播放在线音频.html</id>
     <published>2015-09-20T16:17:37.000Z</published>
     <updated>2015-09-20T17:50:11.000Z</updated>
     <content type="html"><![CDATA[<p>在iOS开发中，AVAudioPlayer不是不能播放在线音频的，要播放在线音频只能用以下几个方法：</p>
@@ -313,8 +313,8 @@
   
   <entry>
     <title><![CDATA[iOS 常用第三方库7(Reachability)]]></title>
-    <link href="http://yoursite.com/2015/09/21/iOS-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%937-Reachability/"/>
-    <id>http://yoursite.com/2015/09/21/iOS-常用第三方库7-Reachability/</id>
+    <link href="http://xinnyu.com/2015/09/21/iOS-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%937-Reachability.html"/>
+    <id>http://xinnyu.com/2015/09/21/iOS-常用第三方库7-Reachability.html</id>
     <published>2015-09-20T16:06:47.000Z</published>
     <updated>2015-09-26T17:15:40.000Z</updated>
     <content type="html"><![CDATA[<p><a href="https://github.com/tonymillion/Reachability" target="_blank" rel="external">Reachability</a> 是一个检测网络状态的框架。<br>开发Web等网络应用程序的时候，需要确认网络环境，连接情况等信息。如果没有处理这些信息的话，是不会通过Apple的审查的。</p>
@@ -330,8 +330,8 @@
   
   <entry>
     <title><![CDATA[iOS 常用第三方库7(SDWebImage)]]></title>
-    <link href="http://yoursite.com/2015/09/20/iOS-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%937-SDWebImage/"/>
-    <id>http://yoursite.com/2015/09/20/iOS-常用第三方库7-SDWebImage/</id>
+    <link href="http://xinnyu.com/2015/09/20/iOS-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%937-SDWebImage.html"/>
+    <id>http://xinnyu.com/2015/09/20/iOS-常用第三方库7-SDWebImage.html</id>
     <published>2015-09-20T15:45:43.000Z</published>
     <updated>2015-09-20T16:04:18.000Z</updated>
     <content type="html"><![CDATA[<p><a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">SDWebImage</a>是一个著名的第三方库，它的作用是：</p>
@@ -353,8 +353,8 @@
   
   <entry>
     <title><![CDATA[iOS 常用第三方库6(POP动画)]]></title>
-    <link href="http://yoursite.com/2015/09/20/iOS-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%936-POP%E5%8A%A8%E7%94%BB/"/>
-    <id>http://yoursite.com/2015/09/20/iOS-常用第三方库6-POP动画/</id>
+    <link href="http://xinnyu.com/2015/09/20/iOS-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%936-POP%E5%8A%A8%E7%94%BB.html"/>
+    <id>http://xinnyu.com/2015/09/20/iOS-常用第三方库6-POP动画.html</id>
     <published>2015-09-20T14:53:46.000Z</published>
     <updated>2015-09-26T14:40:41.000Z</updated>
     <content type="html"><![CDATA[<p><a href="https://github.com/facebook/pop" target="_blank" rel="external">POP</a>是Facebook公司的一个开源项目，它是一个完全不同于Core Animation的动画引擎；它在基本的静态动画的基础上增加的弹簧动画与衰减动画 使之能创造出更真实更具物理性的交互动画 POP的API可以快速的与现有的ObjC代码集成并可以作用于任意对象的任意属性，POP是个相当成熟且久经考验的框架，Facebook出品的令人惊叹的Paper应用中的所有动画和效果即出自POP。</p>
@@ -416,8 +416,8 @@
   
   <entry>
     <title><![CDATA[iOS 常用第三方库5(PNChart)]]></title>
-    <link href="http://yoursite.com/2015/09/20/iOS-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%935-PNChart/"/>
-    <id>http://yoursite.com/2015/09/20/iOS-常用第三方库5-PNChart/</id>
+    <link href="http://xinnyu.com/2015/09/20/iOS-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%935-PNChart.html"/>
+    <id>http://xinnyu.com/2015/09/20/iOS-常用第三方库5-PNChart.html</id>
     <published>2015-09-20T14:24:43.000Z</published>
     <updated>2015-09-26T15:26:34.000Z</updated>
     <content type="html"><![CDATA[<p><a href="https://github.com/kevinzhow/PNChart" target="_blank" rel="external">PNChart</a> 是一个简约，易用的第三方图表库，它支持折线图，柱形图，饼状图和圆形图的绘制；</p>
@@ -447,8 +447,8 @@
   
   <entry>
     <title><![CDATA[iOS-常用第三方库4(SwiftyJSON)]]></title>
-    <link href="http://yoursite.com/2015/09/20/iOS-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%934-SwiftyJSON/"/>
-    <id>http://yoursite.com/2015/09/20/iOS-常用第三方库4-SwiftyJSON/</id>
+    <link href="http://xinnyu.com/2015/09/20/iOS-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%934-SwiftyJSON.html"/>
+    <id>http://xinnyu.com/2015/09/20/iOS-常用第三方库4-SwiftyJSON.html</id>
     <published>2015-09-20T14:14:38.000Z</published>
     <updated>2015-09-20T14:22:58.000Z</updated>
     <content type="html"><![CDATA[<p><a href="https://github.com/SwiftyJSON/SwiftyJSON" target="_blank" rel="external">SwiftJSON</a>是用Swift写的一个快速处理JSON数据的第三方库。</p>
@@ -466,8 +466,8 @@
   
   <entry>
     <title><![CDATA[iOS-常用第三方库3(HUD)]]></title>
-    <link href="http://yoursite.com/2015/09/20/iOS-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%933-HUD/"/>
-    <id>http://yoursite.com/2015/09/20/iOS-常用第三方库3-HUD/</id>
+    <link href="http://xinnyu.com/2015/09/20/iOS-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%933-HUD.html"/>
+    <id>http://xinnyu.com/2015/09/20/iOS-常用第三方库3-HUD.html</id>
     <published>2015-09-20T12:21:18.000Z</published>
     <updated>2015-09-26T16:11:12.000Z</updated>
     <content type="html"><![CDATA[<p>GitHub上iOS关于HUD的第三方库实在太多了， 这三个比较常用：</p>
@@ -493,8 +493,8 @@
   
   <entry>
     <title><![CDATA[iOS-常用第三方库2(MJRefresh)]]></title>
-    <link href="http://yoursite.com/2015/09/20/iOS-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%932-MJRefresh/"/>
-    <id>http://yoursite.com/2015/09/20/iOS-常用第三方库2-MJRefresh/</id>
+    <link href="http://xinnyu.com/2015/09/20/iOS-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%932-MJRefresh.html"/>
+    <id>http://xinnyu.com/2015/09/20/iOS-常用第三方库2-MJRefresh.html</id>
     <published>2015-09-20T11:52:32.000Z</published>
     <updated>2015-09-26T16:46:55.000Z</updated>
     <content type="html"><![CDATA[<p><a href="https://github.com/CoderMJLee/MJRefresh" target="_blank" rel="external">MJRefresh</a>是用法最简单的下拉刷新框架：一行代码搞定 </p>
@@ -516,16 +516,16 @@
 <p>支持 UIScrollVie]]>
     </summary>
     
-      <category term="第三方库，iOS，Swift" scheme="http://yoursite.com/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%8CiOS%EF%BC%8CSwift/"/>
+      <category term="第三方库，iOS，Swift" scheme="http://xinnyu.com/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%8CiOS%EF%BC%8CSwift/"/>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="http://xinnyu.com/categories/iOS/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[iOS 常用第三方库1(Alamofire)]]></title>
-    <link href="http://yoursite.com/2015/09/20/iOS-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%931(Alamofire)/"/>
-    <id>http://yoursite.com/2015/09/20/iOS-常用第三方库1(Alamofire)/</id>
+    <link href="http://xinnyu.com/2015/09/20/iOS-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%931(Alamofire).html"/>
+    <id>http://xinnyu.com/2015/09/20/iOS-常用第三方库1(Alamofire).html</id>
     <published>2015-09-20T11:18:20.000Z</published>
     <updated>2015-09-26T09:36:02.000Z</updated>
     <content type="html"><![CDATA[<p><a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="external">Alamofire</a> 是Swift版的 AFNetworking，是非常方便实用的第三方网络操作框架；</p>
@@ -550,8 +550,8 @@
   
   <entry>
     <title><![CDATA[iOS9 网络https 错误]]></title>
-    <link href="http://yoursite.com/2015/09/20/iOS9-%E7%BD%91%E7%BB%9Chttps-%E9%94%99%E8%AF%AF/"/>
-    <id>http://yoursite.com/2015/09/20/iOS9-网络https-错误/</id>
+    <link href="http://xinnyu.com/2015/09/20/iOS9-%E7%BD%91%E7%BB%9Chttps-%E9%94%99%E8%AF%AF.html"/>
+    <id>http://xinnyu.com/2015/09/20/iOS9-网络https-错误.html</id>
     <published>2015-09-20T11:05:25.000Z</published>
     <updated>2015-09-20T11:07:02.000Z</updated>
     <content type="html"><![CDATA[<p>在iOS9 中，苹果将原http协议改成了https协议，使用 TLS1.2 SSL加密请求数据。</p>
@@ -568,8 +568,8 @@
   
   <entry>
     <title><![CDATA[CocoaPods安装使用方法]]></title>
-    <link href="http://yoursite.com/2015/09/20/CocoaPods%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
-    <id>http://yoursite.com/2015/09/20/CocoaPods安装使用方法/</id>
+    <link href="http://xinnyu.com/2015/09/20/CocoaPods%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95.html"/>
+    <id>http://xinnyu.com/2015/09/20/CocoaPods安装使用方法.html</id>
     <published>2015-09-20T10:06:32.000Z</published>
     <updated>2015-09-20T11:04:18.000Z</updated>
     <content type="html"><![CDATA[<h3 id="安装">安装</h3><p>首先安装好Ruby环境，在终端中输入以下命令：</p>
@@ -613,8 +613,8 @@
   
   <entry>
     <title><![CDATA[iOS 传值总结]]></title>
-    <link href="http://yoursite.com/2015/09/20/iOS-%E4%BC%A0%E5%80%BC%E6%80%BB%E7%BB%93/"/>
-    <id>http://yoursite.com/2015/09/20/iOS-传值总结/</id>
+    <link href="http://xinnyu.com/2015/09/20/iOS-%E4%BC%A0%E5%80%BC%E6%80%BB%E7%BB%93.html"/>
+    <id>http://xinnyu.com/2015/09/20/iOS-传值总结.html</id>
     <published>2015-09-20T08:12:12.000Z</published>
     <updated>2015-09-20T09:56:36.000Z</updated>
     <content type="html"><![CDATA[<p>iOS中传值的方式主要有以下几种：</p>
@@ -671,8 +671,8 @@
   
   <entry>
     <title><![CDATA[NSTimer 相关]]></title>
-    <link href="http://yoursite.com/2015/09/20/NSTimer-%E7%9B%B8%E5%85%B3/"/>
-    <id>http://yoursite.com/2015/09/20/NSTimer-相关/</id>
+    <link href="http://xinnyu.com/2015/09/20/NSTimer-%E7%9B%B8%E5%85%B3.html"/>
+    <id>http://xinnyu.com/2015/09/20/NSTimer-相关.html</id>
     <published>2015-09-20T08:06:49.000Z</published>
     <updated>2015-09-20T08:08:21.000Z</updated>
     <content type="html"><![CDATA[<ol>
