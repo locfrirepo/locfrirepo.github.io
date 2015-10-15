@@ -47,7 +47,7 @@
 
 Asynchronous image downloader with cache support with an UIImageView category.就是一个异步加载图片并且支持缓存的UIImage分类；
 
-使用方法：1imageView.sd_setImageWithURL(NSURL(string: &quot;&quot;), placeholde">
+使用方法：imageView.sd_setImageWithURL(NSURL(string: &amp;#34;&amp;#34;), pla">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 常用第三方库7(SDWebImage)">
 <meta property="og:url" content="http://xinnyu.com/2015/09/20/iOS-常用第三方库7-SDWebImage/index.html">
@@ -56,7 +56,7 @@ Asynchronous image downloader with cache support with an UIImageView category.�
 
 Asynchronous image downloader with cache support with an UIImageView category.就是一个异步加载图片并且支持缓存的UIImage分类；
 
-使用方法：1imageView.sd_setImageWithURL(NSURL(string: &quot;&quot;), placeholde">
+使用方法：imageView.sd_setImageWithURL(NSURL(string: &amp;#34;&amp;#34;), pla">
 <meta property="og:updated_time" content="2015-09-20T16:04:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 常用第三方库7(SDWebImage)">
@@ -64,7 +64,7 @@ Asynchronous image downloader with cache support with an UIImageView category.�
 
 Asynchronous image downloader with cache support with an UIImageView category.就是一个异步加载图片并且支持缓存的UIImage分类；
 
-使用方法：1imageView.sd_setImageWithURL(NSURL(string: &quot;&quot;), placeholde">
+使用方法：imageView.sd_setImageWithURL(NSURL(string: &amp;#34;&amp;#34;), pla">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -239,9 +239,9 @@ Asynchronous image downloader with cache support with an UIImageView category.�
 <blockquote>
 <p>Asynchronous image downloader with cache support with an UIImageView category.<br>就是一个异步加载图片并且支持缓存的UIImage分类；</p>
 </blockquote>
-<h3 id="使用方法：">使用方法：</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imageView.<span class="function"><span class="title">sd_setImageWithURL</span><span class="params">(NSURL(string: <span class="string">""</span>)</span></span>, placeholderImage: <span class="function"><span class="title">UIImage</span><span class="params">(named: <span class="string">"placeholder"</span>)</span></span>)</span><br></pre></td></tr></table></figure>
+<h3 id="使用方法：">使用方法：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">imageView.sd_setImageWithURL(NSURL(string: &#34;&#34;), placeholderImage: UIImage(named: &#34;placeholder&#34;))</span><br></pre></td></tr></table></figure>
 <p>清除缓存：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SDImageCache.<span class="function"><span class="title">sharedImageCache</span><span class="params">()</span></span>.<span class="function"><span class="title">cleanDisk</span><span class="params">()</span></span></span><br><span class="line">SDImageCache.<span class="function"><span class="title">sharedImageCache</span><span class="params">()</span></span>.<span class="function"><span class="title">clearMemory</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SDImageCache.sharedImageCache().cleanDisk()&#10;SDImageCache.sharedImageCache().clearMemory()</span><br></pre></td></tr></table></figure>
 <p>这个框架使用简单，然而而其中复杂的实现细节全部隐藏在这行代码之后；这边有一篇它的源代码分析：<a href="">http://draveness.me/ios-yuan-dai-ma-jie-xi-sdwebimage/</a></p>
 </span>
       
@@ -319,7 +319,7 @@ Asynchronous image downloader with cache support with an UIImageView category.�
 
       <section class="site-overview">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460" alt="xinnyu" itemprop="image"/>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="xinnyu" itemprop="image"/>
           <p class="site-author-name" itemprop="name">xinnyu</p>
         </div>
         <p class="site-description motion-element" itemprop="description">Write the code. Change the world.</p>
@@ -371,6 +371,12 @@ Asynchronous image downloader with cache support with an UIImageView category.�
         </div>
 
         
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">

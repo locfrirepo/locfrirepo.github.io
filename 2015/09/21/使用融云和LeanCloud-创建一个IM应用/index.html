@@ -48,11 +48,9 @@
 
 在Podfile中添加：
 
-1pod &apos;RongCloudIMKit&apos;
+pod &amp;#39;RongCloudIMKit&amp;#39;
 
-然后执行命令：
-
-1pod i">
+然后执行命令：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用融云和LeanCloud 创建一个IM应用">
 <meta property="og:url" content="http://xinnyu.com/2015/09/21/使用融云和LeanCloud-创建一个IM应用/index.html">
@@ -62,11 +60,9 @@
 
 在Podfile中添加：
 
-1pod &apos;RongCloudIMKit&apos;
+pod &amp;#39;RongCloudIMKit&amp;#39;
 
-然后执行命令：
-
-1pod i">
+然后执行命令：">
 <meta property="og:updated_time" content="2015-09-21T06:29:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用融云和LeanCloud 创建一个IM应用">
@@ -75,11 +71,9 @@
 
 在Podfile中添加：
 
-1pod &apos;RongCloudIMKit&apos;
+pod &amp;#39;RongCloudIMKit&amp;#39;
 
-然后执行命令：
-
-1pod i">
+然后执行命令：">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -270,35 +264,35 @@
 <ol>
 <li>在Podfile中添加：</li>
 </ol>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">pod</span> <span class="string">'RongCloudIMKit'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pod &#39;RongCloudIMKit&#39;</span><br></pre></td></tr></table></figure>
 <ol>
 <li>然后执行命令：</li>
 </ol>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pod install</span><br></pre></td></tr></table></figure>
 <h3 id="获取Token">获取Token</h3><p>Token 也叫用户令牌，是 SDK 端用来连接融云服务器的凭证，每个用户连接服务器都需要一个 Token。每次初始化连接服务器时，都需要向服务器提交 Token。<br>获取Token需要注册一个融云的账号，然后新建一个应用，之后在API调试中填写userid（用户唯一标示符）、name（用户昵称）、portraitUri（头像url）就可以获得一个测试用的Token。</p>
 <h3 id="初始化和测试连接">初始化和测试连接</h3><p>获得测试用的Token之后就可以利用AppKey（创建应用时融云给你的应用标示符）和Token对应用进行初始化了：</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用AppKey初始化     RCIM.sharedRCIM().initWithAppKey("82hegw5uh4r8x")      </span></span><br><span class="line"><span class="comment">//用Token测试连接</span></span><br><span class="line">RCIM<span class="built_in">.</span>sharedRCIM()<span class="built_in">.</span>connectWithToken(token, success: &#123; (str:<span class="built_in">String</span><span class="subst">!</span>) <span class="subst">-&gt; </span><span class="literal">Void</span> <span class="keyword">in</span></span><br><span class="line">	print(<span class="string">"连接成功！"</span>)       </span><br><span class="line">  <span class="comment">//连接成功后设置当前登陆用户信息</span></span><br><span class="line">	RCIMClient<span class="built_in">.</span>sharedRCIMClient()<span class="built_in">.</span>currentUserInfo = RCUserInfo(userId: id, name: name, portrait: avatorURL)</span><br><span class="line">            </span><br><span class="line">	<span class="comment">//在UserDefaults中保存Token </span></span><br><span class="line">	NSUserDefaults<span class="built_in">.</span>standardUserDefaults()<span class="built_in">.</span>setObject(token, forKey: <span class="string">"kDeviceToken"</span>)</span><br><span class="line">	<span class="comment">//在主线程中调用更新UI</span></span><br><span class="line">  dispatch_async(dispatch_get_main_queue(), &#123; () <span class="subst">-&gt; </span><span class="literal">Void</span> <span class="keyword">in</span></span><br><span class="line">                </span><br><span class="line">	&#125;)&#125;,</span><br><span class="line">	err<span class="subst">or</span>: &#123; (_) <span class="subst">-&gt; </span><span class="literal">Void</span> <span class="keyword">in</span></span><br><span class="line">		print(<span class="string">"连接错误！"</span>)</span><br><span class="line">	&#125;)</span><br><span class="line">	&#123; () <span class="subst">-&gt; </span><span class="literal">Void</span> <span class="keyword">in</span></span><br><span class="line">		print(<span class="string">"Token不正确！"</span>)</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//&#29992;AppKey&#21021;&#22987;&#21270;     RCIM.sharedRCIM().initWithAppKey(&#34;82hegw5uh4r8x&#34;)      &#10;//&#29992;Token&#27979;&#35797;&#36830;&#25509;&#10;RCIM.sharedRCIM().connectWithToken(token, success: &#123; (str:String!) -&#62; Void in&#10;&#9;print(&#34;&#36830;&#25509;&#25104;&#21151;&#65281;&#34;)       &#10;  //&#36830;&#25509;&#25104;&#21151;&#21518;&#35774;&#32622;&#24403;&#21069;&#30331;&#38470;&#29992;&#25143;&#20449;&#24687;&#10;&#9;RCIMClient.sharedRCIMClient().currentUserInfo = RCUserInfo(userId: id, name: name, portrait: avatorURL)&#10;            &#10;&#9;//&#22312;UserDefaults&#20013;&#20445;&#23384;Token &#10;&#9;NSUserDefaults.standardUserDefaults().setObject(token, forKey: &#34;kDeviceToken&#34;)&#10;&#9;//&#22312;&#20027;&#32447;&#31243;&#20013;&#35843;&#29992;&#26356;&#26032;UI&#10;  dispatch_async(dispatch_get_main_queue(), &#123; () -&#62; Void in&#10;                &#10;&#9;&#125;)&#125;,&#10;&#9;error: &#123; (_) -&#62; Void in&#10;&#9;&#9;print(&#34;&#36830;&#25509;&#38169;&#35823;&#65281;&#34;)&#10;&#9;&#125;)&#10;&#9;&#123; () -&#62; Void in&#10;&#9;&#9;print(&#34;Token&#19981;&#27491;&#30830;&#65281;&#34;)&#10;&#9;&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="连接成功后启动单聊会话">连接成功后启动单聊会话</h3><p>融云在它的SDK中已经集成聊天用户界面，所以我们只要创建一个RCConversationViewController的实例就能使用它提供的用户界面了，同时用户界面也支持自定义，这部分在官网的开发文档中有详细的介绍，这里就不做赘述。<br>需要注意的是：要使用RCConversationViewController，必须给它的几个属性赋值：</p>
 <ul>
 <li>conversationType：聊天类型，有单聊、群聊等等</li>
 </ul>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self<span class="class">.conversationType</span> = RCConversationType<span class="class">.ConversationType_PRIVATE</span> <span class="comment">//这里的PRIVATE是单聊</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">self.conversationType = RCConversationType.ConversationType_PRIVATE //&#36825;&#37324;&#30340;PRIVATE&#26159;&#21333;&#32842;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>targetId：聊天目标用户id</li>
 </ul>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self<span class="class">.targerId</span> = <span class="string">""</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">self.targerId = &#34;&#34;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>userName:聊天目标用户的昵称</li>
 </ul>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">self</span>.<span class="keyword">user</span>Name = <span class="string">""</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">self.userName = &#34;&#34;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>title:聊天界面显示的标题</li>
 </ul>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">self</span>.title = <span class="literal">self</span>.<span class="keyword">user</span>Name</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">self.title = self.userName</span><br></pre></td></tr></table></figure>
 <p>RCConversationViewController中还有其他很多的属性可以自定义，比如用户头像形状之类的，这些可以在它的头文件中找到。</p>
 <h3 id="测试单聊">测试单聊</h3><p>设置好以上内容之后，单聊的工作就已经做好了，现在我们可以测试单聊的效果，这里由于还没有其他的用户，我们就先和自己聊天来测试一下单聊的效果；<br>把targerId设置成已经登录的id，然后就可以自己和自己聊天了，内部集成的界面还是挺简洁易用的，虽然是自己和自己聊天，但是他也不是在本地操作的，也要经过融云的服务器，所以你把网络断开的情况下是不能发出信息的。<br>到这里单聊已经实现了，但是你会发现聊天界面他是不会显示用户头像的，虽然你在初始化的时候给了一个头像的url，但是他是不会加载出来的，不得不说这一点确实很脑残，主要原因是融云为了安全起见，他的服务器是不会储存用户信息的，在融云那边只有一个Token和userid的对应关系，和你发送给他的好友关系，也就是说你的用户信息需要自己在用一个服务器存起来，然后向融云提供一个用户信息提供者；</p>
 <h3 id="设置用户信息提供者">设置用户信息提供者</h3><p>要设置用户信息提供者首先要实现RCIMUserInfoDataSource协议，所以我们要在APP启动的时候让Appdelegate实现协议，然后：</p>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">func getUserInfoWithUserId(<span class="keyword">user</span>Id: String!, completion: ((RCUserInfo!) -&gt; Void)!) &#123;</span><br><span class="line">        let <span class="keyword">user</span>Info = RCUserInfo()</span><br><span class="line">        <span class="keyword">user</span>Info.<span class="keyword">user</span>Id = <span class="keyword">user</span>Id</span><br><span class="line">        switch <span class="keyword">user</span>Id&#123;</span><br><span class="line">        case <span class="string">"xinnyu"</span>:</span><br><span class="line">            <span class="keyword">user</span>Info.name = <span class="string">"潘新宇"</span></span><br><span class="line">            <span class="keyword">user</span>Info.portraitUri = <span class="string">"http://7xl9qm.com1.z0.glb.clouddn.com/avatar.png"</span></span><br><span class="line">        case <span class="string">"liuchuqi"</span>:</span><br><span class="line">            <span class="keyword">user</span>Info.name = <span class="string">"A"</span></span><br><span class="line">            <span class="keyword">user</span>Info.portraitUri = <span class="string">"http://www4.qqjay.com/u/files/2011/1216/d3302821f418fc5539398cb3ba72cd8c.jpg"</span></span><br><span class="line">        case <span class="string">"lijie"</span>:</span><br><span class="line">            <span class="keyword">user</span>Info.name = <span class="string">"B"</span></span><br><span class="line">            <span class="keyword">user</span>Info.portraitUri = <span class="string">"http://image.photophoto.cn/nm-6/018/030/0180300244.jpg"</span></span><br><span class="line">        case <span class="string">"tansanxiang"</span>:</span><br><span class="line">            <span class="keyword">user</span>Info.name = <span class="string">"C"</span></span><br><span class="line">            <span class="keyword">user</span>Info.portraitUri = <span class="string">"http://cdn.duitang.com/uploads/item/201407/26/20140726221707_i4ZnL.thumb.224_0.jpeg"</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            print(<span class="string">"没有这个用户"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        completion(<span class="keyword">user</span>Info)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></span>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func getUserInfoWithUserId(userId: String!, completion: ((RCUserInfo!) -&#62; Void)!) &#123;&#10;        let userInfo = RCUserInfo()&#10;        userInfo.userId = userId&#10;        switch userId&#123;&#10;        case &#34;xinnyu&#34;:&#10;            userInfo.name = &#34;&#28504;&#26032;&#23431;&#34;&#10;            userInfo.portraitUri = &#34;http://7xl9qm.com1.z0.glb.clouddn.com/avatar.png&#34;&#10;        case &#34;liuchuqi&#34;:&#10;            userInfo.name = &#34;A&#34;&#10;            userInfo.portraitUri = &#34;http://www4.qqjay.com/u/files/2011/1216/d3302821f418fc5539398cb3ba72cd8c.jpg&#34;&#10;        case &#34;lijie&#34;:&#10;            userInfo.name = &#34;B&#34;&#10;            userInfo.portraitUri = &#34;http://image.photophoto.cn/nm-6/018/030/0180300244.jpg&#34;&#10;        case &#34;tansanxiang&#34;:&#10;            userInfo.name = &#34;C&#34;&#10;            userInfo.portraitUri = &#34;http://cdn.duitang.com/uploads/item/201407/26/20140726221707_i4ZnL.thumb.224_0.jpeg&#34;&#10;        default:&#10;            print(&#34;&#27809;&#26377;&#36825;&#20010;&#29992;&#25143;&#34;)&#10;        &#125;&#10;        &#10;        completion(userInfo)&#10;    &#125;</span><br></pre></td></tr></table></figure></span>
       
     </div>
 
@@ -382,7 +376,7 @@
 
       <section class="site-overview">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460" alt="xinnyu" itemprop="image"/>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="xinnyu" itemprop="image"/>
           <p class="site-author-name" itemprop="name">xinnyu</p>
         </div>
         <p class="site-description motion-element" itemprop="description">Write the code. Change the world.</p>
@@ -434,6 +428,12 @@
         </div>
 
         
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">

@@ -46,7 +46,7 @@
 <meta name="description" content="Reachability 是一个检测网络状态的框架。开发Web等网络应用程序的时候，需要确认网络环境，连接情况等信息。如果没有处理这些信息的话，是不会通过Apple的审查的。
 使用方法：将Reachability.h 和 Reachability.m 拷贝到你的工程中。
 然后：
-123456789101112131415161718192021222324252627282930313233343">
+var reach:Reachability?&amp;#10;&amp;#10;func checkNetStatus()&amp;#123;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 常用第三方库7(Reachability)">
 <meta property="og:url" content="http://xinnyu.com/2015/09/21/iOS-常用第三方库7-Reachability/index.html">
@@ -54,14 +54,14 @@
 <meta property="og:description" content="Reachability 是一个检测网络状态的框架。开发Web等网络应用程序的时候，需要确认网络环境，连接情况等信息。如果没有处理这些信息的话，是不会通过Apple的审查的。
 使用方法：将Reachability.h 和 Reachability.m 拷贝到你的工程中。
 然后：
-123456789101112131415161718192021222324252627282930313233343">
+var reach:Reachability?&amp;#10;&amp;#10;func checkNetStatus()&amp;#123;">
 <meta property="og:updated_time" content="2015-09-26T17:15:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 常用第三方库7(Reachability)">
 <meta name="twitter:description" content="Reachability 是一个检测网络状态的框架。开发Web等网络应用程序的时候，需要确认网络环境，连接情况等信息。如果没有处理这些信息的话，是不会通过Apple的审查的。
 使用方法：将Reachability.h 和 Reachability.m 拷贝到你的工程中。
 然后：
-123456789101112131415161718192021222324252627282930313233343">
+var reach:Reachability?&amp;#10;&amp;#10;func checkNetStatus()&amp;#123;">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -235,7 +235,7 @@
         <span itemprop="articleBody"><p><a href="https://github.com/tonymillion/Reachability" target="_blank" rel="external">Reachability</a> 是一个检测网络状态的框架。<br>开发Web等网络应用程序的时候，需要确认网络环境，连接情况等信息。如果没有处理这些信息的话，是不会通过Apple的审查的。</p>
 <h3 id="使用方法：">使用方法：</h3><p>将Reachability.h 和 Reachability.m 拷贝到你的工程中。</p>
 <p>然后：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reach:<span class="type">Reachability</span>?</span><br><span class="line"></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">checkNetStatus</span><span class="params">()</span></span>&#123;</span><br><span class="line">       <span class="keyword">self</span>.reach = <span class="type">Reachability</span>.reachabilityForInternetConnection()</span><br><span class="line">       <span class="comment">// Tell the reachability that we DON'T want to be reachable on 3G/EDGE/CDMA</span></span><br><span class="line">       <span class="keyword">self</span>.reach!.reachableOnWWAN = <span class="literal">false</span></span><br><span class="line">       </span><br><span class="line">       <span class="keyword">if</span> reach?.currentReachabilityStatus() == <span class="type">NetworkStatus</span>.<span class="type">ReachableViaWWAN</span> &#123;</span><br><span class="line">           <span class="keyword">self</span>.net = <span class="type">NetState</span>.<span class="type">Mobile</span></span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">       <span class="comment">// Here we set up a NSNotification observer. The Reachability that caused the notification</span></span><br><span class="line">       <span class="comment">// is passed in the object parameter</span></span><br><span class="line">       <span class="type">NSNotificationCenter</span>.defaultCenter().addObserver(<span class="keyword">self</span>,</span><br><span class="line">           selector: <span class="string">"reachabilityChanged:"</span>,</span><br><span class="line">           name: kReachabilityChangedNotification,</span><br><span class="line">           object: <span class="literal">nil</span>)</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">self</span>.reach!.startNotifier()</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="func"><span class="keyword">func</span> <span class="title">reachabilityChanged</span><span class="params">(notification: NSNotification)</span></span>&#123;</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">if</span> <span class="keyword">self</span>.reach!.isReachableViaWiFi()  &#123;</span><br><span class="line">           <span class="built_in">print</span>(<span class="string">"能访问网络"</span>)</span><br><span class="line">           </span><br><span class="line">           </span><br><span class="line">       &#125;<span class="keyword">else</span> <span class="keyword">if</span>  <span class="keyword">self</span>.reach!.isReachableViaWWAN()&#123;</span><br><span class="line">           appDelegate.isCanUseNetWork = <span class="literal">true</span></span><br><span class="line">           <span class="built_in">print</span>(<span class="string">"正在使用移动网络"</span>)</span><br><span class="line">           </span><br><span class="line">       &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">           </span><br><span class="line">           <span class="built_in">print</span>(<span class="string">"没有网络!!!"</span>) </span><br><span class="line">           <span class="keyword">self</span>.net = <span class="type">NetState</span>.<span class="type">None</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var reach:Reachability?&#10;&#10;func checkNetStatus()&#123;&#10;       self.reach = Reachability.reachabilityForInternetConnection()&#10;       // Tell the reachability that we DON&#39;T want to be reachable on 3G/EDGE/CDMA&#10;       self.reach!.reachableOnWWAN = false&#10;       &#10;       if reach?.currentReachabilityStatus() == NetworkStatus.ReachableViaWWAN &#123;&#10;           self.net = NetState.Mobile&#10;       &#125;&#10;       &#10;       // Here we set up a NSNotification observer. The Reachability that caused the notification&#10;       // is passed in the object parameter&#10;       NSNotificationCenter.defaultCenter().addObserver(self,&#10;           selector: &#34;reachabilityChanged:&#34;,&#10;           name: kReachabilityChangedNotification,&#10;           object: nil)&#10;       &#10;       self.reach!.startNotifier()&#10;   &#125;&#10;   &#10;   func reachabilityChanged(notification: NSNotification)&#123;&#10;       &#10;       if self.reach!.isReachableViaWiFi()  &#123;&#10;           print(&#34;&#33021;&#35775;&#38382;&#32593;&#32476;&#34;)&#10;           &#10;           &#10;       &#125;else if  self.reach!.isReachableViaWWAN()&#123;&#10;           appDelegate.isCanUseNetWork = true&#10;           print(&#34;&#27491;&#22312;&#20351;&#29992;&#31227;&#21160;&#32593;&#32476;&#34;)&#10;           &#10;       &#125;else &#123;&#10;           &#10;           print(&#34;&#27809;&#26377;&#32593;&#32476;!!!&#34;) &#10;           self.net = NetState.None&#10;       &#125;&#10;   &#125;</span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -312,7 +312,7 @@
 
       <section class="site-overview">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460" alt="xinnyu" itemprop="image"/>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="xinnyu" itemprop="image"/>
           <p class="site-author-name" itemprop="name">xinnyu</p>
         </div>
         <p class="site-description motion-element" itemprop="description">Write the code. Change the world.</p>
@@ -364,6 +364,12 @@
         </div>
 
         
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">

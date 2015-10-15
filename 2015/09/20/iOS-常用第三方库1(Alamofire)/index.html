@@ -44,18 +44,18 @@
 
 
 <meta name="description" content="Alamofire 是Swift版的 AFNetworking，是非常方便实用的第三方网络操作框架；
-使用方法：1234Alamofire.request(method: Method, URLString: URLStringConvertible, parameters: [String : AnyObject]?, encoding: ParameterEncoding, headers:">
+使用方法：Alamofire.request(method: Method, URLString: URLStringConvertible, parameters: [String : AnyObject]?, encoding: ParameterEncoding, headers: [Str">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 常用第三方库1(Alamofire)">
 <meta property="og:url" content="http://xinnyu.com/2015/09/20/iOS-常用第三方库1(Alamofire)/index.html">
 <meta property="og:site_name" content="Xinnyu's blog">
 <meta property="og:description" content="Alamofire 是Swift版的 AFNetworking，是非常方便实用的第三方网络操作框架；
-使用方法：1234Alamofire.request(method: Method, URLString: URLStringConvertible, parameters: [String : AnyObject]?, encoding: ParameterEncoding, headers:">
+使用方法：Alamofire.request(method: Method, URLString: URLStringConvertible, parameters: [String : AnyObject]?, encoding: ParameterEncoding, headers: [Str">
 <meta property="og:updated_time" content="2015-09-26T09:36:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 常用第三方库1(Alamofire)">
 <meta name="twitter:description" content="Alamofire 是Swift版的 AFNetworking，是非常方便实用的第三方网络操作框架；
-使用方法：1234Alamofire.request(method: Method, URLString: URLStringConvertible, parameters: [String : AnyObject]?, encoding: ParameterEncoding, headers:">
+使用方法：Alamofire.request(method: Method, URLString: URLStringConvertible, parameters: [String : AnyObject]?, encoding: ParameterEncoding, headers: [Str">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -227,18 +227,18 @@
 
       
         <span itemprop="articleBody"><p><a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="external">Alamofire</a> 是Swift版的 AFNetworking，是非常方便实用的第三方网络操作框架；</p>
-<h3 id="使用方法：">使用方法：</h3><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Alamofire.request(<span class="function"><span class="keyword">method</span>:</span> <span class="function"><span class="keyword">Method</span>, <span class="title">URLString</span>:</span> URLStringConvertible, parameters: [String : AnyObject]?, encoding: ParameterEncoding, headers: [String : String]?).response (options: NSJSONReadingOptions, completionHandler: <span class="comment">&#123; (NSURLRequest, NSHTTPURLResponse?, NSData?, NSError?) -&gt; Void in</span><br><span class="line">    //操作数据</span><br><span class="line"></span><br><span class="line">&#125;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="使用方法：">使用方法：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Alamofire.request(method: Method, URLString: URLStringConvertible, parameters: [String : AnyObject]?, encoding: ParameterEncoding, headers: [String : String]?).response (options: NSJSONReadingOptions, completionHandler: &#123; (NSURLRequest, NSHTTPURLResponse?, NSData?, NSError?) -&#62; Void in&#10;&#160; &#160; //&#25805;&#20316;&#25968;&#25454;&#10;&#10;&#125;)</span><br></pre></td></tr></table></figure>
 <p>但是上面方法中有些参数可以省略，基本用法如下：</p>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Alamofire.request<span class="function"><span class="params">(.GET, <span class="string">"URL"</span>)</span>.<span class="title">responseJSON</span><span class="params">(options: NSJSONReadingOptions.AllowFragments)</span> &#123; <span class="params">(_, _, json, _)</span> -&gt;</span> Void <span class="keyword">in</span></span><br><span class="line"><span class="pi">//操作数据</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Alamofire.request(.GET, &#34;URL&#34;).responseJSON(options: NSJSONReadingOptions.AllowFragments) &#123; (_, _, json, _) -&#62; Void in&#10;//&#25805;&#20316;&#25968;&#25454;&#10;&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="获取数据的方法">获取数据的方法</h4><ul>
 <li>response()</li>
 <li>responseString(encoding: NSStringEncoding)</li>
 <li>responseJSON(options: NSJSONReadingOptions)</li>
 <li>responsePropertyList(options: NSPropertyListReadOptions)</li>
 </ul>
-<h4 id="HTTP_Methods">HTTP Methods</h4><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public enum Method: String &#123;</span><br><span class="line">    case OPTIONS = <span class="string">"<span class="keyword">OPTIONS</span>"</span></span><br><span class="line">    case GET = <span class="string">"<span class="keyword">GET</span>"</span></span><br><span class="line">    case HEAD = <span class="string">"<span class="keyword">HEAD</span>"</span></span><br><span class="line">    case POST = <span class="string">"<span class="keyword">POST</span>"</span></span><br><span class="line">    case PUT = <span class="string">"<span class="keyword">PUT</span>"</span></span><br><span class="line">    case PATCH = <span class="string">"<span class="keyword">PATCH</span>"</span></span><br><span class="line">    case DELETE = <span class="string">"<span class="keyword">DELETE</span>"</span></span><br><span class="line">    case TRACE = <span class="string">"<span class="keyword">TRACE</span>"</span></span><br><span class="line">    case CONNECT = <span class="string">"<span class="keyword">CONNECT</span>"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="请求需要的参数parameters">请求需要的参数parameters</h4><p>类型是一个字典 [String : AnyObject]<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let parameters = [</span><br><span class="line">    <span class="string">"foo"</span>: <span class="string">"bar"</span>,</span><br><span class="line">    <span class="string">"baz"</span>: [<span class="string">"a"</span>, <span class="number">1</span>],</span><br><span class="line">    <span class="string">"qux"</span>: [<span class="string">"x"</span>: <span class="number">1</span> , <span class="string">"y"</span>: <span class="number">2</span> , <span class="string">"z"</span>: <span class="number">3</span>]</span><br><span class="line">]</span><br><span class="line">Alamofire.request(.POST, <span class="string">"http://httpbin.org/post"</span>, parameters: parameters)</span><br></pre></td></tr></table></figure></p>
-<h4 id="下载文件">下载文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Alamofire.download(.GET, <span class="string">"http://httpbin.org/stream/100"</span>) &#123; temporaryURL, response <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">let</span> fileManager = NSFileManager.defaultManager()</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">let</span> directoryURL = fileManager.URLsForDirectory(.DocumentDirectory, <span class="keyword">in</span>Domains: .UserDomainMask)[<span class="number">0</span>] as? NSURL &#123;</span><br><span class="line">        <span class="built_in">let</span> pathComponent = response.suggestedFilename</span><br><span class="line">        <span class="built_in">return</span> directoryURL.URLByAppendingPathComponent(pathComponent!)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> temporaryURL</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">这些都只是Alamofire的常规使用，更加详细的使用方法其官方网站上有详细描述。</span><br></pre></td></tr></table></figure>
+<h4 id="HTTP_Methods">HTTP Methods</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public enum Method: String &#123;&#10;    case OPTIONS = &#34;OPTIONS&#34;&#10;    case GET = &#34;GET&#34;&#10;    case HEAD = &#34;HEAD&#34;&#10;    case POST = &#34;POST&#34;&#10;    case PUT = &#34;PUT&#34;&#10;    case PATCH = &#34;PATCH&#34;&#10;    case DELETE = &#34;DELETE&#34;&#10;    case TRACE = &#34;TRACE&#34;&#10;    case CONNECT = &#34;CONNECT&#34;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="请求需要的参数parameters">请求需要的参数parameters</h4><p>类型是一个字典 [String : AnyObject]<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let parameters = [&#10;    &#34;foo&#34;: &#34;bar&#34;,&#10;    &#34;baz&#34;: [&#34;a&#34;, 1],&#10;    &#34;qux&#34;: [&#34;x&#34;: 1 , &#34;y&#34;: 2 , &#34;z&#34;: 3]&#10;]&#10;Alamofire.request(.POST, &#34;http://httpbin.org/post&#34;, parameters: parameters)</span><br></pre></td></tr></table></figure></p>
+<h4 id="下载文件">下载文件</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Alamofire.download(.GET, &#34;http://httpbin.org/stream/100&#34;) &#123; temporaryURL, response in&#10;    let fileManager = NSFileManager.defaultManager()&#10;    if let directoryURL = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0] as? NSURL &#123;&#10;        let pathComponent = response.suggestedFilename&#10;        return directoryURL.URLByAppendingPathComponent(pathComponent!)&#10;    &#125;&#10;&#10;    return temporaryURL&#10;&#125;&#10;&#10;&#36825;&#20123;&#37117;&#21482;&#26159;Alamofire&#30340;&#24120;&#35268;&#20351;&#29992;&#65292;&#26356;&#21152;&#35814;&#32454;&#30340;&#20351;&#29992;&#26041;&#27861;&#20854;&#23448;&#26041;&#32593;&#31449;&#19978;&#26377;&#35814;&#32454;&#25551;&#36848;&#12290;</span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -315,7 +315,7 @@
 
       <section class="site-overview">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460" alt="xinnyu" itemprop="image"/>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="xinnyu" itemprop="image"/>
           <p class="site-author-name" itemprop="name">xinnyu</p>
         </div>
         <p class="site-description motion-element" itemprop="description">Write the code. Change the world.</p>
@@ -367,6 +367,12 @@
         </div>
 
         
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">

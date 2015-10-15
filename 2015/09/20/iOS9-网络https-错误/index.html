@@ -45,20 +45,20 @@
 
 <meta name="description" content="在iOS9 中，苹果将原http协议改成了https协议，使用 TLS1.2 SSL加密请求数据。
 解决办法：
-在info.plist中添加123&amp;lt;key&amp;gt;NSAppTransportSecurity&amp;lt;/key&amp;gt;&amp;lt;dict&amp;gt;    &amp;lt;key&amp;gt;NSAllowsArbitraryLoads&amp;lt;/key&amp;gt;    &amp;lt;true/&amp;gt;&amp;lt;">
+在info.plist中添加&amp;#60;key&amp;#62;NSAppTransportSecurity&amp;#60;/key&amp;#62;&amp;#60;dict&amp;#62;&amp;#10;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#60;key&amp;#62;NSAllowsArbitraryLoads&amp;#6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS9 网络https 错误">
 <meta property="og:url" content="http://xinnyu.com/2015/09/20/iOS9-网络https-错误/index.html">
 <meta property="og:site_name" content="Xinnyu's blog">
 <meta property="og:description" content="在iOS9 中，苹果将原http协议改成了https协议，使用 TLS1.2 SSL加密请求数据。
 解决办法：
-在info.plist中添加123&amp;lt;key&amp;gt;NSAppTransportSecurity&amp;lt;/key&amp;gt;&amp;lt;dict&amp;gt;    &amp;lt;key&amp;gt;NSAllowsArbitraryLoads&amp;lt;/key&amp;gt;    &amp;lt;true/&amp;gt;&amp;lt;">
+在info.plist中添加&amp;#60;key&amp;#62;NSAppTransportSecurity&amp;#60;/key&amp;#62;&amp;#60;dict&amp;#62;&amp;#10;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#60;key&amp;#62;NSAllowsArbitraryLoads&amp;#6">
 <meta property="og:updated_time" content="2015-09-20T11:07:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS9 网络https 错误">
 <meta name="twitter:description" content="在iOS9 中，苹果将原http协议改成了https协议，使用 TLS1.2 SSL加密请求数据。
 解决办法：
-在info.plist中添加123&amp;lt;key&amp;gt;NSAppTransportSecurity&amp;lt;/key&amp;gt;&amp;lt;dict&amp;gt;    &amp;lt;key&amp;gt;NSAllowsArbitraryLoads&amp;lt;/key&amp;gt;    &amp;lt;true/&amp;gt;&amp;lt;">
+在info.plist中添加&amp;#60;key&amp;#62;NSAppTransportSecurity&amp;#60;/key&amp;#62;&amp;#60;dict&amp;#62;&amp;#10;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#60;key&amp;#62;NSAllowsArbitraryLoads&amp;#6">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -231,7 +231,7 @@
       
         <span itemprop="articleBody"><p>在iOS9 中，苹果将原http协议改成了https协议，使用 TLS1.2 SSL加密请求数据。</p>
 <p><strong>解决办法</strong>：</p>
-<p>在<em>info.plist</em>中添加<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">key</span>&gt;</span>NSAppTransportSecurity<span class="tag">&lt;/<span class="title">key</span>&gt;</span><span class="tag">&lt;<span class="title">dict</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">key</span>&gt;</span>NSAllowsArbitraryLoads<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">true</span>/&gt;</span><span class="tag">&lt;/<span class="title">dict</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>在<em>info.plist</em>中添加<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#60;key&#62;NSAppTransportSecurity&#60;/key&#62;&#60;dict&#62;&#10;&#160;&#160;&#160;&#160;&#60;key&#62;NSAllowsArbitraryLoads&#60;/key&#62;&#10;&#160;&#160;&#160;&#160;&#60;true/&#62;&#60;/dict&#62;</span><br></pre></td></tr></table></figure></p>
 </span>
       
     </div>
@@ -308,7 +308,7 @@
 
       <section class="site-overview">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460" alt="xinnyu" itemprop="image"/>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="xinnyu" itemprop="image"/>
           <p class="site-author-name" itemprop="name">xinnyu</p>
         </div>
         <p class="site-description motion-element" itemprop="description">Write the code. Change the world.</p>
@@ -360,6 +360,12 @@
         </div>
 
         
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">

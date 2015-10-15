@@ -253,11 +253,11 @@ UIDynamicItem，动力项，相当于现实世界中的一个基本物体；
 <h3 id="使用方法">使用方法</h3><ul>
 <li>创建一个UIDynamicAnimator</li>
 </ul>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">UIDynamicAnimator</span> *dynamicAnimate;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">UIDynamicAnimator</span> *)dynamicAnimate&#123;</span><br><span class="line">    <span class="keyword">if</span> (!_dynamicAnimate) &#123;</span><br><span class="line">        _dynamicAnimate = [[<span class="built_in">UIDynamicAnimator</span> alloc] initWithReferenceView:<span class="keyword">self</span><span class="variable">.gameView</span>];</span><br><span class="line">        _dynamicAnimate<span class="variable">.delegate</span> = <span class="keyword">self</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _dynamicAnimate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@property(strong, nonatomic) UIDynamicAnimator *dynamicAnimate;&#10;&#10;- (UIDynamicAnimator *)dynamicAnimate&#123;&#10;    if (!_dynamicAnimate) &#123;&#10;        _dynamicAnimate = [[UIDynamicAnimator alloc] initWithReferenceView:self.gameView];&#10;        _dynamicAnimate.delegate = self;&#10;    &#125;&#10;    return _dynamicAnimate;&#10;&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>然后就可以把动力行为加到动画中了</li>
 </ul>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">[self.dynamicAnimate addBehavior:_dropItemBehavior]</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[self.dynamicAnimate addBehavior:_dropItemBehavior];</span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -334,7 +334,7 @@ UIDynamicItem，动力项，相当于现实世界中的一个基本物体；
 
       <section class="site-overview">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460" alt="xinnyu" itemprop="image"/>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="xinnyu" itemprop="image"/>
           <p class="site-author-name" itemprop="name">xinnyu</p>
         </div>
         <p class="site-description motion-element" itemprop="description">Write the code. Change the world.</p>
@@ -386,6 +386,12 @@ UIDynamicItem，动力项，相当于现实世界中的一个基本物体；
         </div>
 
         
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">

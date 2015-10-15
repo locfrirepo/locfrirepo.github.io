@@ -45,26 +45,20 @@
 
 <meta name="description" content="定义一个 NSTimer
 
-12var timer1:NSTimer! = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: &quot;addOneMin:&quot;, userInfo: nil, repeats: true)//selector 是一个选择器,需要定义一个函数,当函数需要传参时,函数名后应该加冒号
-
-启动 NST">
+var timer1:NSTimer! = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: &amp;#34;addOneMin:&amp;#34;, userInfo: nil, repeats: true)&amp;#10;//selector &amp;#26159;&amp;#19968;&amp;#20010;&amp;#36873">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NSTimer 相关">
 <meta property="og:url" content="http://xinnyu.com/2015/09/20/NSTimer-相关/index.html">
 <meta property="og:site_name" content="Xinnyu's blog">
 <meta property="og:description" content="定义一个 NSTimer
 
-12var timer1:NSTimer! = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: &quot;addOneMin:&quot;, userInfo: nil, repeats: true)//selector 是一个选择器,需要定义一个函数,当函数需要传参时,函数名后应该加冒号
-
-启动 NST">
+var timer1:NSTimer! = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: &amp;#34;addOneMin:&amp;#34;, userInfo: nil, repeats: true)&amp;#10;//selector &amp;#26159;&amp;#19968;&amp;#20010;&amp;#36873">
 <meta property="og:updated_time" content="2015-09-20T08:08:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NSTimer 相关">
 <meta name="twitter:description" content="定义一个 NSTimer
 
-12var timer1:NSTimer! = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: &quot;addOneMin:&quot;, userInfo: nil, repeats: true)//selector 是一个选择器,需要定义一个函数,当函数需要传参时,函数名后应该加冒号
-
-启动 NST">
+var timer1:NSTimer! = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: &amp;#34;addOneMin:&amp;#34;, userInfo: nil, repeats: true)&amp;#10;//selector &amp;#26159;&amp;#19968;&amp;#20010;&amp;#36873">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -238,15 +232,15 @@
         <span itemprop="articleBody"><ol>
 <li>定义一个 NSTimer</li>
 </ol>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var <span class="string">timer1:</span>NSTimer! = NSTimer.scheduledTimerWithTimeInterval(<span class="number">1</span>, <span class="string">target:</span> self, <span class="string">selector:</span> <span class="string">"addOneMin:"</span>, <span class="string">userInfo:</span> nil, <span class="string">repeats:</span> <span class="literal">true</span>)</span><br><span class="line"><span class="comment">//selector 是一个选择器,需要定义一个函数,当函数需要传参时,函数名后应该加冒号</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var timer1:NSTimer! = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: &#34;addOneMin:&#34;, userInfo: nil, repeats: true)&#10;//selector &#26159;&#19968;&#20010;&#36873;&#25321;&#22120;,&#38656;&#35201;&#23450;&#20041;&#19968;&#20010;&#20989;&#25968;,&#24403;&#20989;&#25968;&#38656;&#35201;&#20256;&#21442;&#26102;,&#20989;&#25968;&#21517;&#21518;&#24212;&#35813;&#21152;&#20882;&#21495;</span><br></pre></td></tr></table></figure>
 <ol>
 <li>启动 NSTimer</li>
 </ol>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.<span class="function"><span class="title">fire</span><span class="params">()</span></span></span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.fire()&#10;`</span><br></pre></td></tr></table></figure>
 <ol>
 <li>暂停</li>
 </ol>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.<span class="function"><span class="title">invalidate</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.invalidate()</span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -323,7 +317,7 @@
 
       <section class="site-overview">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460" alt="xinnyu" itemprop="image"/>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="xinnyu" itemprop="image"/>
           <p class="site-author-name" itemprop="name">xinnyu</p>
         </div>
         <p class="site-description motion-element" itemprop="description">Write the code. Change the world.</p>
@@ -375,6 +369,12 @@
         </div>
 
         
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">

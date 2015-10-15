@@ -238,7 +238,7 @@ POPDecayAnimation
 POPCustomAnimation //自定义动画
 
 这里我们只讨论前三种，因为自定义动画还没用过；
-代码示例：BasicAnimation1234567let rotation = POPBasicAnimation(propertyN
+代码示例：BasicAnimationlet rotation = POPBasicAnimation(propertyNamed: k
             ...
           </span>
           <div class="post-more-link text-center">
@@ -320,7 +320,7 @@ POPCustomAnimation //自定义动画
 使用方法
 画折线图
 
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455func  setLineChart()&#123;          /// 定义一个lineChart    	var lineChart = PNLineChart(frame: CGRectMake(0, self.view.frame.height/4, self.view.frame.width, self.view.frame.height/2))	//不要使用下面的方法，Width 不好计算，只设置数据的话宽度会自动设定	//lineChart.setXLabe
+func&#160; setLineChart()&#123;&#10;&#160;&#160; &#160; &#160; &#160;&#10;&#160; /// &#23450;&#20041;&#19968;&#20010;lineChart &#160; &#160;&#10;&#9;var lineChart = PNLineChart(frame: CGRectMake(0, self.view.frame.height/4, self.view.frame.width, self.view.frame.height/2))&#10;&#9;//&#19981;&#35201;&#20351;&#29992;&#19979;&#38754;&#30340;&#
             ...
           </span>
           <div class="post-more-link text-center">
@@ -399,7 +399,7 @@ POPCustomAnimation //自定义动画
           <span itemprop="articleBody">
             
             SwiftJSON是用Swift写的一个快速处理JSON数据的第三方库。
-使用方法：1234let json = JSON(data: dataFromNetworking)if let userName = json["name"].string&#123;  //就这么简单取到了。&#125;
+使用方法：let json = JSON(data: dataFromNetworking)&#10;if let userName = json[&#34;name&#34;].string&#123;&#10;  //&#23601;&#36825;&#20040;&#31616;&#21333;&#21462;&#21040;&#20102;&#12290;&#10;&#125;
 
 中文说明
 
@@ -487,11 +487,9 @@ ProgressHUD
 SwiftNotice
 MBProgressHUD
 
-ProgressHUD用法简单，一行代码搞定：1234567#import "ProgressHUD.h"ProgressHUD.show("正在刷新！")ProgressHUD.showError("错误")ProgressHUD.showSuccess("刷新成功！")ProgressHUD.dismiss()
+ProgressHUD用法简单，一行代码搞定：#import &#34;ProgressHUD.h&#34;&#10;&#10;ProgressHUD.show(&#34;&#27491;&#22312;&#21047;&#26032;&#65281;&#34;)&#10;ProgressHUD.showError(&#34;&#38169;&#35823;&#34;)&#10;ProgressHUD.showSuccess(&#34;&#21047;&#26032;&#25104;&#21151;&#65281;&#34;)&#10;&#10;ProgressHUD.dismiss()
 但是可自定义的属性不多；
-SwiftNotice用法同样简单，还支持顶部通知：
-12345noticeTop("") //顶部通知notice("", type: NoticeType, autoClear: true)noticeOnlyText("")successNotice("")errorNotice("")
-MBPr
+SwiftNotice用法
             ...
           </span>
           <div class="post-more-link text-center">
@@ -586,7 +584,7 @@ MBPr
             
             MJRefresh是用法最简单的下拉刷新框架：一行代码搞定 
 支持 UIScrollView、UITableView、UICollectionView、UIWebView 的刷新
-基础用法1234567891011121314151617//设置下拉刷新var MJHeader = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refresh")self.myTabView.header = MJHeader        //设置上拉加载var MJFooter = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "load")self.myTabView.footer = MJFooterfunc load()&#1
+基础用法//&#35774;&#32622;&#19979;&#25289;&#21047;&#26032;&#10;var MJHeader = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: &#34;refresh&#34;)&#10;self.myTabView.header = MJHeader&#10;&#160;&#160; &#160; &#160; &#160;&#10;//&#35774;&#32622;&#19978;&#25289;&#21152;&#36733;&#10;var MJFooter = MJRe
             ...
           </span>
           <div class="post-more-link text-center">
@@ -665,9 +663,7 @@ MBPr
           <span itemprop="articleBody">
             
             Alamofire 是Swift版的 AFNetworking，是非常方便实用的第三方网络操作框架；
-使用方法：1234Alamofire.request(method: Method, URLString: URLStringConvertible, parameters: [String : AnyObject]?, encoding: ParameterEncoding, headers: [String : String]?).response (options: NSJSONReadingOptions, completionHandler: &#123; (NSURLRequest, NSHTTPURLResponse?, NSData?, NSError?) -&gt; Void in    //操作数据&#125;)
-但是上面方法中有些参数可以省略，基本用法如下：
-123A
+使用方法：Alamofire.request(method: Method, URLString: URLStringConvertible, parameters: [String : AnyObject]?, encoding: ParameterEncoding, headers: [String : String]?).response (options: NSJSONReadingOptions, completionHandler: &#123; (NSURLRequest, NSHTTPURLResponse?, NSData?, NSError?) -&#62; Void in&#10;&#160; &#160; //&#25805;&#20316;&#25968;&#25
             ...
           </span>
           <div class="post-more-link text-center">
@@ -747,7 +743,7 @@ MBPr
             
             在iOS9 中，苹果将原http协议改成了https协议，使用 TLS1.2 SSL加密请求数据。
 解决办法：
-在info.plist中添加123&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;&lt;dict&gt;    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;    &lt;true/&gt;&lt;/dict&gt;
+在info.plist中添加&#60;key&#62;NSAppTransportSecurity&#60;/key&#62;&#60;dict&#62;&#10;&#160;&#160;&#160;&#160;&#60;key&#62;NSAllowsArbitraryLoads&#60;/key&#62;&#10;&#160;&#160;&#160;&#160;&#60;true/&#62;&#60;/dict&#62;
 
             
           </span>
@@ -827,19 +823,20 @@ MBPr
           <span itemprop="articleBody">
             
             安装首先安装好Ruby环境，在终端中输入以下命令：
-1sudo gem install cocoapods
+sudo gem install cocoapods
 可是在天朝，在终端中敲入这个命令之后，会发现半天没有任何反应。原因无他，因为那堵墙阻挡了cocoapods.org。
 我们可以用淘宝的Ruby镜像来访问cocoapods。按照下面的顺序在终端中敲入依次敲入命令：
-1$ gem sources --remove https://rubygems.org/
+$ gem sources --remove https://rubygems.org/
 等有反应之后再敲入以下命令:
-1$ gem sources -a http://ruby.taobao.org/
+$ gem sources -a http://ruby.taobao.org/
 为了验证你的Ruby镜像是并且仅是taobao，可以用以下命令查看：
-1$ gem sources -l
+$ gem sources -l
 只有在终端中出现下面文字才表明你上面的命令是成功的：
 
 CURRENT SOURCES ***http://ruby.taobao.org/
 
-这时候，再次在终端中运
+这时候，再次在终端中运行：
+$
             ...
           </span>
           <div class="post-more-link text-center">
@@ -935,7 +932,7 @@ segue传值就是利用segue跳转时利用属性进行传值，这边就不做�
 通知传值
 
 通知是一个单例类，只存在一个通知实例，一个通知会有一个对应的名字，而这个名字就是对应的观察者的接受通知的索引，每个对象都可以接收到这个广播，但是只有这个通知的名字和观察者的名字相同时，对应的观察者才可以接收到这个广播并处理对应逻辑。
-12345678910111213//seletor: 接收到通知后应该做的操作；name：该通知对应的名字//A发送通知NSNotific
+//seletor: &#25509;&#25910;&#21040;&#36890;&#30693;&#21518;&#24212;&#3
             ...
           </span>
           <div class="post-more-link text-center">
@@ -1016,17 +1013,8 @@ segue传值就是利用segue跳转时利用属性进行传值，这边就不做�
             
 定义一个 NSTimer
 
-12var timer1:NSTimer! = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "addOneMin:", userInfo: nil, repeats: true)//selector 是一个选择器,需要定义一个函数,当函数需要传参时,函数名后应该加冒号
-
-启动 NSTimer
-
-12.fire()`
-
-暂停
-
-1.invalidate()
-
-            
+var timer1:NSTimer! = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: &#34;addOneMin:&#34;, userInfo: nil, repeats: true)&#10;//selector &#26159;&#19968;&#20010;&#36873;&#25321;&#22120;,&#38656;&#35201;&#23450;&#20041;&#19968;&#20010;&#20989;&#25968;,&#24403;&#20989;&#25968;&#38656;&#35201;&#20256;&#21442;&#26102;,&#20989;&#25968;&#21517;&#21518;&#24212;&#35813;&#2
+            ...
           </span>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/09/20/NSTimer-相关/#more" rel="contents">
@@ -1082,7 +1070,7 @@ segue传值就是利用segue跳转时利用属性进行传值，这边就不做�
 
       <section class="site-overview">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460" alt="xinnyu" itemprop="image"/>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="xinnyu" itemprop="image"/>
           <p class="site-author-name" itemprop="name">xinnyu</p>
         </div>
         <p class="site-description motion-element" itemprop="description">Write the code. Change the world.</p>
@@ -1134,6 +1122,12 @@ segue传值就是利用segue跳转时利用属性进行传值，这边就不做�
         </div>
 
         
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">

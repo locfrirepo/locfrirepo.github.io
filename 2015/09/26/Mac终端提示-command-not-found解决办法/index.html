@@ -44,18 +44,18 @@
 
 
 <meta name="description" content="在bash_profile中添加：
-123export PATH=&quot;$PATH:$HOME/.rvm/bin&quot; # Add RVM to PATH for scripting[[ -s &quot;$HOME/.rvm/scripts/rvm&quot; ]] &amp;amp;&amp;amp; source &quot;$HOME/.rvm/scripts/rvm&quot; # Load RVM into a shell session *as">
+export PATH=&amp;#34;$PATH:$HOME/.rvm/bin&amp;#34; # Add RVM to PATH for scripting&amp;#10;&amp;#10;[[ -s &amp;#34;$HOME/.rvm/scripts/rvm&amp;#34; ]] &amp;#38;&amp;#38; source &amp;#34;$HOME/.rvm/scripts/rvm&amp;#34; # Loa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac终端command not found 解决办法">
 <meta property="og:url" content="http://xinnyu.com/2015/09/26/Mac终端提示-command-not-found解决办法/index.html">
 <meta property="og:site_name" content="Xinnyu's blog">
 <meta property="og:description" content="在bash_profile中添加：
-123export PATH=&quot;$PATH:$HOME/.rvm/bin&quot; # Add RVM to PATH for scripting[[ -s &quot;$HOME/.rvm/scripts/rvm&quot; ]] &amp;amp;&amp;amp; source &quot;$HOME/.rvm/scripts/rvm&quot; # Load RVM into a shell session *as">
+export PATH=&amp;#34;$PATH:$HOME/.rvm/bin&amp;#34; # Add RVM to PATH for scripting&amp;#10;&amp;#10;[[ -s &amp;#34;$HOME/.rvm/scripts/rvm&amp;#34; ]] &amp;#38;&amp;#38; source &amp;#34;$HOME/.rvm/scripts/rvm&amp;#34; # Loa">
 <meta property="og:updated_time" content="2015-09-26T15:17:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac终端command not found 解决办法">
 <meta name="twitter:description" content="在bash_profile中添加：
-123export PATH=&quot;$PATH:$HOME/.rvm/bin&quot; # Add RVM to PATH for scripting[[ -s &quot;$HOME/.rvm/scripts/rvm&quot; ]] &amp;amp;&amp;amp; source &quot;$HOME/.rvm/scripts/rvm&quot; # Load RVM into a shell session *as">
+export PATH=&amp;#34;$PATH:$HOME/.rvm/bin&amp;#34; # Add RVM to PATH for scripting&amp;#10;&amp;#10;[[ -s &amp;#34;$HOME/.rvm/scripts/rvm&amp;#34; ]] &amp;#38;&amp;#38; source &amp;#34;$HOME/.rvm/scripts/rvm&amp;#34; # Loa">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -227,7 +227,7 @@
 
       
         <span itemprop="articleBody"><p>在bash_profile中添加：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>:<span class="variable">$HOME</span>/.rvm/bin"</span> <span class="comment"># Add RVM to PATH for scripting</span></span><br><span class="line"></span><br><span class="line">[[ <span class="operator">-s</span> <span class="string">"<span class="variable">$HOME</span>/.rvm/scripts/rvm"</span> ]] &amp;&amp; <span class="built_in">source</span> <span class="string">"<span class="variable">$HOME</span>/.rvm/scripts/rvm"</span> <span class="comment"># Load RVM into a shell session *as a function*</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export PATH=&#34;$PATH:$HOME/.rvm/bin&#34; # Add RVM to PATH for scripting&#10;&#10;[[ -s &#34;$HOME/.rvm/scripts/rvm&#34; ]] &#38;&#38; source &#34;$HOME/.rvm/scripts/rvm&#34; # Load RVM into a shell session *as a function*</span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -304,7 +304,7 @@
 
       <section class="site-overview">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460" alt="xinnyu" itemprop="image"/>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="xinnyu" itemprop="image"/>
           <p class="site-author-name" itemprop="name">xinnyu</p>
         </div>
         <p class="site-description motion-element" itemprop="description">Write the code. Change the world.</p>
@@ -356,6 +356,12 @@
         </div>
 
         
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">

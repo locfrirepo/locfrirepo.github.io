@@ -313,8 +313,7 @@
           <span itemprop="articleBody">
             
             单例是一个在 Cocoa 中很常用的模式了。对于一些希望能在全局方便访问的实例，或者在 app 的生命周期中只应该存在一个的对象，我们一般使用单例来存储和访问。在 Objective-C 中单例的公认的写法类似下面这样：
-1234567891011@implementation MyManager+ (id)sharedManager &#123;    static MyManager *staticInstance = nil;    static dispatch_once_t onceToken;    dispatch_once(&amp;onceToken, ^&#123;        staticInstance = [[self alloc] init];    &#125;);    return staticInstance;&#125;@end
-使用 GCD 中的 
+@implementation MyManager&#10;+ (id)sharedManager &#123;&#10;    static MyManager *staticInstance = nil;&#10;    static dispatch_once_t onceToken;&#10;&#10;    dispatch_once(&#38;onceToken, ^&#123;&#10;        staticInstance = [[self alloc] init];&#10;    &#125;);&#10;    return staticIns
             ...
           </span>
           <div class="post-more-link text-center">
@@ -487,7 +486,7 @@
           <span itemprop="articleBody">
             
             在bash_profile中添加：
-123export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting[[ -s "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH=&#34;$PATH:$HOME/.rvm/bin&#34; # Add RVM to PATH for scripting&#10;&#10;[[ -s &#34;$HOME/.rvm/scripts/rvm&#34; ]] &#38;&#38; source &#34;$HOME/.rvm/scripts/rvm&#34; # Load RVM into a shell session *as a function*
 
             
           </span>
@@ -571,12 +570,12 @@
 “+y 
 在 ~/.vimrc 里增加 set clipboard=unnamed
 
-但是完全不起任何作用，经过一番折腾之后才知道是Mac自带的Vim7.3版本不支持使用系统剪切板；于是就安装了MacVim，结果试了之后还是不管用，执行1vim --version | grep clip
+但是完全不起任何作用，经过一番折腾之后才知道是Mac自带的Vim7.3版本不支持使用系统剪切板；于是就安装了MacVim，结果试了之后还是不管用，执行vim --version | grep clip
 结果还是：
-12-clientserver -clipboard +cmdline_compl +cmdline_hist +cmdline_info +comments -xterm_clipboard -xterm_save
+-clientserver -clipboard +cmdline_compl +cmdline_hist +cmdline_info +comments &#10;-xterm_clipboard -xterm_save
 原因是就算你安装了MacVim使用了Vim7.4系统自带的Terminal还是会默认使用自带的7.3版本；
 所以只要在profile中添加如下语句就可以解决问题了；
-1alias vim="/A
+alias vim=&#
             ...
           </span>
           <div class="post-more-link text-center">
@@ -663,7 +662,7 @@ UIDynamicItem，动力项，相当于现实世界中的一个基本物体；
 使用方法
 创建一个UIDynamicAnimator
 
-123456789@property(strong, nonatomic) UIDynamicAnimator *dynamicAnimate;- (UIDynamicAnimator *)dynamicAnimate&#123;    if (!_dynamicAnimate) &#123;        _dynamicAnimate = [[UIDyna
+@property(strong, nonatomic) UIDynamicAnimator *dynamicAnimate;&#10;&#10;- (UIDynamicAnimator *)dynamicAnimate&#123;&#10;    if (!_dynamicAnimate) &#123;&#10;        _dynamicAnimate
             ...
           </span>
           <div class="post-more-link text-center">
@@ -761,13 +760,12 @@ UIDynamicItem，动力项，相当于现实世界中的一个基本物体；
 
 在Podfile中添加：
 
-1pod 'RongCloudIMKit'
+pod &#39;RongCloudIMKit&#39;
 
 然后执行命令：
 
-1pod install
-获取TokenToken 也叫用户令牌，是 SDK 端用来连接融云服务器的凭证，每个用户连接服务器都需要一个 Token。每次初始化连接服务器时，都需要向服务器提交 Token。获取Token需要注册一个融云的账号，然后新建一个应用，之后在API调试中填写userid（用户唯一标示符）、name（用户昵称）、portraitUri（头像url）就可以获得一个测试用的Token。
-初始
+pod install
+获取TokenToken 也叫用户令牌，是 SDK 端用来连接融云服务器的凭证，每个用户连接服务器都需要一个 Token。每次初始化连接服务器时，都需要向服务器提交 Token。获取Token需要注册一个融云的账号，然后新建一个应用，之后在API调试中填写userid（用户唯一标示符）、name（用户昵称）、portraitUri（头像url）就可以获得一个测试用的Tok
             ...
           </span>
           <div class="post-more-link text-center">
@@ -854,8 +852,8 @@ Audioqueue，Audiostream （太复杂）
 
 所以用AVPlayer来实现在线音频播放是最好的选择；一下就是利用AVPlayer实现音乐流播并实现后台锁屏播放和设置自动连播的大概步骤：
 项目源代码：Swift 2.0 版豆瓣电台
-初始化先声明AVplayer和AVPlayerItem的实例：12var musicPlayer:AVPlayer!var playerItem:AVPlayerItem?
-然后在需要的播放音频的地方给它赋值：12345678910self.musicPlayer 
+初始化先声明AVplayer和AVPlayerItem的实例：var musicPlayer:AVPlayer!&#10;var playerItem:AVPlayerItem?
+然后在需要的播放音频的地方给它赋值：self.musicPlayer = AVPlay
             ...
           </span>
           <div class="post-more-link text-center">
@@ -936,7 +934,7 @@ Audioqueue，Audiostream （太复杂）
             Reachability 是一个检测网络状态的框架。开发Web等网络应用程序的时候，需要确认网络环境，连接情况等信息。如果没有处理这些信息的话，是不会通过Apple的审查的。
 使用方法：将Reachability.h 和 Reachability.m 拷贝到你的工程中。
 然后：
-12345678910111213141516171819202122232425262728293031323334353637var reach:Reachability?func checkNetStatus()&#123;       self.reach = Reachability.reachabilityForInternetConnection()       // Tell the reachability that we DON'T want to be reachable on 3G/EDGE
+var reach:Reachability?&#10;&#10;func checkNetStatus()&#123;&#10;       self.reach = Reachability.reachabilityForInternetConnection()&#10;       // Tell the reachability that we DON&#39;T want to be reachable on 3G/EDGE/CDMA&#10;       self.reach!.reachableOnW
             ...
           </span>
           <div class="post-more-link text-center">
@@ -1018,10 +1016,10 @@ Audioqueue，Audiostream （太复杂）
 
 Asynchronous image downloader with cache support with an UIImageView category.就是一个异步加载图片并且支持缓存的UIImage分类；
 
-使用方法：1imageView.sd_setImageWithURL(NSURL(string: ""), placeholderImage: UIImage(named: "placeholder"))
+使用方法：imageView.sd_setImageWithURL(NSURL(string: &#34;&#34;), placeholderImage: UIImage(named: &#34;placeholder&#34;))
 清除缓存：
-12SDImageCache.sharedImageCache().cleanDisk()SDImageCache.sharedImageCache().clearMemory()
-这个框架使用简单，然而而其中复杂的实现细节全部隐藏在这行代码之后；这边有一篇它的源代码分析：http://draveness.m
+SDImageCache.sharedImageCache().cleanDisk()&#10;SDImageCache.sharedImageCache().clearMemory()
+这个框架使用简单，然而而其中复杂的实现细节全部隐藏在这行代码之后；这边有一篇它的源代码分析：
             ...
           </span>
           <div class="post-more-link text-center">
@@ -1078,7 +1076,7 @@ Asynchronous image downloader with cache support with an UIImageView category.�
 
       <section class="site-overview">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460" alt="xinnyu" itemprop="image"/>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="xinnyu" itemprop="image"/>
           <p class="site-author-name" itemprop="name">xinnyu</p>
         </div>
         <p class="site-description motion-element" itemprop="description">Write the code. Change the world.</p>
@@ -1130,6 +1128,12 @@ Asynchronous image downloader with cache support with an UIImageView category.�
         </div>
 
         
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">
