@@ -4,20 +4,19 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>NSTimer 相关 | Xinnyu&#39;s blog</title>
+    <title>Swift单例 | Xinnyu&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="xinnyu">
     
-    <meta name="description" content="定义一个 NSTimer
-
-12var timer1:NSTimer! = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: &quot;addOneMin:&quot;, userInfo: nil, repeats: true)//s">
+    <meta name="description" content="单例是一个在 Cocoa 中很常用的模式了。对于一些希望能在全局方便访问的实例，或者在 app 的生命周期中只应该存在一个的对象，我们一般使用单例来存储和访问。在 Objective-C 中单例的公认的写法类似下面这样：
+1234567891011@implementation MyManager+">
     
     
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="xinnyu007" />
-    <meta name="twitter:title" content="NSTimer 相关 | Xinnyu&#39;s blog" />
+    <meta name="twitter:title" content="Swift单例 | Xinnyu&#39;s blog" />
       
     
     
@@ -73,15 +72,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/20/NSTimer-相关/" title="NSTimer 相关" itemprop="url">NSTimer 相关</a>
+      <a href="/2015/10/15/Swift单例/" title="Swift单例" itemprop="url">Swift单例</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="xinnyu">xinnyu</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-09-20T08:06:49.000Z" itemprop="datePublished">2015-09-20</time>
-    更新日期:<time datetime="2015-09-20T08:08:21.000Z" itemprop="dateModified">2015-09-20</time>
+    <time datetime="2015-10-15T06:58:10.000Z" itemprop="datePublished">2015-10-15</time>
+    更新日期:<time datetime="2015-10-15T07:03:49.000Z" itemprop="dateModified">2015-10-15</time>
     
   </p>
 </header>
@@ -93,18 +92,17 @@
 		
 		</div>
 		
-		<ol>
-<li>定义一个 NSTimer</li>
-</ol>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var <span class="string">timer1:</span>NSTimer! = NSTimer.scheduledTimerWithTimeInterval(<span class="number">1</span>, <span class="string">target:</span> self, <span class="string">selector:</span> <span class="string">"addOneMin:"</span>, <span class="string">userInfo:</span> nil, <span class="string">repeats:</span> <span class="literal">true</span>)</span><br><span class="line"><span class="comment">//selector 是一个选择器,需要定义一个函数,当函数需要传参时,函数名后应该加冒号</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>启动 NSTimer</li>
-</ol>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.<span class="function"><span class="title">fire</span><span class="params">()</span></span></span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-<ol>
-<li>暂停</li>
-</ol>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.<span class="function"><span class="title">invalidate</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+		<p>单例是一个在 Cocoa 中很常用的模式了。对于一些希望能在全局方便访问的实例，或者在 app 的生命周期中只应该存在一个的对象，我们一般使用单例来存储和访问。在 Objective-C 中单例的公认的写法类似下面这样：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MyManager</span></span></span><br><span class="line">+ (<span class="keyword">id</span>)sharedManager &#123;</span><br><span class="line">    <span class="keyword">static</span> MyManager *staticInstance = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">        staticInstance = [[<span class="keyword">self</span> alloc] init];</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> staticInstance;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>使用 GCD 中的 dispatch_once_t 可以保证里面的代码只被调用一次，以此保证单例在线程上的安全。</p>
+<p>因为在 Swift 中可以无缝直接使用 GCD，所以我们可以很方便地把类似方式的单例用 Swift 进行改写：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyManager</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">var</span> <span class="title">sharedManager</span> : <span class="title">MyManager</span> </span>&#123;</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">Static</span> </span>&#123;</span><br><span class="line">            <span class="keyword">static</span> <span class="keyword">var</span> onceToken : dispatch_once_t = <span class="number">0</span></span><br><span class="line">            <span class="keyword">static</span> <span class="keyword">var</span> staticInstance : <span class="type">MyManager</span>? = <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        dispatch_once(&amp;<span class="type">Static</span>.onceToken) &#123;</span><br><span class="line">            <span class="type">Static</span>.staticInstance = <span class="type">MyManager</span>()</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="type">Static</span>.staticInstance!</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为 Swift 现在还暂时不支持存储的 class var，所以我们需要使用一个 struct 来存储类型变量。</p>
+<p>这样的写法当然没什么问题，但是在 Swift 里我们其实有一个更简单的保证线程安全的方式，那就是 let。把上面的写法简化一下，可以变成：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyManager</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">var</span> <span class="title">sharedManager</span> : <span class="title">MyManager</span> </span>&#123;</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">Static</span> </span>&#123;</span><br><span class="line">            <span class="keyword">static</span> <span class="keyword">let</span> sharedInstance : <span class="type">MyManager</span> = <span class="type">MyManager</span>()</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="type">Static</span>.sharedInstance</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还有另一种更受大家欢迎，并被认为是当前的最佳实践的做法。由于现在 class 不支持存储式的 property，我们想要使用一个只存在一份的属性时，就只能将其定义在全局的 scope 中。值得庆幸的是，在 Swift 拥有访问级别控制后，我们可以在变量定义前面加上 private 关键字，使这个变量只在当前文件中可以被访问。这样我们就可以写出一个没有嵌套的，语法上也更简单好看的单例了：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">let</span> sharedInstance = MyManager()</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">MyManager</span>  &#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">var</span> <span class="title">sharedManager</span> : <span class="title">MyManager</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> sharedInstance</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后一种是最简单也是最实用的，是swift给的语法糖。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -114,7 +112,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2015/09/20/NSTimer-相关/" data-title="NSTimer 相关 | Xinnyu&#39;s blog" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/10/15/Swift单例/" data-title="Swift单例 | Xinnyu&#39;s blog" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -123,19 +121,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/09/20/iOS-传值总结/" title="iOS 传值总结">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  iOS 传值总结</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/09/20/hello-world/"  title="Hello World">
+<a href="/2015/09/29/设计模式/"  title="设计模式">
  <strong>NEXT:</strong><br/> 
- <span>Hello World
+ <span>设计模式
 </span>
 </a>
 </div>

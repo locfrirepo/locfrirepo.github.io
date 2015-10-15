@@ -4,20 +4,32 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>NSTimer 相关 | Xinnyu&#39;s blog</title>
+    <title>设计模式 | Xinnyu&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="xinnyu">
     
-    <meta name="description" content="定义一个 NSTimer
+    <meta name="description" content="设计模式是为了解决特定问题而出现的；
+设计模式的基本原则：
 
-12var timer1:NSTimer! = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: &quot;addOneMin:&quot;, userInfo: nil, repeats: true)//s">
+开闭原则模块应该对扩展开放而对修改关闭；
+
+里氏代换原则父类和子类之间的方法可以相互调换，从而方便修改；多态
+
+依赖倒转原则抽象不依赖于细节，细节依赖于抽象；
+
+接口隔离原则尽量保证接口只做必要的事情；
+
+合成/聚合复用
+
+
+适配器模式比">
     
     
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="xinnyu007" />
-    <meta name="twitter:title" content="NSTimer 相关 | Xinnyu&#39;s blog" />
+    <meta name="twitter:title" content="设计模式 | Xinnyu&#39;s blog" />
       
     
     
@@ -73,15 +85,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/20/NSTimer-相关/" title="NSTimer 相关" itemprop="url">NSTimer 相关</a>
+      <a href="/2015/09/29/设计模式/" title="设计模式" itemprop="url">设计模式</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="xinnyu">xinnyu</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-09-20T08:06:49.000Z" itemprop="datePublished">2015-09-20</time>
-    更新日期:<time datetime="2015-09-20T08:08:21.000Z" itemprop="dateModified">2015-09-20</time>
+    <time datetime="2015-09-29T06:52:05.000Z" itemprop="datePublished">2015-09-29</time>
+    更新日期:<time datetime="2015-09-29T16:16:34.000Z" itemprop="dateModified">2015-09-30</time>
     
   </p>
 </header>
@@ -90,21 +102,25 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器模式"><span class="toc-number">1.</span> <span class="toc-text">适配器模式</span></a></li></ol>
 		</div>
 		
-		<ol>
-<li>定义一个 NSTimer</li>
-</ol>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var <span class="string">timer1:</span>NSTimer! = NSTimer.scheduledTimerWithTimeInterval(<span class="number">1</span>, <span class="string">target:</span> self, <span class="string">selector:</span> <span class="string">"addOneMin:"</span>, <span class="string">userInfo:</span> nil, <span class="string">repeats:</span> <span class="literal">true</span>)</span><br><span class="line"><span class="comment">//selector 是一个选择器,需要定义一个函数,当函数需要传参时,函数名后应该加冒号</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>启动 NSTimer</li>
-</ol>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.<span class="function"><span class="title">fire</span><span class="params">()</span></span></span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-<ol>
-<li>暂停</li>
-</ol>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.<span class="function"><span class="title">invalidate</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+		<p>设计模式是为了解决特定问题而出现的；</p>
+<p>设计模式的基本原则：</p>
+<ul>
+<li><p>开闭原则<br>模块应该对扩展开放而对修改关闭；</p>
+</li>
+<li><p>里氏代换原则<br>父类和子类之间的方法可以相互调换，从而方便修改；多态</p>
+</li>
+<li><p>依赖倒转原则<br>抽象不依赖于细节，细节依赖于抽象；</p>
+</li>
+<li><p>接口隔离原则<br>尽量保证接口只做必要的事情；</p>
+</li>
+<li><p>合成/聚合复用</p>
+</li>
+</ul>
+<h3 id="适配器模式">适配器模式</h3><p>比如iOS从网络请求加载数据，更新UI的时候，我们会初始化出一个model，随着后续版本的升级，这个model会持续添加参数，或者减少参数；此时如果我们直接修改这个model的话，那么就要同时修改与这个model相匹配的view，这样就会一只在两者之间修改来修改去，适配器模式就是为了解决这种问题存在的。</p>
+<p>如果你运用了适配器模式，那么我们的model不会直接与view接触，它会先和适配器接触，然后再通过适配器去更新UI</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -114,7 +130,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2015/09/20/NSTimer-相关/" data-title="NSTimer 相关 | Xinnyu&#39;s blog" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/09/29/设计模式/" data-title="设计模式 | Xinnyu&#39;s blog" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -124,18 +140,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/20/iOS-传值总结/" title="iOS 传值总结">
+ <a href="/2015/10/15/Swift单例/" title="Swift单例">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  iOS 传值总结</span>
+  Swift单例</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/09/20/hello-world/"  title="Hello World">
+<a href="/2015/09/27/测试一下编码/"  title="测试一下编码">
  <strong>NEXT:</strong><br/> 
- <span>Hello World
+ <span>测试一下编码
 </span>
 </a>
 </div>
@@ -152,7 +168,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器模式"><span class="toc-number">1.</span> <span class="toc-text">适配器模式</span></a></li></ol>
   </div>
 
 <div id="asidepart">
