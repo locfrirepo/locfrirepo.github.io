@@ -1,97 +1,84 @@
-
- <!DOCTYPE HTML>
-<html lang="zh-CN">
+<!DOCTYPE HTML>
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-    <title>iOS 常用第三方库6(POP动画) | Xinnyu&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
-    
+  <title>iOS 常用第三方库6(POP动画) | Xinnyu&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
     <meta name="author" content="xinnyu">
-    
-    <meta name="description" content="POP是Facebook公司的一个开源项目，它是一个完全不同于Core Animation的动画引擎；它在基本的静态动画的基础上增加的弹簧动画与衰减动画 使之能创造出更真实更具物理性的交互动画 POP的API可以快速的与现有的ObjC代码集成并可以作用于任意对象的任意属性，POP是个相当成熟且久经考">
-    
-    
-    
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="xinnyu007" />
-    <meta name="twitter:title" content="iOS 常用第三方库6(POP动画) | Xinnyu&#39;s blog" />
-      
-    
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/pacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+  
+    <meta name="description" content="POP是Facebook公司的一个开源项目，它是一个完全不同于Core Animation的动画引擎；它在基本的静态动画的基础上增加的弹簧动画与衰减动画 使之能创造出更真实更具物理性的交互动画 POP的API可以快速的与现有的ObjC代码集成并可以作用于任意对象的任意属性，POP是个相当成熟且久经考验的框架，Facebook出品的令人惊叹的Paper应用中的所有动画和效果即出自POP。
+使用方式：">
+  
+  <meta name="description" content="POP是Facebook公司的一个开源项目，它是一个完全不同于Core Animation的动画引擎；它在基本的静态动画的基础上增加的弹簧动画与衰减动画 使之能创造出更真实更具物理性的交互动画 POP的API可以快速的与现有的ObjC代码集成并可以作用于任意对象的任意属性，POP是个相当成熟且久经考验的框架，Facebook出品的令人惊叹的Paper应用中的所有动画和效果即出自POP。
+使用方式：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 常用第三方库6(POP动画)">
+<meta property="og:url" content="http://yoursite.com/2015/09/20/iOS-常用第三方库6-POP动画/index.html">
+<meta property="og:site_name" content="Xinnyu's blog">
+<meta property="og:description" content="POP是Facebook公司的一个开源项目，它是一个完全不同于Core Animation的动画引擎；它在基本的静态动画的基础上增加的弹簧动画与衰减动画 使之能创造出更真实更具物理性的交互动画 POP的API可以快速的与现有的ObjC代码集成并可以作用于任意对象的任意属性，POP是个相当成熟且久经考验的框架，Facebook出品的令人惊叹的Paper应用中的所有动画和效果即出自POP。
+使用方式：">
+<meta property="og:updated_time" content="2015-09-26T14:40:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 常用第三方库6(POP动画)">
+<meta name="twitter:description" content="POP是Facebook公司的一个开源项目，它是一个完全不同于Core Animation的动画引擎；它在基本的静态动画的基础上增加的弹簧动画与衰减动画 使之能创造出更真实更具物理性的交互动画 POP的API可以快速的与现有的ObjC代码集成并可以作用于任意对象的任意属性，POP是个相当成熟且久经考验的框架，Facebook出品的令人惊叹的Paper应用中的所有动画和效果即出自POP。
+使用方式：">
+  
+    <link rel="alternate" href="/atom.xml" title="Xinnyu&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
 </head>
 
-  <body>
-    <header>
-      <div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.svg" alt="Xinnyu&#39;s blog" title="Xinnyu&#39;s blog"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="Xinnyu&#39;s blog">Xinnyu&#39;s blog</a></h1>
-				<h2 class="blog-motto">Walk steps step by step</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					
-						<li><a href="/">主页</a></li>
-					
-						<li><a href="/archives">归档</a></li>
-					
-						<li><a href="/about">关于</a></li>
-					
-					<li>
-					
-						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="text" id="search" class="st-default-search-input" maxlength="20" placeholder="Search" />
-							</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-							
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/09/20/iOS-常用第三方库6-POP动画/" title="iOS 常用第三方库6(POP动画)" itemprop="url">iOS 常用第三方库6(POP动画)</a>
-  </h1>
-  <p class="article-author">By
-    
-      <a href="http://yoursite.com" title="xinnyu">xinnyu</a>
-    </p>
-  <p class="article-time">
-    <time datetime="2015-09-20T14:53:46.000Z" itemprop="datePublished">2015-09-20</time>
-    更新日期:<time datetime="2015-09-26T14:40:41.000Z" itemprop="dateModified">2015-09-26</time>
-    
-  </p>
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">Xinnyu&#39;s blog</a></h1>
+    <p><a href="/">Walk steps step by step</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+      
+        <li><a href="/atom.xml">RSS</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
 </header>
-	<div class="article-content">
-		
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用方式："><span class="toc-number">1.</span> <span class="toc-text">使用方式：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代码示例："><span class="toc-number">1.1.</span> <span class="toc-text">代码示例：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义属性："><span class="toc-number">1.2.</span> <span class="toc-text">自定义属性：</span></a></li></ol></li></ol>
-		</div>
-		
-		<p><a href="https://github.com/facebook/pop" target="_blank" rel="external">POP</a>是Facebook公司的一个开源项目，它是一个完全不同于Core Animation的动画引擎；它在基本的静态动画的基础上增加的弹簧动画与衰减动画 使之能创造出更真实更具物理性的交互动画 POP的API可以快速的与现有的ObjC代码集成并可以作用于任意对象的任意属性，POP是个相当成熟且久经考验的框架，Facebook出品的令人惊叹的Paper应用中的所有动画和效果即出自POP。</p>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/09/20/iOS-常用第三方库6-POP动画/">
+  <time datetime="2015-09-20T14:53:46.000Z">
+    2015-09-20
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">iOS 常用第三方库6(POP动画)</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p><a href="https://github.com/facebook/pop" target="_blank" rel="external">POP</a>是Facebook公司的一个开源项目，它是一个完全不同于Core Animation的动画引擎；它在基本的静态动画的基础上增加的弹簧动画与衰减动画 使之能创造出更真实更具物理性的交互动画 POP的API可以快速的与现有的ObjC代码集成并可以作用于任意对象的任意属性，POP是个相当成熟且久经考验的框架，Facebook出品的令人惊叹的Paper应用中的所有动画和效果即出自POP。</p>
 <h3 id="使用方式：">使用方式：</h3><p>POP默认支持三种动画 但同时也支持自定义动画</p>
 <ul>
 <li>POPBasicAnimation</li>
@@ -141,238 +128,46 @@
 <p>下面是一个秒表动画，是利用自定义属性的POP做出来的：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">POPAnimatableProperty *prop = [POPAnimatableProperty propertyWithName:@<span class="string">"countdown"</span> initializer:^(POPMutableAnimatableProperty *prop) &#123;</span><br><span class="line">        </span><br><span class="line">        prop.writeBlock = ^(id obj, <span class="keyword">const</span> CGFloat values[]) &#123;</span><br><span class="line">            UILabel *lable = (UILabel*)obj;</span><br><span class="line">            label.text = [NSString stringWithFormat:@<span class="string">"%02d:%02d:%02d"</span>,(<span class="keyword">int</span>)values[<span class="number">0</span>]/<span class="number">60</span>,(<span class="keyword">int</span>)values[<span class="number">0</span>]%<span class="number">60</span>,(<span class="keyword">int</span>)(values[<span class="number">0</span>]*<span class="number">100</span>)%<span class="number">100</span>];</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line"><span class="comment">//        prop.threshold = 0.01f;</span></span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    POPBasicAnimation *anBasic = [POPBasicAnimation linearAnimation];   <span class="comment">//秒表当然必须是线性的时间函数</span></span><br><span class="line">    anBasic.property = prop;    <span class="comment">//自定义属性</span></span><br><span class="line">    anBasic.fromValue = @(<span class="number">0</span>);   <span class="comment">//从0开始</span></span><br><span class="line">    anBasic.toValue = @(<span class="number">3</span>*<span class="number">60</span>);  <span class="comment">//180秒</span></span><br><span class="line">    anBasic.duration = <span class="number">3</span>*<span class="number">60</span>;    <span class="comment">//持续3分钟</span></span><br><span class="line">    anBasic.beginTime = CACurrentMediaTime() + <span class="number">1.0f</span>;    <span class="comment">//延迟1秒开始</span></span><br><span class="line">    [label pop_addAnimation:anBasic forKey:@<span class="string">"countdown"</span>];</span><br></pre></td></tr></table></figure>
 <p>出处：<a href="http://adad184.com/2015/03/11/intro-to-pop/" target="_blank" rel="external">http://adad184.com/2015/03/11/intro-to-pop/</a></p>
-  
-	</div>
-		<footer class="article-footer clearfix">
 
-
-
-
-<div class="article-share" id="share">
-
-  <div data-url="http://yoursite.com/2015/09/20/iOS-常用第三方库6-POP动画/" data-title="iOS 常用第三方库6(POP动画) | Xinnyu&#39;s blog" data-tsina="null" class="share clearfix">
+    
   </div>
-
-</div>
-</footer>   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2015/09/20/iOS-常用第三方库7-SDWebImage/" title="iOS 常用第三方库7(SDWebImage)">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  iOS 常用第三方库7(SDWebImage)</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/2015/09/20/iOS-常用第三方库5-PNChart/"  title="iOS 常用第三方库5(PNChart)">
- <strong>NEXT:</strong><br/> 
- <span>iOS 常用第三方库5(PNChart)
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-<section class="comment">
-	<div class="ds-thread"></div>
-</section>
-
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用方式："><span class="toc-number">1.</span> <span class="toc-text">使用方式：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代码示例："><span class="toc-number">1.1.</span> <span class="toc-text">代码示例：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义属性："><span class="toc-number">1.2.</span> <span class="toc-text">自定义属性：</span></a></li></ol></li></ol>
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-  <div class="archiveslist">
-    <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">21</span></li></ul>
-  </div>
-
-
-  <div class="rsspart">
-	<a href="null" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<div class="social-font clearfix">
-		
-		<a href="http://weibo.com/53024753" target="_blank" title="weibo"></a>
-		
-		
-		<a href="https://twitter.com/xinnyu007" target="_blank" title="twitter"></a>
-		
-		
-		<a href="https://github.com/xinnyu" target="_blank" title="github"></a>
-		
-		
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
-		
-		<a href="http://yoursite.com" target="_blank" title="xinnyu">xinnyu</a>
-		
-		</p>
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install','sjjj5h1xyoUsTXNiRrwG','2.0.0');
-  </script>
-	  
-</div>
-			
-			
-</footer>
-    <script src="/js/jquery-2.1.0.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
+  <footer>
+    
       
-      $('#toc.toc-aside').css('display', 'none');
-        
-    }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-});
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2015 <a href="/">xinnyu</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
 </script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      h  = $('article h2')
-      ah = $('article h2'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  if(ah.length==0){
-    t.css('display','none');
-  }else{
-    c.click(function(){
-      ta.css('display', 'block').addClass('fadeIn');
-    });
-    o.click(function(){
-      ta.css('display', 'none');
-    });
-    $(window).scroll(function(){
-      ta.css("top",Math.max(140,320-$(this).scrollTop()));
-    });
-  };
-});
-</script>
-
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina');
-  var html = [
-  '<a href="#" class="overlay" id="qrcode"></a>',
-  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
-  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-  $('.article-share-qrcode').click(function(){
-    var imgSrc = $('#qrcode-pic').attr('data-src');
-    $('#qrcode-pic').attr('src', imgSrc);
-    $('#qrcode-pic').load(function(){
-        $('.qrcode strong').text(' ');
-    });
-  });
-});     
-</script>
-
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"xinnyu"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
-
-
-
-
-
-  </body>
+</body>
 </html>
