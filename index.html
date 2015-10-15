@@ -188,7 +188,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/10/15/cifsjrmn8000urav9mcd260kz/" itemprop="url">
+              <a class="post-title-link" href="/2015/10/15/Swift-中泛型的使用/" itemprop="url">
                 Swift 中泛型的使用
               </a>
             
@@ -210,8 +210,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/10/15/cifsjrmn8000urav9mcd260kz/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/cifsjrmn8000urav9mcd260kz/" itemprop="commentsCount"></span>
+              <a href="/2015/10/15/Swift-中泛型的使用/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/Swift-中泛型的使用/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -238,7 +238,7 @@
             ...
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/15/cifsjrmn8000urav9mcd260kz/#more" rel="contents">
+            <a class="btn" href="/2015/10/15/Swift-中泛型的使用/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -271,7 +271,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/10/15/cifsjrmn7000trav9d3zgd4g6/" itemprop="url">
+              <a class="post-title-link" href="/2015/10/15/Swift单例/" itemprop="url">
                 Swift单例
               </a>
             
@@ -293,8 +293,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/10/15/cifsjrmn7000trav9d3zgd4g6/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/cifsjrmn7000trav9d3zgd4g6/" itemprop="commentsCount"></span>
+              <a href="/2015/10/15/Swift单例/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/Swift单例/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -313,11 +313,12 @@
           <span itemprop="articleBody">
             
             单例是一个在 Cocoa 中很常用的模式了。对于一些希望能在全局方便访问的实例，或者在 app 的生命周期中只应该存在一个的对象，我们一般使用单例来存储和访问。在 Objective-C 中单例的公认的写法类似下面这样：
-@implementation MyManager&#10;+ (id)sharedManager &#123;&#10;    static MyManager *staticInstance = nil;&#10;    static dispatch_once_t onceToken;&#10;&#10;    dispatch_once(&#38;onceToken, ^&#123;&#10;        staticInstance = [[self alloc] init];&#10;    &#125;);&#10;    return staticIns
+@implementation MyManager+ (id)sharedManager &#123;    static MyManager *staticInstance = nil;    static dispatch_once_t onceToken;    dispatch_once(&amp;onceToken, ^&#123;        staticInstance = [[self alloc] init];    &#125;);    return staticInstance;&#125;@end
+使用 GCD 中的 dispatch_once
             ...
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/15/cifsjrmn7000trav9d3zgd4g6/#more" rel="contents">
+            <a class="btn" href="/2015/10/15/Swift单例/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -350,7 +351,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/09/29/cifsjrmma0002rav9xowfvr20/" itemprop="url">
+              <a class="post-title-link" href="/2015/09/29/设计模式/" itemprop="url">
                 设计模式
               </a>
             
@@ -372,8 +373,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/29/cifsjrmma0002rav9xowfvr20/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/29/cifsjrmma0002rav9xowfvr20/" itemprop="commentsCount"></span>
+              <a href="/2015/09/29/设计模式/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/29/设计模式/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -411,7 +412,7 @@
             
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/29/cifsjrmma0002rav9xowfvr20/#more" rel="contents">
+            <a class="btn" href="/2015/09/29/设计模式/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -444,7 +445,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/09/26/cifsjrmne000yrav9qgyadgiq/" itemprop="url">
+              <a class="post-title-link" href="/2015/09/26/Mac终端提示-command-not-found解决办法/" itemprop="url">
                 Mac终端command not found 解决办法
               </a>
             
@@ -466,8 +467,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/26/cifsjrmne000yrav9qgyadgiq/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/26/cifsjrmne000yrav9qgyadgiq/" itemprop="commentsCount"></span>
+              <a href="/2015/09/26/Mac终端提示-command-not-found解决办法/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/26/Mac终端提示-command-not-found解决办法/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -486,12 +487,12 @@
           <span itemprop="articleBody">
             
             在bash_profile中添加：
-export PATH=&#34;$PATH:$HOME/.rvm/bin&#34; # Add RVM to PATH for scripting&#10;&#10;[[ -s &#34;$HOME/.rvm/scripts/rvm&#34; ]] &#38;&#38; source &#34;$HOME/.rvm/scripts/rvm&#34; # Load RVM into a shell session *as a function*
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting[[ -s "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
             
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/26/cifsjrmne000yrav9qgyadgiq/#more" rel="contents">
+            <a class="btn" href="/2015/09/26/Mac终端提示-command-not-found解决办法/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -524,7 +525,7 @@ export PATH=&#34;$PATH:$HOME/.rvm/bin&#34; # Add RVM to PATH for scripting&#10;&
           
           
             
-              <a class="post-title-link" href="/2015/09/26/cifsjrmnc000xrav9z7pjb7i5/" itemprop="url">
+              <a class="post-title-link" href="/2015/09/26/Mac自带Vim7-3不能使用系统剪切板解决方案/" itemprop="url">
                 Mac自带Vim7.3不能使用系统剪切板解决方案
               </a>
             
@@ -546,8 +547,8 @@ export PATH=&#34;$PATH:$HOME/.rvm/bin&#34; # Add RVM to PATH for scripting&#10;&
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/26/cifsjrmnc000xrav9z7pjb7i5/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/26/cifsjrmnc000xrav9z7pjb7i5/" itemprop="commentsCount"></span>
+              <a href="/2015/09/26/Mac自带Vim7-3不能使用系统剪切板解决方案/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/26/Mac自带Vim7-3不能使用系统剪切板解决方案/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -572,14 +573,14 @@ export PATH=&#34;$PATH:$HOME/.rvm/bin&#34; # Add RVM to PATH for scripting&#10;&
 
 但是完全不起任何作用，经过一番折腾之后才知道是Mac自带的Vim7.3版本不支持使用系统剪切板；于是就安装了MacVim，结果试了之后还是不管用，执行vim --version | grep clip
 结果还是：
--clientserver -clipboard +cmdline_compl +cmdline_hist +cmdline_info +comments &#10;-xterm_clipboard -xterm_save
+-clientserver -clipboard +cmdline_compl +cmdline_hist +cmdline_info +comments -xterm_clipboard -xterm_save
 原因是就算你安装了MacVim使用了Vim7.4系统自带的Terminal还是会默认使用自带的7.3版本；
 所以只要在profile中添加如下语句就可以解决问题了；
-alias vim=&#
+alias vim="/Appli
             ...
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/26/cifsjrmnc000xrav9z7pjb7i5/#more" rel="contents">
+            <a class="btn" href="/2015/09/26/Mac自带Vim7-3不能使用系统剪切板解决方案/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -612,7 +613,7 @@ alias vim=&#
           
           
             
-              <a class="post-title-link" href="/2015/09/26/cifsjrmnh000zrav9tgwk8yvd/" itemprop="url">
+              <a class="post-title-link" href="/2015/09/26/Dynamics动画/" itemprop="url">
                 Dynamics动画
               </a>
             
@@ -634,8 +635,8 @@ alias vim=&#
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/26/cifsjrmnh000zrav9tgwk8yvd/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/26/cifsjrmnh000zrav9tgwk8yvd/" itemprop="commentsCount"></span>
+              <a href="/2015/09/26/Dynamics动画/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/26/Dynamics动画/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -662,11 +663,11 @@ UIDynamicItem，动力项，相当于现实世界中的一个基本物体；
 使用方法
 创建一个UIDynamicAnimator
 
-@property(strong, nonatomic) UIDynamicAnimator *dynamicAnimate;&#10;&#10;- (UIDynamicAnimator *)dynamicAnimate&#123;&#10;    if (!_dynamicAnimate) &#123;&#10;        _dynamicAnimate
+@property(strong, nonatomic) UIDynamicAnimator *dynamicAnimate;- (UIDynamicAnimator *)dynamicAnimate&#123;    if (!_dynamicAnimate) &#123;        _dynamicAnimate = [[UIDynamicAnimat
             ...
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/26/cifsjrmnh000zrav9tgwk8yvd/#more" rel="contents">
+            <a class="btn" href="/2015/09/26/Dynamics动画/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -699,7 +700,7 @@ UIDynamicItem，动力项，相当于现实世界中的一个基本物体；
           
           
             
-              <a class="post-title-link" href="/2015/09/21/cifsjrmmf0003rav98h61k21f/" itemprop="url">
+              <a class="post-title-link" href="/2015/09/21/使用融云和LeanCloud-创建一个IM应用/" itemprop="url">
                 使用融云和LeanCloud 创建一个IM应用
               </a>
             
@@ -736,8 +737,8 @@ UIDynamicItem，动力项，相当于现实世界中的一个基本物体；
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/21/cifsjrmmf0003rav98h61k21f/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/21/cifsjrmmf0003rav98h61k21f/" itemprop="commentsCount"></span>
+              <a href="/2015/09/21/使用融云和LeanCloud-创建一个IM应用/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/21/使用融云和LeanCloud-创建一个IM应用/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -760,16 +761,17 @@ UIDynamicItem，动力项，相当于现实世界中的一个基本物体；
 
 在Podfile中添加：
 
-pod &#39;RongCloudIMKit&#39;
+pod 'RongCloudIMKit'
 
 然后执行命令：
 
 pod install
-获取TokenToken 也叫用户令牌，是 SDK 端用来连接融云服务器的凭证，每个用户连接服务器都需要一个 Token。每次初始化连接服务器时，都需要向服务器提交 Token。获取Token需要注册一个融云的账号，然后新建一个应用，之后在API调试中填写userid（用户唯一标示符）、name（用户昵称）、portraitUri（头像url）就可以获得一个测试用的Tok
+获取TokenToken 也叫用户令牌，是 SDK 端用来连接融云服务器的凭证，每个用户连接服务器都需要一个 Token。每次初始化连接服务器时，都需要向服务器提交 Token。获取Token需要注册一个融云的账号，然后新建一个应用，之后在API调试中填写userid（用户唯一标示符）、name（用户昵称）、portraitUri（头像url）就可以获得一个测试用的Token。
+初始化和
             ...
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/21/cifsjrmmf0003rav98h61k21f/#more" rel="contents">
+            <a class="btn" href="/2015/09/21/使用融云和LeanCloud-创建一个IM应用/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -802,7 +804,7 @@ pod install
           
           
             
-              <a class="post-title-link" href="/2015/09/21/cifsjrmmk000arav97icgwwhy/" itemprop="url">
+              <a class="post-title-link" href="/2015/09/21/使用AVPlayer-播放在线音频/" itemprop="url">
                 使用AVPlayer 播放在线音频,并实现后台锁屏播放，自动连播
               </a>
             
@@ -824,8 +826,8 @@ pod install
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/21/cifsjrmmk000arav97icgwwhy/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/21/cifsjrmmk000arav97icgwwhy/" itemprop="commentsCount"></span>
+              <a href="/2015/09/21/使用AVPlayer-播放在线音频/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/21/使用AVPlayer-播放在线音频/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -852,12 +854,12 @@ Audioqueue，Audiostream （太复杂）
 
 所以用AVPlayer来实现在线音频播放是最好的选择；一下就是利用AVPlayer实现音乐流播并实现后台锁屏播放和设置自动连播的大概步骤：
 项目源代码：Swift 2.0 版豆瓣电台
-初始化先声明AVplayer和AVPlayerItem的实例：var musicPlayer:AVPlayer!&#10;var playerItem:AVPlayerItem?
-然后在需要的播放音频的地方给它赋值：self.musicPlayer = AVPlay
+初始化先声明AVplayer和AVPlayerItem的实例：var musicPlayer:AVPlayer!var playerItem:AVPlayerItem?
+然后在需要的播放音频的地方给它赋值：self.musicPlayer = AVPlayer()l
             ...
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/21/cifsjrmmk000arav97icgwwhy/#more" rel="contents">
+            <a class="btn" href="/2015/09/21/使用AVPlayer-播放在线音频/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -890,7 +892,7 @@ Audioqueue，Audiostream （太复杂）
           
           
             
-              <a class="post-title-link" href="/2015/09/21/cifsjrmmp000drav9zru2dp5y/" itemprop="url">
+              <a class="post-title-link" href="/2015/09/21/iOS-常用第三方库7-Reachability/" itemprop="url">
                 iOS 常用第三方库7(Reachability)
               </a>
             
@@ -912,8 +914,8 @@ Audioqueue，Audiostream （太复杂）
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/21/cifsjrmmp000drav9zru2dp5y/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/21/cifsjrmmp000drav9zru2dp5y/" itemprop="commentsCount"></span>
+              <a href="/2015/09/21/iOS-常用第三方库7-Reachability/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/21/iOS-常用第三方库7-Reachability/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -934,11 +936,11 @@ Audioqueue，Audiostream （太复杂）
             Reachability 是一个检测网络状态的框架。开发Web等网络应用程序的时候，需要确认网络环境，连接情况等信息。如果没有处理这些信息的话，是不会通过Apple的审查的。
 使用方法：将Reachability.h 和 Reachability.m 拷贝到你的工程中。
 然后：
-var reach:Reachability?&#10;&#10;func checkNetStatus()&#123;&#10;       self.reach = Reachability.reachabilityForInternetConnection()&#10;       // Tell the reachability that we DON&#39;T want to be reachable on 3G/EDGE/CDMA&#10;       self.reach!.reachableOnW
+var reach:Reachability?func checkNetStatus()&#123;       self.reach = Reachability.reachabilityForInternetConnection()       // Tell the reachability that we DON'T want to be reachable on 3G/EDGE/CDMA       self.reach!.reachableOnWWAN = false              if r
             ...
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/21/cifsjrmmp000drav9zru2dp5y/#more" rel="contents">
+            <a class="btn" href="/2015/09/21/iOS-常用第三方库7-Reachability/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -971,7 +973,7 @@ var reach:Reachability?&#10;&#10;func checkNetStatus()&#123;&#10;       self.rea
           
           
             
-              <a class="post-title-link" href="/2015/09/20/cifsjrmmo000crav9tazp0g63/" itemprop="url">
+              <a class="post-title-link" href="/2015/09/20/iOS-常用第三方库7-SDWebImage/" itemprop="url">
                 iOS 常用第三方库7(SDWebImage)
               </a>
             
@@ -993,8 +995,8 @@ var reach:Reachability?&#10;&#10;func checkNetStatus()&#123;&#10;       self.rea
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/20/cifsjrmmo000crav9tazp0g63/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/20/cifsjrmmo000crav9tazp0g63/" itemprop="commentsCount"></span>
+              <a href="/2015/09/20/iOS-常用第三方库7-SDWebImage/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/20/iOS-常用第三方库7-SDWebImage/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -1016,14 +1018,14 @@ var reach:Reachability?&#10;&#10;func checkNetStatus()&#123;&#10;       self.rea
 
 Asynchronous image downloader with cache support with an UIImageView category.就是一个异步加载图片并且支持缓存的UIImage分类；
 
-使用方法：imageView.sd_setImageWithURL(NSURL(string: &#34;&#34;), placeholderImage: UIImage(named: &#34;placeholder&#34;))
+使用方法：imageView.sd_setImageWithURL(NSURL(string: ""), placeholderImage: UIImage(named: "placeholder"))
 清除缓存：
-SDImageCache.sharedImageCache().cleanDisk()&#10;SDImageCache.sharedImageCache().clearMemory()
-这个框架使用简单，然而而其中复杂的实现细节全部隐藏在这行代码之后；这边有一篇它的源代码分析：
+SDImageCache.sharedImageCache().cleanDisk()SDImageCache.sharedImageCache().clearMemory()
+这个框架使用简单，然而而其中复杂的实现细节全部隐藏在这行代码之后；这边有一篇它的源代码分析：http://draveness.me/i
             ...
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/20/cifsjrmmo000crav9tazp0g63/#more" rel="contents">
+            <a class="btn" href="/2015/09/20/iOS-常用第三方库7-SDWebImage/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
