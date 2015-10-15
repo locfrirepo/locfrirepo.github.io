@@ -204,57 +204,16 @@
 
       
         
-          <span itemprop="articleBody"><p><a href="https://github.com/facebook/pop" target="_blank" rel="external">POP</a>是Facebook公司的一个开源项目，它是一个完全不同于Core Animation的动画引擎；它在基本的静态动画的基础上增加的弹簧动画与衰减动画 使之能创造出更真实更具物理性的交互动画 POP的API可以快速的与现有的ObjC代码集成并可以作用于任意对象的任意属性，POP是个相当成熟且久经考验的框架，Facebook出品的令人惊叹的Paper应用中的所有动画和效果即出自POP。</p>
-<h3 id="使用方式：">使用方式：</h3><p>POP默认支持三种动画 但同时也支持自定义动画</p>
-<ul>
-<li>POPBasicAnimation</li>
-<li>POPSpringAnimation</li>
-<li>POPDecayAnimation</li>
-<li>POPCustomAnimation //自定义动画</li>
-</ul>
-<p>这里我们只讨论前三种，因为自定义动画还没用过；</p>
-<h4 id="代码示例：">代码示例：</h4><p><strong>BasicAnimation</strong><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let rotation = POPBasicAnimation(<span class="string">propertyNamed:</span> kPOPLayerRotation[^POP动画的参数])</span><br><span class="line">rotation.toValue = M_PI * <span class="number">2</span></span><br><span class="line">rotation.duration = <span class="number">10</span></span><br><span class="line">rotation.repeatForever = <span class="literal">true</span></span><br><span class="line">rotation.timingFunction = CAMediaTimingFunction(<span class="string">name:</span> kCAMediaTimingFunctionLinear)</span><br><span class="line">        </span><br><span class="line">self.layer.pop_addAnimation(rotation, <span class="string">forKey:</span> <span class="string">"旋转"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>POPBasicAnimation提供四种时间曲线,这个和Core Animation中的是一样的：</p>
-<ul>
-<li>kCAMediaTimingFunctionLinear</li>
-<li>kCAMediaTimingFunctionEaseIn</li>
-<li>kCAMediaTimingFunctionEaseOut</li>
-<li>kCAMediaTimingFunctionEaseInEaseOut</li>
-</ul>
-<p><strong>POPSpringAnimation</strong><br>弹性动画</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实例化POP</span></span><br><span class="line">let scale = <span class="function"><span class="title">POPSpringAnimation</span><span class="params">(propertyNamed:kPOPViewScaleXY)</span></span></span><br><span class="line"><span class="comment">//设置结束值</span></span><br><span class="line">scale<span class="class">.toValue</span> = <span class="function"><span class="title">NSValue</span><span class="params">(CGPointMake(<span class="number">2</span>,<span class="number">2</span>)</span></span>)</span><br><span class="line"><span class="comment">//振幅，范围0-20</span></span><br><span class="line">scale<span class="class">.springBounciness</span> = <span class="number">20</span></span><br><span class="line"><span class="comment">//振动速度,范围0-20</span></span><br><span class="line">scale<span class="class">.springSpeed</span> = <span class="number">1</span></span><br><span class="line">view<span class="class">.layer</span><span class="class">.pop_addAnimatiom</span>(scale,foKey:<span class="string">"scale"</span>)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>弹性动画可配置的属性有：</p>
-<ul>
-<li>springBounciness:4.0    //[0-20] 弹力 越大则震动幅度越大</li>
-<li>springSpeed     :12.0   //[0-20] 速度 越大则动画结束越快</li>
-<li>dynamicsTension :0      //拉力  下面这三个都跟物理力学模拟相关 数值调整起来很费时，建议就用默认值</li>
-<li>dynamicsFriction:0      //摩擦 同上</li>
-<li>dynamicsMass    :0      //质量 同上</li>
-</ul>
-</blockquote>
-<p><strong>POPDecayAnimation</strong><br>阻尼动画</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POPDecayAnimation </span>*<span class="keyword">anDecay </span>= [<span class="keyword">POPDecayAnimation </span>animationWithPropertyNamed:kPOPLayerPositionX]<span class="comment">;</span></span><br><span class="line"><span class="keyword">anDecay.velocity </span>= <span class="comment">@(600);</span></span><br><span class="line"><span class="keyword">anDecay.beginTime </span>= CACurrentMediaTime() + <span class="number">1</span>.<span class="number">0</span>f<span class="comment">;</span></span><br><span class="line">[<span class="keyword">self.square </span><span class="keyword">pop_addAnimation:anDecay </span>forKey:<span class="comment">@"position"];</span></span><br></pre></td></tr></table></figure>
-<p><em>注意:这里对POPDecayAnimation设置toValue是没有意义的 会被忽略(因为目的状态是动态计算得到的</em>)</p>
-<blockquote>
-<p>POPDecayAnimation可配置的属性与默认值有:<br>deceleration:0.998  //衰减系数(越小则衰减得越快)</p>
-</blockquote>
-<p><em>注意:POPDecayAnimation也是没有duration字段的 其动画持续时间由velocity与deceleration决定</em></p>
-<p>POP默认支持的动画属性：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> Common CALayer property names.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerBackgroundColor;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerBounds;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerCornerRadius;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerBorderWidth;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerBorderColor;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerOpacity;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerPosition;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerPositionX;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerPositionY;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerRotation;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerRotationX;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerRotationY;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerScaleX;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerScaleXY;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerScaleY;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerSize;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerSubscaleXY;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerSubtranslationX;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerSubtranslationXY;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerSubtranslationY;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerSubtranslationZ;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerTranslationX;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerTranslationXY;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerTranslationY;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerTranslationZ;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerZPosition;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerShadowColor;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerShadowOffset;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerShadowOpacity;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayerShadowRadius;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> Common CAShapeLayer property names.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPShapeLayerStrokeStart;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPShapeLayerStrokeEnd;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPShapeLayerStrokeColor;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPShapeLayerFillColor;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> Common NSLayoutConstraint property names.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLayoutConstraintConstant;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#if TARGET_OS_IPHONE</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> Common UIView property names.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPViewAlpha;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPViewBackgroundColor;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPViewBounds;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPViewCenter;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPViewFrame;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPViewScaleX;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPViewScaleXY;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPViewScaleY;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPViewSize;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPViewTintColor;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> Common UIScrollView property names.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPScrollViewContentOffset;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPScrollViewContentSize;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPScrollViewZoomScale;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPScrollViewContentInset;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> Common UITableView property names.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPTableViewContentOffset;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPTableViewContentSize;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> Common UICollectionView property names.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPCollectionViewContentOffset;</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPCollectionViewContentSize;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> Common UINavigationBar property names.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPNavigationBarBarTintColor;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> Common UIToolbar property names.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPToolbarBarTintColor;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> Common UITabBar property names.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPTabBarBarTintColor;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> Common UILabel property names.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> kPOPLabelTextColor;</span><br></pre></td></tr></table></figure>
-<h4 id="自定义属性：">自定义属性：</h4><p>POP默认支持的三种动画都继承自POPPropertyAnimation POPPropertyAnimation中定义了一个叫property的属性( 之前没有用到它是因为POP根据不同的默认动画属性帮你生成了默认的property) 而这个property则是用来驱动POP的动画效果中的重要一环。</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">POPAnimatableProperty *<span class="keyword">prop</span> = [POPAnimatableProperty propertyWithName:@<span class="string">"prop"</span> initializer:^(POPMutableAnimatableProperty *<span class="keyword">prop</span>) &#123;</span><br><span class="line">    <span class="comment">// read value</span></span><br><span class="line">    <span class="keyword">prop</span>.readBlock = ^(id obj, CGFloat values[]) &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// write value</span></span><br><span class="line">    <span class="keyword">prop</span>.writeBlock = ^(id obj, <span class="keyword">const</span> CGFloat values[]) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// dynamics threshold</span></span><br><span class="line">    <span class="keyword">prop</span>.threshold = 0.01;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-<p>其组成就是一个readBlock一个writeBlock和一个threashold</p>
-<ul>
-<li>readBlock告诉POP当前的属性值</li>
-<li>writeBlock中修改变化后的属性值</li>
-<li>threashold决定了动画变化间隔的阈值 值越大writeBlock的调用次数越少</li>
-<li>POPAnimatableProperty其实是POP中一个比较重要的东西,像上面提到的POP自带的动画属性 查看源代码可以看到也只是POP自动帮你设置好了POPAnimatableProperty而已,其作用就是当动画的某个时间片被触发时,告诉系统如何根据当前时间片做出变化.</li>
-</ul>
-<p>下面是一个秒表动画，是利用自定义属性的POP做出来的：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">POPAnimatableProperty *prop = [POPAnimatableProperty propertyWithName:@<span class="string">"countdown"</span> initializer:^(POPMutableAnimatableProperty *prop) &#123;</span><br><span class="line">        </span><br><span class="line">        prop.writeBlock = ^(id obj, <span class="keyword">const</span> CGFloat values[]) &#123;</span><br><span class="line">            UILabel *lable = (UILabel*)obj;</span><br><span class="line">            label.text = [NSString stringWithFormat:@<span class="string">"%02d:%02d:%02d"</span>,(<span class="keyword">int</span>)values[<span class="number">0</span>]/<span class="number">60</span>,(<span class="keyword">int</span>)values[<span class="number">0</span>]%<span class="number">60</span>,(<span class="keyword">int</span>)(values[<span class="number">0</span>]*<span class="number">100</span>)%<span class="number">100</span>];</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line"><span class="comment">//        prop.threshold = 0.01f;</span></span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    POPBasicAnimation *anBasic = [POPBasicAnimation linearAnimation];   <span class="comment">//秒表当然必须是线性的时间函数</span></span><br><span class="line">    anBasic.property = prop;    <span class="comment">//自定义属性</span></span><br><span class="line">    anBasic.fromValue = @(<span class="number">0</span>);   <span class="comment">//从0开始</span></span><br><span class="line">    anBasic.toValue = @(<span class="number">3</span>*<span class="number">60</span>);  <span class="comment">//180秒</span></span><br><span class="line">    anBasic.duration = <span class="number">3</span>*<span class="number">60</span>;    <span class="comment">//持续3分钟</span></span><br><span class="line">    anBasic.beginTime = CACurrentMediaTime() + <span class="number">1.0f</span>;    <span class="comment">//延迟1秒开始</span></span><br><span class="line">    [label pop_addAnimation:anBasic forKey:@<span class="string">"countdown"</span>];</span><br></pre></td></tr></table></figure>
-<p>出处：<a href="http://adad184.com/2015/03/11/intro-to-pop/" target="_blank" rel="external">http://adad184.com/2015/03/11/intro-to-pop/</a></p>
-</span>
+          <span itemprop="articleBody">
+            
+            POP是Facebook公司的一个开源项目，它是一个完全不同于Core Animation的动画引擎；它在基本的静态动画的基础上增加的弹簧动画与衰减动画 使之能创造出更真实更具物理性的交互动画 POP的API可以快速的与现有的ObjC代码集成并可以作用于任意对象的任意属性，POP是个相当成熟且久经考
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/09/20/iOS-常用第三方库6-POP动画/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -323,24 +282,20 @@
 
       
         
-          <span itemprop="articleBody"><p><a href="https://github.com/kevinzhow/PNChart" target="_blank" rel="external">PNChart</a> 是一个简约，易用的第三方图表库，它支持折线图，柱形图，饼状图和圆形图的绘制；</p>
-<h3 id="使用方法">使用方法</h3><ul>
-<li>画折线图</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span>  <span class="title">setLineChart</span><span class="params">()</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">  <span class="comment">/// 定义一个lineChart    </span></span><br><span class="line">	<span class="keyword">var</span> lineChart = <span class="type">PNLineChart</span>(frame: <span class="type">CGRectMake</span>(<span class="number">0</span>, <span class="keyword">self</span>.view.frame.height/<span class="number">4</span>, <span class="keyword">self</span>.view.frame.width, <span class="keyword">self</span>.view.frame.height/<span class="number">2</span>))</span><br><span class="line">	<span class="comment">//不要使用下面的方法，Width 不好计算，只设置数据的话宽度会自动设定</span></span><br><span class="line">	<span class="comment">//lineChart.setXLabels(["A","B","C","D","E","F"], withWidth: 50)</span></span><br><span class="line">	lineChart.xLabels = [<span class="string">"A"</span>,<span class="string">"B"</span>,<span class="string">"C"</span>,<span class="string">"D"</span>,<span class="string">"E"</span>,<span class="string">"F"</span>]</span><br><span class="line">	lineChart.axisColor = <span class="type">UIColor</span>.blackColor()</span><br><span class="line">	lineChart.showCoordinateAxis = <span class="literal">true</span></span><br><span class="line">        </span><br><span class="line">	<span class="comment">/// 设置第一根折线</span></span><br><span class="line">	<span class="keyword">var</span> dataArray = [<span class="number">1</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">20</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">	<span class="keyword">var</span> lineChartData = <span class="type">PNLineChartData</span>()</span><br><span class="line">	<span class="comment">//lineChartData.lineWidth = 20</span></span><br><span class="line">	lineChartData.itemCount = <span class="type">UInt</span>(dataArray.<span class="built_in">count</span>)</span><br><span class="line">	lineChartData.color = <span class="type">UIColor</span>.greenColor()</span><br><span class="line">	lineChartData.getData = (&#123;(index:<span class="type">UInt</span>) -&gt; <span class="type">PNLineChartDataItem</span> <span class="keyword">in</span></span><br><span class="line">	<span class="keyword">var</span> y = dataArray[<span class="type">Int</span>(index)]</span><br><span class="line">	<span class="keyword">return</span> <span class="type">PNLineChartDataItem</span>(y: <span class="type">CGFloat</span>(y))</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	<span class="comment">//为数据源设置Title</span></span><br><span class="line">	lineChartData.dataTitle = <span class="string">"Swift"</span></span><br><span class="line">        </span><br><span class="line">	<span class="comment">/// 设置第二根折线</span></span><br><span class="line">	<span class="keyword">var</span> dataArray2 = [<span class="number">5</span>,<span class="number">19</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">5</span>]</span><br><span class="line">	<span class="keyword">var</span> lineChartData2 = <span class="type">PNLineChartData</span>()</span><br><span class="line">	<span class="comment">//lineChartData.lineWidth = 20</span></span><br><span class="line">	lineChartData2.itemCount = <span class="type">UInt</span>(dataArray2.<span class="built_in">count</span>)</span><br><span class="line">	lineChartData2.color = <span class="type">UIColor</span>.redColor()</span><br><span class="line">	lineChartData2.getData = (&#123;(index:<span class="type">UInt</span>) -&gt; <span class="type">PNLineChartDataItem</span> <span class="keyword">in</span></span><br><span class="line">		<span class="keyword">var</span> y = dataArray2[<span class="type">Int</span>(index)]</span><br><span class="line">		<span class="keyword">return</span> <span class="type">PNLineChartDataItem</span>(y: <span class="type">CGFloat</span>(y))</span><br><span class="line">	&#125;)</span><br><span class="line">        </span><br><span class="line">	<span class="comment">//把折线加入到lineChart中，开始画图</span></span><br><span class="line">	lineChart.chartData = [lineChartData,lineChartData2]</span><br><span class="line">	lineChart.strokeChart()</span><br><span class="line">        </span><br><span class="line">	<span class="keyword">self</span>.view.addSubview(lineChart)</span><br><span class="line">        </span><br><span class="line">	<span class="comment">/// 为图表设置标签，****要在画图之后添加****</span></span><br><span class="line">	<span class="comment">//为数据源2设置Title</span></span><br><span class="line">	lineChartData2.dataTitle = <span class="string">"OC"</span></span><br><span class="line">	<span class="comment">//选择标签风格</span></span><br><span class="line">	lineChart.legendStyle = <span class="type">PNLegendItemStyle</span>.<span class="type">Serial</span></span><br><span class="line">	<span class="comment">//获取标签</span></span><br><span class="line">	<span class="keyword">var</span> legend = lineChart.getLegendWithMaxWidth(<span class="keyword">self</span>.view.frame.width)</span><br><span class="line">	<span class="comment">//设置标签位置</span></span><br><span class="line">	legend.frame = <span class="type">CGRectMake</span>(<span class="number">50</span>, lineChart.frame.origin.y + lineChart.frame.height + <span class="number">10</span> , legend.frame.width, legend.frame.height)</span><br><span class="line">        </span><br><span class="line">	<span class="keyword">self</span>.view.addSubview(legend)</span><br><span class="line">        </span><br><span class="line">	lineChart.delegate = <span class="keyword">self</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>画柱形图：</li>
-</ul>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">func setBarChart()&#123;</span><br><span class="line">	//直接初始化一个PNBarChart，不要数据源</span><br><span class="line">	var barChart = PNBarChart(frame: CGRectMake(0, 200, self.view.frame.width, 350))</span><br><span class="line">	barChart.xLabels = [<span class="string">"A"</span>,<span class="string">"B"</span>,<span class="string">"C"</span>,<span class="string">"D"</span>,<span class="string">"E"</span>]</span><br><span class="line">	//barChart.xLabelWidth = 55</span><br><span class="line">	barChart.yValues = [1,3,6,-7,15]</span><br><span class="line">	//显示图表边界</span><br><span class="line">	barChart.showChartBorder = true</span><br><span class="line">	//允许负数</span><br><span class="line">	barChart.showLevelLine = false</span><br><span class="line">        </span><br><span class="line">	//barChart.strokeColor = UIColor.redColor()</span><br><span class="line">	barChart.barRadius = 2</span><br><span class="line">	//设置文字颜色，<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span>设置不了<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">	barChart.labelTextColor = UIColor.redColor()</span><br><span class="line">        </span><br><span class="line">	//开始画图</span><br><span class="line">	barChart.strokeChart()</span><br><span class="line">	self.view.add</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>画圆形图：</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">func <span class="title">setCircleChart</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//直接初始化一个PNCircleChart ，不要数据源之类的</span></span><br><span class="line">	var circelChart = PNCircleChart(frame: CGRectMake(self.view.frame.width/<span class="number">2</span> - self.view.frame.width/<span class="number">4</span>, <span class="number">200</span>, self.view.frame.width/<span class="number">2</span>, <span class="number">200</span>), total: <span class="number">100</span>, current: <span class="number">60</span>, clockwise: <span class="literal">false</span>, shadow: <span class="literal">true</span>, shadowColor: UIColor.grayColor())</span><br><span class="line">	circelChart.current = <span class="number">60</span></span><br><span class="line">	circelChart.total = <span class="number">100</span></span><br><span class="line">	<span class="comment">//circelChart.strokeColor = UIColor.greenColor()</span></span><br><span class="line">        </span><br><span class="line">	circelChart.strokeChart()</span><br><span class="line">	self.view.addSubview(circelChart)</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>画饼状图：</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">func <span class="title">setPieChart</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//先定义一个PNPieChartDataItem数组，116 202 33      72 114 224</span></span><br><span class="line">	var items = [PNPieChartDataItem(value: <span class="number">50</span>, color: UIColor(red: <span class="number">116</span>/<span class="number">255</span>, green: <span class="number">202</span>/<span class="number">255</span>, blue: <span class="number">33</span>/<span class="number">255</span>, alpha: <span class="number">1</span>) , description: <span class="string">"Swift"</span>),PNPieChartDataItem(value: <span class="number">20</span>, color: UIColor(red: <span class="number">72</span>/<span class="number">255</span>, green: <span class="number">114</span>/<span class="number">255</span>, blue: <span class="number">224</span>/<span class="number">255</span>, alpha: <span class="number">1</span>) , description: <span class="string">"OC"</span>)]</span><br><span class="line">        </span><br><span class="line">	var pieChart = PNPieChart(frame: CGRectMake(self.view.frame.width/<span class="number">2</span> - self.view.frame.width/<span class="number">3</span>, <span class="number">200</span>, self.view.frame.width/<span class="number">1.5</span>, <span class="number">200</span>), items: items)</span><br><span class="line">        </span><br><span class="line">	pieChart.descriptionTextFont = UIFont.systemFontOfSize(<span class="number">15</span>)</span><br><span class="line">        </span><br><span class="line">	pieChart.strokeChart()</span><br><span class="line">	self.view.addSubview(pieChart)</span><br><span class="line">        </span><br><span class="line">	<span class="comment">//选择标签风格</span></span><br><span class="line">	pieChart.legendStyle = PNLegendItemStyle.Serial</span><br><span class="line">	<span class="comment">//获取标签</span></span><br><span class="line">	var legend = pieChart.getLegendWithMaxWidth(self.view.frame.width)</span><br><span class="line">	<span class="comment">//设置标签位置</span></span><br><span class="line">	legend.frame = CGRectMake(<span class="number">50</span>, pieChart.frame.origin.y + pieChart.frame.height + <span class="number">10</span>, legend.frame.width, legend.frame.height)</span><br><span class="line">        </span><br><span class="line">	self.view.addSubview(legend)     </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-</span>
+          <span itemprop="articleBody">
+            
+            PNChart 是一个简约，易用的第三方图表库，它支持折线图，柱形图，饼状图和圆形图的绘制；
+使用方法
+画折线图
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/09/20/iOS-常用第三方库5-PNChart/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -409,12 +364,18 @@
 
       
         
-          <span itemprop="articleBody"><p><a href="https://github.com/SwiftyJSON/SwiftyJSON" target="_blank" rel="external">SwiftJSON</a>是用Swift写的一个快速处理JSON数据的第三方库。</p>
-<h3 id="使用方法：">使用方法：</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> json = JSON(data: dataFromNetworking)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> userName = json[<span class="string">"name"</span>].<span class="keyword">string</span>&#123;</span><br><span class="line">  <span class="comment">//就这么简单取到了。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><a href="http://tangplin.github.io/swiftyjson/" target="_blank" rel="external">中文说明</a></p>
-</blockquote>
-</span>
+          <span itemprop="articleBody">
+            
+            SwiftJSON是用Swift写的一个快速处理JSON数据的第三方库。
+使用方法：1234let json = JSON(data: dataFromNetworking)if let userName = json["name"].string&#123;  //就这么简单取到了。&#125;
+
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/09/20/iOS-常用第三方库4-SwiftyJSON/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -483,19 +444,22 @@
 
       
         
-          <span itemprop="articleBody"><p>GitHub上iOS关于HUD的第三方库实在太多了， 这三个比较常用：</p>
-<ul>
-<li><a href="https://github.com/relatedcode/ProgressHUD" target="_blank" rel="external">ProgressHUD</a></li>
-<li><a href="https://github.com/johnlui/SwiftNotice" target="_blank" rel="external">SwiftNotice</a></li>
-<li><a href="https://github.com/jdg/MBProgressHUD/tree/iOS7Style" target="_blank" rel="external">MBProgressHUD</a></li>
-</ul>
-<h3 id="ProgressHUD">ProgressHUD</h3><p>用法简单，一行代码搞定：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#import</span> <span class="string">"ProgressHUD.h"</span></span><br><span class="line"></span><br><span class="line">ProgressHUD.<span class="function"><span class="title">show</span><span class="params">(<span class="string">"正在刷新！"</span>)</span></span></span><br><span class="line">ProgressHUD.<span class="function"><span class="title">showError</span><span class="params">(<span class="string">"错误"</span>)</span></span></span><br><span class="line">ProgressHUD.<span class="function"><span class="title">showSuccess</span><span class="params">(<span class="string">"刷新成功！"</span>)</span></span></span><br><span class="line"></span><br><span class="line">ProgressHUD.<span class="function"><span class="title">dismiss</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure></p>
-<p>但是可自定义的属性不多；</p>
-<h3 id="SwiftNotice">SwiftNotice</h3><p>用法同样简单，还支持顶部通知：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">noticeTop</span><span class="params">(<span class="string">""</span>)</span></span> <span class="comment">//顶部通知</span></span><br><span class="line"><span class="function"><span class="title">notice</span><span class="params">(<span class="string">""</span>, type: NoticeType, autoClear: true)</span></span></span><br><span class="line"><span class="function"><span class="title">noticeOnlyText</span><span class="params">(<span class="string">""</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">successNotice</span><span class="params">(<span class="string">""</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">errorNotice</span><span class="params">(<span class="string">""</span>)</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="MBProgressHUD">MBProgressHUD</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr_selector">[MBProgressHUD showHUDAddedTo:self.view animated:YES]</span>;</span><br><span class="line"><span class="tag">dispatch_async</span>(<span class="function">dispatch_get_global_queue</span>( DISPATCH_QUEUE_PRIORITY_LOW, <span class="number">0</span>), ^&#123;</span><br><span class="line">    <span class="comment">// Do something...</span></span><br><span class="line">    <span class="tag">dispatch_async</span>(<span class="function">dispatch_get_main_queue</span>(), ^&#123;</span><br><span class="line">        <span class="attr_selector">[MBProgressHUD hideHUDForView:self.view animated:YES]</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>自定义：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MBProgressHUD *hud = [MBProgressHUD <span class="string">showHUDAddedTo:</span>self.view <span class="string">animated:</span>YES];</span><br><span class="line">hud.mode = MBProgressHUDModeAnnularDeterminate;</span><br><span class="line">hud.labelText = @<span class="string">"Loading"</span>;</span><br><span class="line">[self <span class="string">doSomethingInBackgroundWithProgressCallback:</span>^(<span class="typename">float</span> progress) &#123;</span><br><span class="line">    hud.progress = progress;</span><br><span class="line">&#125; <span class="string">completionCallback:</span>^&#123;</span><br><span class="line">    [hud <span class="string">hide:</span>YES];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
-</span>
+          <span itemprop="articleBody">
+            
+            GitHub上iOS关于HUD的第三方库实在太多了， 这三个比较常用：
+
+ProgressHUD
+SwiftNotice
+MBProgressHUD
+
+ProgressHUD用法简单，一行代码搞定：1234567#import "ProgressHUD.h"ProgressHUD.show("正在刷
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/09/20/iOS-常用第三方库3-HUD/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -579,20 +543,18 @@
 
       
         
-          <span itemprop="articleBody"><p><a href="https://github.com/CoderMJLee/MJRefresh" target="_blank" rel="external">MJRefresh</a>是用法最简单的下拉刷新框架：一行代码搞定 </p>
-<p>支持 UIScrollView、UITableView、UICollectionView、UIWebView 的刷新</p>
-<h3 id="基础用法">基础用法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置下拉刷新</span></span><br><span class="line"><span class="keyword">var</span> <span class="type">MJHeader</span> = <span class="type">MJRefreshNormalHeader</span>(refreshingTarget: <span class="keyword">self</span>, refreshingAction: <span class="string">"refresh"</span>)</span><br><span class="line"><span class="keyword">self</span>.myTabView.header = <span class="type">MJHeader</span></span><br><span class="line">        </span><br><span class="line"><span class="comment">//设置上拉加载</span></span><br><span class="line"><span class="keyword">var</span> <span class="type">MJFooter</span> = <span class="type">MJRefreshAutoNormalFooter</span>(refreshingTarget: <span class="keyword">self</span>, refreshingAction: <span class="string">"load"</span>)</span><br><span class="line"><span class="keyword">self</span>.myTabView.footer = <span class="type">MJFooter</span></span><br><span class="line"></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">load</span><span class="params">()</span></span>&#123;  </span><br><span class="line">	<span class="comment">//执行加载动作</span></span><br><span class="line">	<span class="keyword">self</span>.myTabView.header.endRefreshing()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">refresh</span><span class="params">()</span></span>&#123;  </span><br><span class="line">	<span class="comment">//执行刷新动作</span></span><br><span class="line">	<span class="keyword">self</span>.myTabView.footer.endRefreshing()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="高级用法">高级用法</h3><ol>
-<li><p>下拉刷新控件的种类</p>
-<p> ○ 默认（Normal）：MJRefreshNormalHeader<br> ○ 动图（Gif）：MJRefreshGifHeader</p>
-</li>
-<li><p>上拉刷新控件的种类</p>
-<p> <em>自动刷新（Auto）</em><br> 默认（Normal）：MJRefreshAutoNormalFooter<br> 动图（Gif）：MJRefreshAutoGifFooter<br> <em>自动回弹（Back）</em><br> 默认（Normal）：MJRefreshBackNormalFooter<br> 动图（Gif）：MJRefreshBackGifFooter</p>
-</li>
-</ol>
-<p>####<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 设置文字</span><br><span class="line">[header <span class="built_in">set</span>Title:@<span class="string">"Pull down to refresh"</span> <span class="keyword">for</span>State:MJRefreshStateIdle];</span><br><span class="line">[header <span class="built_in">set</span>Title:@<span class="string">"Release to refresh"</span> <span class="keyword">for</span>State:MJRefreshStatePulling];</span><br><span class="line">[header <span class="built_in">set</span>Title:@<span class="string">"Loading ..."</span> <span class="keyword">for</span>State:MJRefreshStateRefreshing];</span><br><span class="line">// 设置字体</span><br><span class="line">header.<span class="keyword">state</span>Label.font = [UIFont systemFontOfSize:<span class="number">15</span>];</span><br><span class="line">header.lastUpdatedTimeLabel.font = [UIFont systemFontOfSize:<span class="number">14</span>];</span><br><span class="line">// 设置颜色</span><br><span class="line">header.<span class="keyword">state</span>Label.textColor = [UIColor redColor];</span><br><span class="line">header.lastUpdatedTimeLabel.textColor = [UIColor blueColor];</span><br><span class="line"></span><br><span class="line">// 隐藏时间</span><br><span class="line">header.lastUpdatedTimeLabel.hidden = YES;</span><br><span class="line">// 隐藏状态</span><br><span class="line">header.<span class="keyword">state</span>Label.hidden = YES;</span><br></pre></td></tr></table></figure></p>
-<h4 id="下拉加载">下拉加载</h4><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 设置回调（一旦进入刷新状态，就调用target的action，也就是调用<span class="literal">self</span>的<span class="built_in">load</span>MoreData方法）</span><br><span class="line">MJRefreshAutoGifFooter *footer = [MJRefreshAutoGifFooter footerWithRefreshingTarget:<span class="literal">self</span> refreshingAction:@selector(<span class="built_in">load</span>MoreData)];</span><br><span class="line">// 设置刷新图片</span><br><span class="line">[footer <span class="built_in">set</span>Images:refreshingImages <span class="keyword">for</span>State:MJRefreshStateRefreshing];</span><br><span class="line"></span><br><span class="line">// 隐藏刷新状态的文字</span><br><span class="line">footer.refreshingTitleHidden = YES;</span><br><span class="line">// 如果没有上面的方法，就用footer.<span class="keyword">state</span>Label.hidden = YES;</span><br><span class="line"></span><br><span class="line">// 隐藏当前的上拉刷新控件</span><br><span class="line"><span class="literal">self</span>.<span class="built_in">table</span>View.footer.hidden = YES;</span><br><span class="line"></span><br><span class="line">// 变为没有更多数据的状态</span><br><span class="line">[footer noticeNoMoreData];</span><br></pre></td></tr></table></figure>
-</span>
+          <span itemprop="articleBody">
+            
+            MJRefresh是用法最简单的下拉刷新框架：一行代码搞定 
+支持 UIScrollView、UITableView、UICollectionView、UIWebView 的刷新
+基础用法1234567891011121314151617//设置下拉刷新var MJHeader = MJRefres
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/09/20/iOS-常用第三方库2-MJRefresh/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -661,20 +623,17 @@
 
       
         
-          <span itemprop="articleBody"><p><a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="external">Alamofire</a> 是Swift版的 AFNetworking，是非常方便实用的第三方网络操作框架；</p>
-<h3 id="使用方法：">使用方法：</h3><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Alamofire.request(<span class="function"><span class="keyword">method</span>:</span> <span class="function"><span class="keyword">Method</span>, <span class="title">URLString</span>:</span> URLStringConvertible, parameters: [String : AnyObject]?, encoding: ParameterEncoding, headers: [String : String]?).response (options: NSJSONReadingOptions, completionHandler: <span class="comment">&#123; (NSURLRequest, NSHTTPURLResponse?, NSData?, NSError?) -&gt; Void in</span><br><span class="line">    //操作数据</span><br><span class="line"></span><br><span class="line">&#125;</span>)</span><br></pre></td></tr></table></figure>
-<p>但是上面方法中有些参数可以省略，基本用法如下：</p>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Alamofire.request<span class="function"><span class="params">(.GET, <span class="string">"URL"</span>)</span>.<span class="title">responseJSON</span><span class="params">(options: NSJSONReadingOptions.AllowFragments)</span> &#123; <span class="params">(_, _, json, _)</span> -&gt;</span> Void <span class="keyword">in</span></span><br><span class="line"><span class="pi">//操作数据</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
-<h4 id="获取数据的方法">获取数据的方法</h4><ul>
-<li>response()</li>
-<li>responseString(encoding: NSStringEncoding)</li>
-<li>responseJSON(options: NSJSONReadingOptions)</li>
-<li>responsePropertyList(options: NSPropertyListReadOptions)</li>
-</ul>
-<h4 id="HTTP_Methods">HTTP Methods</h4><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public enum Method: String &#123;</span><br><span class="line">    case OPTIONS = <span class="string">"<span class="keyword">OPTIONS</span>"</span></span><br><span class="line">    case GET = <span class="string">"<span class="keyword">GET</span>"</span></span><br><span class="line">    case HEAD = <span class="string">"<span class="keyword">HEAD</span>"</span></span><br><span class="line">    case POST = <span class="string">"<span class="keyword">POST</span>"</span></span><br><span class="line">    case PUT = <span class="string">"<span class="keyword">PUT</span>"</span></span><br><span class="line">    case PATCH = <span class="string">"<span class="keyword">PATCH</span>"</span></span><br><span class="line">    case DELETE = <span class="string">"<span class="keyword">DELETE</span>"</span></span><br><span class="line">    case TRACE = <span class="string">"<span class="keyword">TRACE</span>"</span></span><br><span class="line">    case CONNECT = <span class="string">"<span class="keyword">CONNECT</span>"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="请求需要的参数parameters">请求需要的参数parameters</h4><p>类型是一个字典 [String : AnyObject]<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let parameters = [</span><br><span class="line">    <span class="string">"foo"</span>: <span class="string">"bar"</span>,</span><br><span class="line">    <span class="string">"baz"</span>: [<span class="string">"a"</span>, <span class="number">1</span>],</span><br><span class="line">    <span class="string">"qux"</span>: [<span class="string">"x"</span>: <span class="number">1</span> , <span class="string">"y"</span>: <span class="number">2</span> , <span class="string">"z"</span>: <span class="number">3</span>]</span><br><span class="line">]</span><br><span class="line">Alamofire.request(.POST, <span class="string">"http://httpbin.org/post"</span>, parameters: parameters)</span><br></pre></td></tr></table></figure></p>
-<h4 id="下载文件">下载文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Alamofire.download(.GET, <span class="string">"http://httpbin.org/stream/100"</span>) &#123; temporaryURL, response <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">let</span> fileManager = NSFileManager.defaultManager()</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">let</span> directoryURL = fileManager.URLsForDirectory(.DocumentDirectory, <span class="keyword">in</span>Domains: .UserDomainMask)[<span class="number">0</span>] as? NSURL &#123;</span><br><span class="line">        <span class="built_in">let</span> pathComponent = response.suggestedFilename</span><br><span class="line">        <span class="built_in">return</span> directoryURL.URLByAppendingPathComponent(pathComponent!)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> temporaryURL</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">这些都只是Alamofire的常规使用，更加详细的使用方法其官方网站上有详细描述。</span><br></pre></td></tr></table></figure>
-</span>
+          <span itemprop="articleBody">
+            
+            Alamofire 是Swift版的 AFNetworking，是非常方便实用的第三方网络操作框架；
+使用方法：1234Alamofire.request(method: Method, URLString: URLStringConvertible, parameters: [String : A
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/09/20/iOS-常用第三方库1(Alamofire)/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -743,10 +702,18 @@
 
       
         
-          <span itemprop="articleBody"><p>在iOS9 中，苹果将原http协议改成了https协议，使用 TLS1.2 SSL加密请求数据。</p>
-<p><strong>解决办法</strong>：</p>
-<p>在<em>info.plist</em>中添加<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">key</span>&gt;</span>NSAppTransportSecurity<span class="tag">&lt;/<span class="title">key</span>&gt;</span><span class="tag">&lt;<span class="title">dict</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">key</span>&gt;</span>NSAllowsArbitraryLoads<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">true</span>/&gt;</span><span class="tag">&lt;/<span class="title">dict</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-</span>
+          <span itemprop="articleBody">
+            
+            在iOS9 中，苹果将原http协议改成了https协议，使用 TLS1.2 SSL加密请求数据。
+解决办法：
+在info.plist中添加123&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;&lt;dict&gt;    &lt;key&gt;NSAll
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/09/20/iOS9-网络https-错误/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -815,38 +782,19 @@
 
       
         
-          <span itemprop="articleBody"><h3 id="安装">安装</h3><p>首先安装好Ruby环境，在终端中输入以下命令：</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem <span class="keyword">install</span> cocoapods</span><br></pre></td></tr></table></figure>
-<p>可是在天朝，在终端中敲入这个命令之后，会发现半天没有任何反应。原因无他，因为那堵墙阻挡了cocoapods.org。</p>
-<p>我们可以用淘宝的Ruby镜像来访问cocoapods。按照下面的顺序在终端中敲入依次敲入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources --remove https://rubygems.org/</span><br></pre></td></tr></table></figure>
-<p>等有反应之后再敲入以下命令:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources <span class="operator">-a</span> http://ruby.taobao.org/</span><br></pre></td></tr></table></figure>
-<p>为了验证你的Ruby镜像是并且仅是taobao，可以用以下命令查看：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources <span class="operator">-l</span></span><br></pre></td></tr></table></figure>
-<p>只有在终端中出现下面文字才表明你上面的命令是成功的：</p>
-<blockquote>
-<p>CURRENT SOURCES ***<br><a href="http://ruby.taobao.org/" target="_blank" rel="external">http://ruby.taobao.org/</a></p>
-</blockquote>
-<p>这时候，再次在终端中运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gem install cocoapods</span><br></pre></td></tr></table></figure>
-<p>等上十几秒钟，CocoaPods就可以在你本地下载并且安装好了，不再需要其他设置。</p>
-<h3 id="使用">使用</h3><p>e.g.<br><strong>利用CocaPods安装Alamofire</strong></p>
-<p>在终端中进入（cd命令）你项目所在目录，然后在当前目录下，利用vim创建Podfile，运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim Podfile</span><br></pre></td></tr></table></figure>
-<p>然后在Podfile文件中输入以下文字：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> <span class="string">'https://github.com/CocoaPods/Specs.git'</span></span><br><span class="line">platform :ios, <span class="string">'8.0'</span></span><br><span class="line">use_frameworks!</span><br><span class="line">pod <span class="string">'Alamofire'</span>, <span class="string">'~&gt; 2.0'</span></span><br></pre></td></tr></table></figure>
-<p>这段文字可以在Alamofire的<a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="external">GitHub</a>中找到；<br>然后保存退出。vim环境下，保存退出命令是：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq</span><br></pre></td></tr></table></figure>
-<p>然后在终端中的当前项目目录下，运行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod install</span><br></pre></td></tr></table></figure>
-<p>然后CocoaPods就会帮你做好一切了，使用Alamofire只需要在项目中 import Alamofire；</p>
-<p>对了，使用过CocoaPods的项目就不用之前的<del>.xcodeproj</del>文件打开了，而是使用<strong>.xcworkspace</strong>打开。</p>
-<p>在这之后如果你还要添加新的第三方库的话，就只要在已经存在的Podfile中添加相应的代码然后到项目文件夹执行：</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>pod update</span><br></pre></td></tr></table></figure>
-<p><em>快速更新第三方库的方法</em>：<br>在更新时使用如下代码替换之前的 <del>pod update</del></p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod <span class="keyword">update</span> --<span class="keyword">verbose</span> --<span class="keyword">no</span>-repo-<span class="keyword">update</span></span><br></pre></td></tr></table></figure>
-</span>
+          <span itemprop="articleBody">
+            
+            安装首先安装好Ruby环境，在终端中输入以下命令：
+1sudo gem install cocoapods
+可是在天朝，在终端中敲入这个命令之后，会发现半天没有任何反应。原因无他，因为那堵墙阻挡了cocoapods.org。
+我们可以用淘宝的Ruby镜像来访问cocoapods。按照下面的顺序在终端
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/09/20/CocoaPods安装使用方法/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -915,44 +863,25 @@
 
       
         
-          <span itemprop="articleBody"><p>iOS中传值的方式主要有以下几种：</p>
-<ul>
-<li>segue传值</li>
-<li>通知传值</li>
-<li>代理传值</li>
-<li>单例传值</li>
-<li>ShareApplication</li>
-<li>NSUserdefault</li>
-</ul>
-<p>如果是A页面传值到B页面，之间有segue连接的话，用属性传值就可以搞定，如果从B页面传值到A页面或者之间没有直接的segue的话，就可以使用代理传值或者单例传值了。</p>
-<ul>
-<li><strong>segue传值</strong></li>
-</ul>
-<p>segue传值就是利用segue跳转时利用属性进行传值，这边就不做记录了。</p>
-<ul>
-<li><strong>通知传值</strong></li>
-</ul>
-<p>通知是一个单例类，只存在一个通知实例，一个通知会有一个对应的名字，而这个名字就是对应的观察者的接受通知的索引，每个对象都可以接收到这个广播，但是只有这个通知的名字和观察者的名字相同时，对应的观察者才可以接收到这个广播并处理对应逻辑。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//seletor: 接收到通知后应该做的操作；name：该通知对应的名字</span></span><br><span class="line"><span class="comment">//A发送通知</span></span><br><span class="line"><span class="type">NSNotificationCenter</span>.defaultCenter().postNotificationName(<span class="string">"通知名字"</span>, object: <span class="keyword">self</span>, userInfo: [<span class="string">"key"</span>: value])</span><br><span class="line"><span class="comment">//B接收通知</span></span><br><span class="line"><span class="type">NSNotificationCenter</span>.defaultCenter().addObserver(<span class="keyword">self</span>, selector: <span class="string">"接收到通知后要执行的方法:"</span>, name: <span class="string">"通知名字"</span>, object: <span class="literal">nil</span>)</span><br><span class="line"><span class="comment">//同时实现接受通知后要执行的方法</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> 接收到通知后要执行的方法<span class="params">(aNotification:NSNotification)</span></span>&#123;</span><br><span class="line">	<span class="comment">//value = aNotification.userInfo["key"]</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="type">B</span>方 移除监听removeObserver (一定要记得)</span><br><span class="line"><span class="keyword">deinit</span> &#123;</span><br><span class="line">		<span class="type">NSNotificationCenter</span>.defaultCenter().removeObserver(<span class="keyword">self</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>代理传值</strong></li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明委托</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">passValueDele</span></span>&#123;</span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">passValue</span><span class="params">(value:String)</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//接受委托，并定义一个委托类的对象：</span></span><br><span class="line"><span class="keyword">let</span> vc1 = <span class="keyword">self</span>.storyboard?.instantiateViewControllerWithIdentifier(<span class="string">"detail"</span>) <span class="keyword">as</span>! <span class="type">ViewController</span></span><br><span class="line"></span><br><span class="line">vc1.delegate1 = <span class="keyword">self</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">passValue</span><span class="params">(value:String)</span></span>&#123;  </span><br><span class="line">		<span class="comment">//得到value之后执行操作</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在委托类中声明一个委托变量，并调用方法传值；</span></span><br><span class="line"><span class="keyword">weak</span> <span class="keyword">var</span> delegate1:passValueDele?  <span class="comment">//注意用weak，防止循环引用</span></span><br><span class="line">delegate1?.passValue(<span class="string">"value"</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>单例传值</strong></li>
-</ul>
-<p>简单来说单例传值就是创建一个类的单例，各个ViewController共享数据。</p>
-<p>先创建一个单例：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingleTonClass</span>: <span class="typename">NSObject &#123;</span></span></span><br><span class="line">    <span class="variable"><span class="keyword">var</span> value</span>:String?</span><br><span class="line">    struct singleTon &#123;</span><br><span class="line">        static <span class="variable"><span class="keyword">var</span> once_t</span>:dispatch_once_t = <span class="number">0</span></span><br><span class="line">        static <span class="variable"><span class="keyword">var</span> currentDataSong</span>:CurrentDataSong?</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">shareCurrentDataSong</span></span>()-&gt;CurrentDataSong&#123;</span><br><span class="line">        dispatch_once(&amp;singleTon.once_t) &#123; () -&gt; <span class="typename">Void</span> <span class="keyword">in</span></span><br><span class="line">            singleTon.SingleTonClass = SingleTonClass()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> singleTon.SingleTonClass!</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>然后在需要传值的ViewController中给单例的属性赋值；<br>这样就可以在需要值的ViewController中得到要传的值了；</p>
-<ul>
-<li><strong>ShareAppDelegate传值</strong></li>
-</ul>
-<p>和单例的原理一样，不过这个单例利用的是AppDelegate；</p>
-<ul>
-<li><strong>NSUserdefault传值</strong></li>
-</ul>
-<p>此方法试用于轻量级的数据转移，就是把需要传的值先存入到NSUserdefault中，然后在需要值的地方从NSUserdefault中取值。</p>
-</span>
+          <span itemprop="articleBody">
+            
+            iOS中传值的方式主要有以下几种：
+
+segue传值
+通知传值
+代理传值
+单例传值
+ShareApplication
+NSUserdefault
+
+如果是A页面传值到B页面，之间有segue连接的话，用属性传值就可以搞定，如果从B页面传值到A页面或者之间没有直接的segue的话，就可以使用代理传值或
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/09/20/iOS-传值总结/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1021,19 +950,19 @@
 
       
         
-          <span itemprop="articleBody"><ol>
-<li>定义一个 NSTimer</li>
-</ol>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var <span class="string">timer1:</span>NSTimer! = NSTimer.scheduledTimerWithTimeInterval(<span class="number">1</span>, <span class="string">target:</span> self, <span class="string">selector:</span> <span class="string">"addOneMin:"</span>, <span class="string">userInfo:</span> nil, <span class="string">repeats:</span> <span class="literal">true</span>)</span><br><span class="line"><span class="comment">//selector 是一个选择器,需要定义一个函数,当函数需要传参时,函数名后应该加冒号</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>启动 NSTimer</li>
-</ol>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.<span class="function"><span class="title">fire</span><span class="params">()</span></span></span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-<ol>
-<li>暂停</li>
-</ol>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.<span class="function"><span class="title">invalidate</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-</span>
+          <span itemprop="articleBody">
+            
+            
+定义一个 NSTimer
+
+12var timer1:NSTimer! = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "addOneMin:", userInfo: nil, repeats: true)//
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/09/20/NSTimer-相关/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
