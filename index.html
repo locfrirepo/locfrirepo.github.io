@@ -207,7 +207,11 @@
           <span itemprop="articleBody">
             
             对于类型安全(type-safe)语言，一个常见的问题就是如何编写适用于多种类型输入的程序。想象一下，两个整型数相加和两个浮点数相加的程序看起来应该非常类似，甚至一模一样才对。唯一的区别就是变量的类型不同。
-在强类型语言中，你需要去定义诸如addInts, addFloats, addDoubles
+在强类型语言中，你需要去定义诸如addInts, addFloats, addDoubles 等方法来正确地处理参数及返回值。
+许多编程语言已经解决了这个问题。例如，在C++中，使用Template来解决。而Swift，Java和C#则采用了泛型来解决这个问题。
+下面用有序字典（Ordered Dictionaries）来简单说明一下泛型的用法：
+和数组不同的是，包括Swift在内地很多编程语言和框架都不保证集合(sets)和字典(dictionaries)的数据存储顺序。有序字典和普通的字典类似，不同之处在于它的key是有序的。
+创建有序字典点击“文件\新建\文件…”新建一个文件，并
             ...
           </span>
           <div class="post-more-link text-center">
@@ -286,7 +290,8 @@
           <span itemprop="articleBody">
             
             单例是一个在 Cocoa 中很常用的模式了。对于一些希望能在全局方便访问的实例，或者在 app 的生命周期中只应该存在一个的对象，我们一般使用单例来存储和访问。在 Objective-C 中单例的公认的写法类似下面这样：
-1234567891011@implementation MyManager+
+1234567891011@implementation MyManager+ (id)sharedManager &#123;    static MyManager *staticInstance = nil;    static dispatch_once_t onceToken;    dispatch_once(&amp;onceToken, ^&#123;        staticInstance = [[self alloc] init];    &#125;);    return staticInstance;&#125;@end
+使用 GCD 中的 
             ...
           </span>
           <div class="post-more-link text-center">
@@ -378,8 +383,10 @@
 合成/聚合复用
 
 
-适配器模式比
-            ...
+适配器模式比如iOS从网络请求加载数据，更新UI的时候，我们会初始化出一个model，随着后续版本的升级，这个model会持续添加参数，或者减少参数；此时如果我们直接修改这个model的话，那么就要同时修改与这个model相匹配的view，这样就会一只在两者之间修改来修改去，适配器模式就是为了解决这种问题存在的。
+如果你运用了适配器模式，那么我们的model不会直接与view接触，它会先和适配器接触，然后再通过适配器去更新UI
+
+            
           </span>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/09/29/设计模式/#more" rel="contents">
@@ -457,8 +464,9 @@
           <span itemprop="articleBody">
             
             在bash_profile中添加：
-123export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting[[ -s "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; source "$HOME/.rvm
-            ...
+123export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting[[ -s "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+            
           </span>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/09/26/Mac终端提示-command-not-found解决办法/#more" rel="contents">
@@ -540,7 +548,12 @@
 “+y 
 在 ~/.vimrc 里增加 set clipboard=unnamed
 
-但是完全不起任何作用，经过一番折腾之后才知道是Mac自带的Vim7.3版本不支持使用系统剪切板；于是就安装了MacVim，结果试
+但是完全不起任何作用，经过一番折腾之后才知道是Mac自带的Vim7.3版本不支持使用系统剪切板；于是就安装了MacVim，结果试了之后还是不管用，执行1vim --version | grep clip
+结果还是：
+12-clientserver -clipboard +cmdline_compl +cmdline_hist +cmdline_info +comments -xterm_clipboard -xterm_save
+原因是就算你安装了MacVim使用了Vim7.4系统自带的Terminal还是会默认使用自带的7.3版本；
+所以只要在profile中添加如下语句就可以解决问题了；
+1alias vim="/A
             ...
           </span>
           <div class="post-more-link text-center">
@@ -621,7 +634,13 @@
             UIKit Dynamics是iOS7中新推出的，可以模拟现实的二维动画效果，开发出逼真的物理动画。
 关键类
 UIDynamicAnimator：封装了底层的物理引擎，为动力项（UIDynamicItem）提供物理相关的功能和动画；
-UIDynamicBehavior，动力行为，为动力项提供不同的物
+UIDynamicBehavior，动力行为，为动力项提供不同的物理行为；
+UIDynamicItem，动力项，相当于现实世界中的一个基本物体；
+
+使用方法
+创建一个UIDynamicAnimator
+
+123456789@property(strong, nonatomic) UIDynamicAnimator *dynamicAnimate;- (UIDynamicAnimator *)dynamicAnimate&#123;    if (!_dynamicAnimate) &#123;        _dynamicAnimate = [[UIDyna
             ...
           </span>
           <div class="post-more-link text-center">
@@ -717,7 +736,15 @@ UIDynamicBehavior，动力行为，为动力项提供不同的物
             融云 是国内一家专门为APP开发者提供IM服务的公司，利用它提供的SDK可以快速使你的APP集成IM通讯能力。详细的使用方法在它官网的开发文档中有提供，但是不得不吐槽的就是它的开发文档写的实在太乱了让人有种无从下手的感觉，下面简单记录一下使用过程。
 导入SDK推荐使用CocoaPods导入：
 
-在P
+在Podfile中添加：
+
+1pod 'RongCloudIMKit'
+
+然后执行命令：
+
+1pod install
+获取TokenToken 也叫用户令牌，是 SDK 端用来连接融云服务器的凭证，每个用户连接服务器都需要一个 Token。每次初始化连接服务器时，都需要向服务器提交 Token。获取Token需要注册一个融云的账号，然后新建一个应用，之后在API调试中填写userid（用户唯一标示符）、name（用户昵称）、portraitUri（头像url）就可以获得一个测试用的Token。
+初始
             ...
           </span>
           <div class="post-more-link text-center">
@@ -800,7 +827,12 @@ UIDynamicBehavior，动力行为，为动力项提供不同的物
 AVPlayer 
 MPMoviePlayerController 能实现音乐流播（但是此方法苹果在iOS9中已经不推荐使用了）
 Audioqueue，Audiostream （太复杂）
-第三方库
+第三方库AudioStreamer（只能播放在线音频）
+
+所以用AVPlayer来实现在线音频播放是最好的选择；一下就是利用AVPlayer实现音乐流播并实现后台锁屏播放和设置自动连播的大概步骤：
+项目源代码：Swift 2.0 版豆瓣电台
+初始化先声明AVplayer和AVPlayerItem的实例：12var musicPlayer:AVPlayer!var playerItem:AVPlayerItem?
+然后在需要的播放音频的地方给它赋值：12345678910self.musicPlayer 
             ...
           </span>
           <div class="post-more-link text-center">
@@ -881,7 +913,7 @@ Audioqueue，Audiostream （太复杂）
             Reachability 是一个检测网络状态的框架。开发Web等网络应用程序的时候，需要确认网络环境，连接情况等信息。如果没有处理这些信息的话，是不会通过Apple的审查的。
 使用方法：将Reachability.h 和 Reachability.m 拷贝到你的工程中。
 然后：
-1234567891
+12345678910111213141516171819202122232425262728293031323334353637var reach:Reachability?func checkNetStatus()&#123;       self.reach = Reachability.reachabilityForInternetConnection()       // Tell the reachability that we DON'T want to be reachable on 3G/EDGE
             ...
           </span>
           <div class="post-more-link text-center">
@@ -963,7 +995,10 @@ Audioqueue，Audiostream （太复杂）
 
 Asynchronous image downloader with cache support with an UIImageView category.就是一个异步加载图片并且支持缓存的UIImage分类；
 
-使用方法：1imageVie
+使用方法：1imageView.sd_setImageWithURL(NSURL(string: ""), placeholderImage: UIImage(named: "placeholder"))
+清除缓存：
+12SDImageCache.sharedImageCache().cleanDisk()SDImageCache.sharedImageCache().clearMemory()
+这个框架使用简单，然而而其中复杂的实现细节全部隐藏在这行代码之后；这边有一篇它的源代码分析：http://draveness.m
             ...
           </span>
           <div class="post-more-link text-center">

@@ -206,7 +206,16 @@
         
           <span itemprop="articleBody">
             
-            POP是Facebook公司的一个开源项目，它是一个完全不同于Core Animation的动画引擎；它在基本的静态动画的基础上增加的弹簧动画与衰减动画 使之能创造出更真实更具物理性的交互动画 POP的API可以快速的与现有的ObjC代码集成并可以作用于任意对象的任意属性，POP是个相当成熟且久经考
+            POP是Facebook公司的一个开源项目，它是一个完全不同于Core Animation的动画引擎；它在基本的静态动画的基础上增加的弹簧动画与衰减动画 使之能创造出更真实更具物理性的交互动画 POP的API可以快速的与现有的ObjC代码集成并可以作用于任意对象的任意属性，POP是个相当成熟且久经考验的框架，Facebook出品的令人惊叹的Paper应用中的所有动画和效果即出自POP。
+使用方式：POP默认支持三种动画 但同时也支持自定义动画
+
+POPBasicAnimation
+POPSpringAnimation
+POPDecayAnimation
+POPCustomAnimation //自定义动画
+
+这里我们只讨论前三种，因为自定义动画还没用过；
+代码示例：BasicAnimation1234567let rotation = POPBasicAnimation(propertyN
             ...
           </span>
           <div class="post-more-link text-center">
@@ -288,7 +297,7 @@
 使用方法
 画折线图
 
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455func  setLineChart()&#123;          /// 定义一个lineChart    	var lineChart = PNLineChart(frame: CGRectMake(0, self.view.frame.height/4, self.view.frame.width, self.view.frame.height/2))	//不要使用下面的方法，Width 不好计算，只设置数据的话宽度会自动设定	//lineChart.setXLabe
             ...
           </span>
           <div class="post-more-link text-center">
@@ -369,7 +378,10 @@
             SwiftJSON是用Swift写的一个快速处理JSON数据的第三方库。
 使用方法：1234let json = JSON(data: dataFromNetworking)if let userName = json["name"].string&#123;  //就这么简单取到了。&#125;
 
-            ...
+中文说明
+
+
+            
           </span>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/09/20/iOS-常用第三方库4-SwiftyJSON/#more" rel="contents">
@@ -452,7 +464,11 @@ ProgressHUD
 SwiftNotice
 MBProgressHUD
 
-ProgressHUD用法简单，一行代码搞定：1234567#import "ProgressHUD.h"ProgressHUD.show("正在刷
+ProgressHUD用法简单，一行代码搞定：1234567#import "ProgressHUD.h"ProgressHUD.show("正在刷新！")ProgressHUD.showError("错误")ProgressHUD.showSuccess("刷新成功！")ProgressHUD.dismiss()
+但是可自定义的属性不多；
+SwiftNotice用法同样简单，还支持顶部通知：
+12345noticeTop("") //顶部通知notice("", type: NoticeType, autoClear: true)noticeOnlyText("")successNotice("")errorNotice("")
+MBPr
             ...
           </span>
           <div class="post-more-link text-center">
@@ -547,7 +563,7 @@ ProgressHUD用法简单，一行代码搞定：1234567#import "ProgressHUD.h"Pro
             
             MJRefresh是用法最简单的下拉刷新框架：一行代码搞定 
 支持 UIScrollView、UITableView、UICollectionView、UIWebView 的刷新
-基础用法1234567891011121314151617//设置下拉刷新var MJHeader = MJRefres
+基础用法1234567891011121314151617//设置下拉刷新var MJHeader = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refresh")self.myTabView.header = MJHeader        //设置上拉加载var MJFooter = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: "load")self.myTabView.footer = MJFooterfunc load()&#1
             ...
           </span>
           <div class="post-more-link text-center">
@@ -626,7 +642,9 @@ ProgressHUD用法简单，一行代码搞定：1234567#import "ProgressHUD.h"Pro
           <span itemprop="articleBody">
             
             Alamofire 是Swift版的 AFNetworking，是非常方便实用的第三方网络操作框架；
-使用方法：1234Alamofire.request(method: Method, URLString: URLStringConvertible, parameters: [String : A
+使用方法：1234Alamofire.request(method: Method, URLString: URLStringConvertible, parameters: [String : AnyObject]?, encoding: ParameterEncoding, headers: [String : String]?).response (options: NSJSONReadingOptions, completionHandler: &#123; (NSURLRequest, NSHTTPURLResponse?, NSData?, NSError?) -&gt; Void in    //操作数据&#125;)
+但是上面方法中有些参数可以省略，基本用法如下：
+123A
             ...
           </span>
           <div class="post-more-link text-center">
@@ -706,8 +724,9 @@ ProgressHUD用法简单，一行代码搞定：1234567#import "ProgressHUD.h"Pro
             
             在iOS9 中，苹果将原http协议改成了https协议，使用 TLS1.2 SSL加密请求数据。
 解决办法：
-在info.plist中添加123&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;&lt;dict&gt;    &lt;key&gt;NSAll
-            ...
+在info.plist中添加123&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;&lt;dict&gt;    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;    &lt;true/&gt;&lt;/dict&gt;
+
+            
           </span>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/09/20/iOS9-网络https-错误/#more" rel="contents">
@@ -787,7 +806,17 @@ ProgressHUD用法简单，一行代码搞定：1234567#import "ProgressHUD.h"Pro
             安装首先安装好Ruby环境，在终端中输入以下命令：
 1sudo gem install cocoapods
 可是在天朝，在终端中敲入这个命令之后，会发现半天没有任何反应。原因无他，因为那堵墙阻挡了cocoapods.org。
-我们可以用淘宝的Ruby镜像来访问cocoapods。按照下面的顺序在终端
+我们可以用淘宝的Ruby镜像来访问cocoapods。按照下面的顺序在终端中敲入依次敲入命令：
+1$ gem sources --remove https://rubygems.org/
+等有反应之后再敲入以下命令:
+1$ gem sources -a http://ruby.taobao.org/
+为了验证你的Ruby镜像是并且仅是taobao，可以用以下命令查看：
+1$ gem sources -l
+只有在终端中出现下面文字才表明你上面的命令是成功的：
+
+CURRENT SOURCES ***http://ruby.taobao.org/
+
+这时候，再次在终端中运
             ...
           </span>
           <div class="post-more-link text-center">
@@ -874,7 +903,16 @@ segue传值
 ShareApplication
 NSUserdefault
 
-如果是A页面传值到B页面，之间有segue连接的话，用属性传值就可以搞定，如果从B页面传值到A页面或者之间没有直接的segue的话，就可以使用代理传值或
+如果是A页面传值到B页面，之间有segue连接的话，用属性传值就可以搞定，如果从B页面传值到A页面或者之间没有直接的segue的话，就可以使用代理传值或者单例传值了。
+
+segue传值
+
+segue传值就是利用segue跳转时利用属性进行传值，这边就不做记录了。
+
+通知传值
+
+通知是一个单例类，只存在一个通知实例，一个通知会有一个对应的名字，而这个名字就是对应的观察者的接受通知的索引，每个对象都可以接收到这个广播，但是只有这个通知的名字和观察者的名字相同时，对应的观察者才可以接收到这个广播并处理对应逻辑。
+12345678910111213//seletor: 接收到通知后应该做的操作；name：该通知对应的名字//A发送通知NSNotific
             ...
           </span>
           <div class="post-more-link text-center">
@@ -955,8 +993,17 @@ NSUserdefault
             
 定义一个 NSTimer
 
-12var timer1:NSTimer! = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "addOneMin:", userInfo: nil, repeats: true)//
-            ...
+12var timer1:NSTimer! = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "addOneMin:", userInfo: nil, repeats: true)//selector 是一个选择器,需要定义一个函数,当函数需要传参时,函数名后应该加冒号
+
+启动 NSTimer
+
+12.fire()`
+
+暂停
+
+1.invalidate()
+
+            
           </span>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/09/20/NSTimer-相关/#more" rel="contents">

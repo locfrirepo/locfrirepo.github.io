@@ -206,7 +206,14 @@
         
           <span itemprop="articleBody">
             
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new postbash$ hexo new “My New Post”``
+More info: Writing
+Run server``` bash$ hexo server```
+More info: Server
+Generate static files``` bash$ hexo generate```
+More info: Generating
+Depl
             ...
           </span>
           <div class="post-more-link text-center">
@@ -286,7 +293,10 @@
             
             1. 创建或初始化可用以下方法用于创建NSDate实例的类方法有:1var date = NSDate()
 返回当前时间1var date = NSDate(timeIntervalSinceNow: 1000)
-返回以当前时间为基准，然后过了1000秒的时间1var date = NSDate(t
+返回以当前时间为基准，然后过了1000秒的时间1var date = NSDate(timeIntervalSinceReferenceDate: 1000)
+返回以2001/01/01 GMT为基准，然后过了1000秒的时间1var date = NSDate(timeIntervalSince1970: 1000)
+返回以1970/01/01 GMT为基准，然后过了1000秒的时间1var date:NSDate = NSDate.distantFuture() as! NSDate
+返回很多年以后的未来的某一天。（比如你需要一个比现在(Now)晚(大)很长时间的时间值，则可
             ...
           </span>
           <div class="post-more-link text-center">
@@ -379,7 +389,12 @@
         
           <span itemprop="articleBody">
             
-            模型-视图-控制器这个模式其实应该叫做MCV，用控制器把model与view隔开才对，也就是model与view互相不知道对方的存在，没有任何瓜葛，他们就像一个团队里吵了架的同事，如果有项目需要他俩来参与，那么最好有第三者来管理他俩之间的沟通与协调。这个第三者就是控制器。既然管理，那么姑且就把这个控
+            模型-视图-控制器这个模式其实应该叫做MCV，用控制器把model与view隔开才对，也就是model与view互相不知道对方的存在，没有任何瓜葛，他们就像一个团队里吵了架的同事，如果有项目需要他俩来参与，那么最好有第三者来管理他俩之间的沟通与协调。这个第三者就是控制器。既然管理，那么姑且就把这个控制器提做项目经理吧，这样的话让他俩干啥就得干啥。就像斯坦福老头说的视图就是控制器的狗腿子。
+
+让我们来欣赏一下这张图（摘自斯坦福公开课的课件）： 
+
+先撇开那些乱七八糟的箭头单看他们之间的分界线，view与controller、model与controller之间的线是虚的，而model与view之间的是双黄线，考过驾照的知道越过这个线意味着什么吧。
+控制器与视图之间的大部分连线都可以在Xcode中通过按住ctrl来连接。例如outlet，例如delegate。有了这些连线，他们之间的沟通算是畅
             ...
           </span>
           <div class="post-more-link text-center">
