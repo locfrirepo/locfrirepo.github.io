@@ -175,7 +175,7 @@
     <link href="http://xinnyu.com/2015/09/26/Dynamics%E5%8A%A8%E7%94%BB/"/>
     <id>http://xinnyu.com/2015/09/26/Dynamics动画/</id>
     <published>2015-09-25T17:29:21.000Z</published>
-    <updated>2015-09-26T17:34:58.000Z</updated>
+    <updated>2015-10-15T21:33:56.000Z</updated>
     <content type="html"><![CDATA[<p>UIKit Dynamics是iOS7中新推出的，可以模拟现实的二维动画效果，开发出逼真的物理动画。</p>
 <h3 id="关键类">关键类</h3><ul>
 <li>UIDynamicAnimator：封装了底层的物理引擎，为动力项（UIDynamicItem）提供物理相关的功能和动画；</li>
@@ -196,6 +196,10 @@
 <h3 id="关键类">关键类</h3><ul>
 <li>UIDynamicAnimator：封装了底层的物理引擎，为动力项（UIDynamicItem）提供物理]]>
     </summary>
+    
+      <category term="iOS" scheme="http://xinnyu.com/tags/iOS/"/>
+    
+      <category term="动画" scheme="http://xinnyu.com/tags/%E5%8A%A8%E7%94%BB/"/>
     
   </entry>
   
@@ -256,7 +260,7 @@
     <link href="http://xinnyu.com/2015/09/21/%E4%BD%BF%E7%94%A8AVPlayer-%E6%92%AD%E6%94%BE%E5%9C%A8%E7%BA%BF%E9%9F%B3%E9%A2%91/"/>
     <id>http://xinnyu.com/2015/09/21/使用AVPlayer-播放在线音频/</id>
     <published>2015-09-20T16:17:37.000Z</published>
-    <updated>2015-09-20T17:50:11.000Z</updated>
+    <updated>2015-10-15T21:34:02.000Z</updated>
     <content type="html"><![CDATA[<p>在iOS开发中，AVAudioPlayer不是不能播放在线音频的，要播放在线音频只能用以下几个方法：</p>
 <ul>
 <li>AVPlayer </li>
@@ -527,7 +531,7 @@
     <link href="http://xinnyu.com/2015/09/20/iOS-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%931(Alamofire)/"/>
     <id>http://xinnyu.com/2015/09/20/iOS-常用第三方库1(Alamofire)/</id>
     <published>2015-09-20T11:18:20.000Z</published>
-    <updated>2015-09-26T09:36:02.000Z</updated>
+    <updated>2015-10-17T08:39:13.000Z</updated>
     <content type="html"><![CDATA[<p><a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="external">Alamofire</a> 是Swift版的 AFNetworking，是非常方便实用的第三方网络操作框架；</p>
 <h3 id="使用方法：">使用方法：</h3><figure class="highlight oxygene"><table><tr><td class="code"><pre><span class="line">Alamofire.request(<span class="function"><span class="keyword">method</span>:</span> <span class="function"><span class="keyword">Method</span>, <span class="title">URLString</span>:</span> URLStringConvertible, parameters: [String : AnyObject]?, encoding: ParameterEncoding, headers: [String : String]?).response (options: NSJSONReadingOptions, completionHandler: <span class="comment">&#123; (NSURLRequest, NSHTTPURLResponse?, NSData?, NSError?) -&gt; Void in</span><br><span class="line">    //操作数据</span><br><span class="line"></span><br><span class="line">&#125;</span>)</span><br></pre></td></tr></table></figure>
 <p>但是上面方法中有些参数可以省略，基本用法如下：</p>
@@ -540,7 +544,8 @@
 </ul>
 <h4 id="HTTP_Methods">HTTP Methods</h4><figure class="highlight accesslog"><table><tr><td class="code"><pre><span class="line">public enum Method: String &#123;</span><br><span class="line">    case OPTIONS = <span class="string">"<span class="keyword">OPTIONS</span>"</span></span><br><span class="line">    case GET = <span class="string">"<span class="keyword">GET</span>"</span></span><br><span class="line">    case HEAD = <span class="string">"<span class="keyword">HEAD</span>"</span></span><br><span class="line">    case POST = <span class="string">"<span class="keyword">POST</span>"</span></span><br><span class="line">    case PUT = <span class="string">"<span class="keyword">PUT</span>"</span></span><br><span class="line">    case PATCH = <span class="string">"<span class="keyword">PATCH</span>"</span></span><br><span class="line">    case DELETE = <span class="string">"<span class="keyword">DELETE</span>"</span></span><br><span class="line">    case TRACE = <span class="string">"<span class="keyword">TRACE</span>"</span></span><br><span class="line">    case CONNECT = <span class="string">"<span class="keyword">CONNECT</span>"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="请求需要的参数parameters">请求需要的参数parameters</h4><p>类型是一个字典 [String : AnyObject]<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">let parameters = [</span><br><span class="line">    <span class="string">"foo"</span>: <span class="string">"bar"</span>,</span><br><span class="line">    <span class="string">"baz"</span>: [<span class="string">"a"</span>, <span class="number">1</span>],</span><br><span class="line">    <span class="string">"qux"</span>: [<span class="string">"x"</span>: <span class="number">1</span> , <span class="string">"y"</span>: <span class="number">2</span> , <span class="string">"z"</span>: <span class="number">3</span>]</span><br><span class="line">]</span><br><span class="line">Alamofire.request(.POST, <span class="string">"http://httpbin.org/post"</span>, parameters: parameters)</span><br></pre></td></tr></table></figure></p>
-<h4 id="下载文件">下载文件</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Alamofire.download(.GET, <span class="string">"http://httpbin.org/stream/100"</span>) &#123; temporaryURL, response <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">let</span> fileManager = NSFileManager.defaultManager()</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">let</span> directoryURL = fileManager.URLsForDirectory(.DocumentDirectory, <span class="keyword">in</span>Domains: .UserDomainMask)[<span class="number">0</span>] as? NSURL &#123;</span><br><span class="line">        <span class="built_in">let</span> pathComponent = response.suggestedFilename</span><br><span class="line">        <span class="built_in">return</span> directoryURL.URLByAppendingPathComponent(pathComponent!)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> temporaryURL</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">这些都只是Alamofire的常规使用，更加详细的使用方法其官方网站上有详细描述。</span><br></pre></td></tr></table></figure>
+<h4 id="下载文件">下载文件</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Alamofire.download(.GET, <span class="string">"http://httpbin.org/stream/100"</span>) &#123; temporaryURL, response <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">let</span> fileManager = NSFileManager.defaultManager()</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">let</span> directoryURL = fileManager.URLsForDirectory(.DocumentDirectory, <span class="keyword">in</span>Domains: .UserDomainMask)[<span class="number">0</span>] as? NSURL &#123;</span><br><span class="line">        <span class="built_in">let</span> pathComponent = response.suggestedFilename</span><br><span class="line">        <span class="built_in">return</span> directoryURL.URLByAppendingPathComponent(pathComponent!)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> temporaryURL</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这些都只是Alamofire的常规使用，更加详细的使用方法其官方网站上有详细描述。</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p><a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="external">Alamofire</a> 是Swift版的 AFNetworking，是非常方便实用的第三方网络操作框架；</p]]>
@@ -571,7 +576,7 @@
     <link href="http://xinnyu.com/2015/09/20/CocoaPods%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
     <id>http://xinnyu.com/2015/09/20/CocoaPods安装使用方法/</id>
     <published>2015-09-20T10:06:32.000Z</published>
-    <updated>2015-09-20T11:04:18.000Z</updated>
+    <updated>2015-10-15T21:33:59.000Z</updated>
     <content type="html"><![CDATA[<h3 id="安装">安装</h3><p>首先安装好Ruby环境，在终端中输入以下命令：</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo gem <span class="keyword">install</span> cocoapods</span><br></pre></td></tr></table></figure>
 <p>可是在天朝，在终端中敲入这个命令之后，会发现半天没有任何反应。原因无他，因为那堵墙阻挡了cocoapods.org。</p>
@@ -609,6 +614,10 @@
 <figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo g]]>
     </summary>
     
+      <category term="Swift" scheme="http://xinnyu.com/tags/Swift/"/>
+    
+      <category term="iOS" scheme="http://xinnyu.com/tags/iOS/"/>
+    
   </entry>
   
   <entry>
@@ -616,7 +625,7 @@
     <link href="http://xinnyu.com/2015/09/20/iOS-%E4%BC%A0%E5%80%BC%E6%80%BB%E7%BB%93/"/>
     <id>http://xinnyu.com/2015/09/20/iOS-传值总结/</id>
     <published>2015-09-20T08:12:12.000Z</published>
-    <updated>2015-09-20T09:56:36.000Z</updated>
+    <updated>2015-10-15T21:33:54.000Z</updated>
     <content type="html"><![CDATA[<p>iOS中传值的方式主要有以下几种：</p>
 <ul>
 <li>segue传值</li>
@@ -666,6 +675,8 @@
 <li>NSUserdefault</li>
 </]]>
     </summary>
+    
+      <category term="iOS" scheme="http://xinnyu.com/tags/iOS/"/>
     
   </entry>
   
