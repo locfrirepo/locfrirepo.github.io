@@ -188,6 +188,91 @@
           
           
             
+              <a class="post-title-link" href="/2015/09/20/iOS-常用第三方库7-SDWebImage/" itemprop="url">
+                iOS 常用第三方库7(SDWebImage)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於
+          <time itemprop="dateCreated" datetime="2015-09-20T23:45:43+08:00" content="2015-09-20">
+            2015-09-20
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/09/20/iOS-常用第三方库7-SDWebImage/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/20/iOS-常用第三方库7-SDWebImage/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            SDWebImage是一个著名的第三方库，它的作用是：
+
+Asynchronous image downloader with cache support with an UIImageView category.就是一个异步加载图片并且支持缓存的UIImage分类；
+
+使用方法：imageView.sd_setImageWithURL(NSURL(string: ""), placeholderImage: UIImage(named: "placeholder"))
+清除缓存：
+SDImageCache.sharedImageCache().cleanDisk()SDImageCache.sharedImageCache().clearMemory()
+这个框架使用简单，然而而其中复杂的实现细节全部隐藏在这行代码之后；这边有一篇它的源代码分析：http://draveness.me/i
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/09/20/iOS-常用第三方库7-SDWebImage/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/09/20/iOS-常用第三方库6-POP动画/" itemprop="url">
                 iOS 常用第三方库6(POP动画)
               </a>
@@ -962,96 +1047,6 @@ segue传值就是利用segue跳转时利用属性进行传值，这边就不做�
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/09/20/NSTimer-相关/" itemprop="url">
-                NSTimer 相关
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          發表於
-          <time itemprop="dateCreated" datetime="2015-09-20T16:06:49+08:00" content="2015-09-20">
-            2015-09-20
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/09/20/NSTimer-相关/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/20/NSTimer-相关/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            
-定义一个 NSTimer
-
-var timer1:NSTimer! = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "addOneMin:", userInfo: nil, repeats: true)//selector 是一个选择器,需要定义一个函数,当函数需要传参时,函数名后应该加冒号
-
-启动 NSTimer
-
-.fire()`
-
-暂停
-
-.invalidate()
-
-            
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/20/NSTimer-相关/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1090,7 +1085,7 @@ var timer1:NSTimer! = NSTimer.scheduledTimerWithTimeInterval(1, target: self, se
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>

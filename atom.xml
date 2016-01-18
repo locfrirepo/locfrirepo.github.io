@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Walk steps step by step]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xinnyu.com/"/>
-  <updated>2015-10-15T08:19:34.000Z</updated>
+  <updated>2016-01-18T09:10:47.000Z</updated>
   <id>http://xinnyu.com/</id>
   
   <author>
@@ -13,6 +13,21 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[haha]]></title>
+    <link href="http://xinnyu.com/2016/01/18/haha/"/>
+    <id>http://xinnyu.com/2016/01/18/haha/</id>
+    <published>2016-01-18T09:10:28.000Z</published>
+    <updated>2016-01-18T09:10:47.000Z</updated>
+    <content type="html"><![CDATA[<p>#fdsafdsafdsaf</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>#fdsafdsafdsaf</p>
+]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Swift 中泛型的使用]]></title>
@@ -677,34 +692,6 @@
     </summary>
     
       <category term="iOS" scheme="http://xinnyu.com/tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[NSTimer 相关]]></title>
-    <link href="http://xinnyu.com/2015/09/20/NSTimer-%E7%9B%B8%E5%85%B3/"/>
-    <id>http://xinnyu.com/2015/09/20/NSTimer-相关/</id>
-    <published>2015-09-20T08:06:49.000Z</published>
-    <updated>2015-09-20T08:08:21.000Z</updated>
-    <content type="html"><![CDATA[<ol>
-<li>定义一个 NSTimer</li>
-</ol>
-<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">var <span class="string">timer1:</span>NSTimer! = NSTimer.scheduledTimerWithTimeInterval(<span class="number">1</span>, <span class="string">target:</span> self, <span class="string">selector:</span> <span class="string">"addOneMin:"</span>, <span class="string">userInfo:</span> nil, <span class="string">repeats:</span> <span class="literal">true</span>)</span><br><span class="line"><span class="comment">//selector 是一个选择器,需要定义一个函数,当函数需要传参时,函数名后应该加冒号</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>启动 NSTimer</li>
-</ol>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">.<span class="function"><span class="title">fire</span><span class="params">()</span></span></span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-<ol>
-<li>暂停</li>
-</ol>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">.<span class="function"><span class="title">invalidate</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-]]></content>
-    <summary type="html">
-    <![CDATA[<ol>
-<li>定义一个 NSTimer</li>
-</ol>
-<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">var <span class="strin]]>
-    </summary>
     
   </entry>
   
